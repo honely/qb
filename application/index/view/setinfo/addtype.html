@@ -1,0 +1,133 @@
+{include file="indexs/header" /}
+<div class="layui-body">
+    <!-- 内容主体区域 -->
+    <blockquote class="layui-elem-quote">
+        {if condition="$type eq 1"}
+            添加类型
+        {elseif condition="$type eq 2"}
+            添加装修风格
+        {elseif condition="$type eq 3"}
+            添加装修品质
+        {elseif condition="$type eq 4"}
+            添加房屋类型
+        {elseif condition="$type eq 5"}
+            添加房屋面积
+        {/if}
+    </blockquote>
+    <div style="padding: 15px;">
+        <form class="layui-form layui-form-pane1" action="<?=url('setinfo/addtype')?>?type={$type}" method="post">
+            <input type="hidden" value="{$type}"/>
+            <div class="layui-form-item">
+                <label class="layui-form-label">
+                    {if condition="$type eq 1"}
+                        类型名称
+                    {elseif condition="$type eq 2"}
+                        风格名称
+                    {elseif condition="$type eq 3"}
+                        品质名称
+                    {elseif condition="$type eq 4"}
+                        房屋类型
+                    {elseif condition="$type eq 5"}
+                        房屋面积
+                    {/if}
+                </label>
+                <div class="layui-input-block">
+                    <input type="text" name="type_name" lay-verify="required|type_name" required placeholder=
+                        {if condition="$type eq 1"}
+                            '请输入类型名称'
+                        {elseif condition="$type eq 2"}
+                            '请输入风格名称'
+                        {elseif condition="$type eq 3"}
+                            '请输入品质名称'
+                        {elseif condition="$type eq 4"}
+                            '请输入房屋类型'
+                        {elseif condition="$type eq 5"}
+                            '请输入房屋面积'
+                        {/if}
+                    autocomplete="off" class="layui-input">
+                </div>
+            </div>
+            <div class="layui-form-item layui-form-text">
+                <label class="layui-form-label">
+                    {if condition="$type eq 1"}
+                        类型简介
+                    {elseif condition="$type eq 2"}
+                        风格简介
+                    {elseif condition="$type eq 3"}
+                        品质简介
+                    {elseif condition="$type eq 4"}
+                        房屋类型
+                    {elseif condition="$type eq 5"}
+                        房屋面积
+                    {/if}
+                </label>
+                <div class="layui-input-block">
+                    <textarea placeholder=
+                          {if condition="$type eq 1"}
+                              "请输入类型简介"
+                          {elseif condition="$type eq 2"}
+                              "请输入风格简介"
+                          {elseif condition="$type eq 3"}
+                              "请输入品质简介"
+                          {elseif condition="$type eq 4"}
+                              "请输入房屋类型"
+                          {elseif condition="$type eq 5"}
+                              "请输入房屋面积"
+                              {/if}
+                     name="type_remarks" class="layui-textarea"></textarea>
+                </div>
+            </div>
+            <div class="layui-form-item" pane>
+                <label class="layui-form-label">是否可用</label>
+                <div class="layui-input-block">
+                    <input type="radio" name="type_isable" value="1" title="是" checked>
+                    <input type="radio" name="type_isable" value="2" title="否">
+                </div>
+            </div>
+            <div class="layui-form-item">
+                <div class="layui-input-block">
+                    <button class="layui-btn" type="submit">保存</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+<script>
+    layui.use('form', function(){
+        var form = layui.form;
+        form.on('radio', function(data){
+            console.log(data);
+        });
+        //监听提交
+        form.on('submit(*)', function(data){
+            console.log(data)
+            return false;
+        });
+    });
+</script>
+<script>
+    layui.use('upload',function(){
+        var upload = layui.upload,
+            jq = layui.jquery;
+        var img='';
+        upload.render({
+            url: '{:url("setinfo/upload")}'
+            ,elem:'#image'
+            ,ext: 'jpg|png|gif'
+            ,area: ['500', '500px']
+            ,before: function(input){
+                loading = layer.load(2, {
+                    shade: [0.2,'#000']
+                });
+            }
+            ,done: function(res){
+                console.log(res);
+                layer.close(loading);
+                jq('input[name=img]').val(res.path);
+                img.src = res.path;
+                layer.msg(res.msg, {icon: 1, time: 1000});
+            }
+        });
+    })
+</script>
+{include file="indexs/footer" /}

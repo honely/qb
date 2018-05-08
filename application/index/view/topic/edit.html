@@ -1,0 +1,139 @@
+{include file="indexs/header" /}
+<!-- 配置文件 -->
+<script type="text/javascript" src="__PUBLIC__/ueditor/ueditor.config.js"></script>
+<!-- 编辑器源码文件 -->
+<script type="text/javascript" src="__PUBLIC__/ueditor/ueditor.all.js"></script>
+<!-- 实例化编辑器 -->
+<script type="text/javascript">
+    var ue = UE.getEditor('container');
+</script>
+<script></script>
+<div class="layui-body">
+    <blockquote class="layui-elem-quote">发布专题</blockquote>
+    <div class="layui-tab">
+        <div class="layui-tab-content">
+            <div class="layui-tab-item layui-show">
+                <div style="margin: 10px">
+                    <div style="padding: 15px;">
+                        <form class="layui-form" action="<?=url('topic/edit')?>?tp_id={$topic.tp_id}" method="post">
+                            <div class="layui-form-item">
+                                <label class="layui-form-label">专题名称</label>
+                                <div class="layui-input-block">
+                                    <input type="text" name="tp_title" value="{$topic.tp_title}" lay-verify="required|title" placeholder="请输入文章标题" autocomplete="off" class="layui-input">
+                                </div>
+                            </div>
+                            <div class="layui-form-item">
+                                <label class="layui-form-label">文章内容</label>
+                                <div class="layui-input-block">
+                                    <script id="container" name="tp_content"  style="width:1024px;height:500px;" type="text/plain">{$topic.tp_content}</script>
+                                    </div>
+                                    </div>
+                                    <div class="layui-form-item">
+                                        <label class="layui-form-label">省份</label>
+                                        <div class="layui-input-inline">
+                                        <select name="tp_p_id" lay-verify="required" lay-filter="bu_p_id">
+                                        <option value="">请选择省份</option>
+                                    {volist name='prov' id='vo'}
+                                    <option value="{$vo.p_id}" {if condition="$vo.p_id eq $topic.tp_p_id"}selected{/if}  >{$vo.p_name}</option>
+                                    {/volist}
+                                    </select>
+                                    </div>
+                                    <div class="layui-input-inline">
+                                        <select name="tp_c_id" lay-verify="required" id="bu_c_id" lay-filter="bu_c_id">
+                                        {volist name="city" id="vo"}
+                                        <option value="{$vo.c_id}" {if condition="$topic.tp_c_id eq $vo.c_id"}selected{/if} >{$vo.c_name}</option>
+                                    {/volist}
+                                        </select>
+                                        </div>
+                                        </div>
+                                        <div class="layui-form-item" pane>
+                                    <label class="layui-form-label">是否显示</label>
+                                        <div class="layui-input-block">
+                                        <input type="radio" name="tp_isable" value="1" title="是" {if condition="$topic.tp_isable eq '1'"}checked{/if} >
+                                    <input type="radio" name="tp_isable" value="2" title="否" {if condition="$topic.tp_isable eq '2'"}checked{/if} >
+                                        </div>
+                                        </div>
+                                        <div class="layui-form-item">
+                                        <label class="layui-form-label">SEO标题</label>
+                                        <div class="layui-input-block">
+                                        <input type="text" name="tp_seo_title" value="{$topic.tp_seo_title}"  lay-verify="required|title" placeholder="请输入SEO标题" autocomplete="off" class="layui-input">
+                                        </div>
+                                        </div>
+                                        <div class="layui-form-item">
+                                        <label class="layui-form-label">SEO关键词</label>
+                                        <div class="layui-input-block">
+                                        <input type="text" name="tp_seo_keywords" lay-verify="required|title" placeholder="请输入SEO关键词,多个关键词之间用英文逗号隔开。" value="{$topic.tp_seo_keywords}"  autocomplete="off" class="layui-input">
+                                        </div>
+                                        </div>
+                                        <div class="layui-form-item layui-form-text">
+                                        <label class="layui-form-label">SEO描述</label>
+                                        <div class="layui-input-block">
+                                        <textarea placeholder="请输入SEO描述" name="tp_seo_desc" class="layui-textarea">{$topic.tp_seo_desc}</textarea>
+                                        </div>
+                                        </div>
+                                        <div class="layui-form-item">
+                                        <div class="layui-input-block">
+                                        <button class="layui-btn" lay-submit lay-filter="saveInfo">保存</button>
+                                        <a class="layui-btn layui-btn-primary" href="<?=url('topic/topic')?>">返回</a>
+                                        </div>
+                                        </div>
+                                        </form>
+                                        </div>
+                                        </div>
+                                        </div>
+                                        </div>
+                                        </div>
+                                        </div>
+                                        <script>
+                                        layui.use(['form', 'jquery','layedit'], function(){
+                                            var form = layui.form
+                                                ,layedit = layui.layedit
+                                                ,$ = layui.jquery;
+                                            //编辑器图片上传接口
+                                            layedit.set({
+                                                uploadImage: {
+                                                    url: '/index/article/editUpload' //接口url
+                                                    ,type: 'post', //默认post
+                                                    success:function(res){
+                                                        console.log(res);
+                                                    },
+                                                    error:function (res) {
+                                                        console.log(res);
+                                                    }
+                                                }
+                                            });
+                                            form.on('select(bu_p_id)', function(data){
+                                                var p_id=data.value;
+                                                $.ajax({
+                                                    type: 'POST',
+                                                    url: "<?=url('user/getCityName')?>?p_id="+p_id,
+                                                    data: {p_id:p_id},
+                                                    dataType:  'json',
+                                                    success: function(data){
+                                                        var code=data.data;
+                                                        $("#bu_c_id").html("<option value=''>请选择城市</option>");
+                                                        $.each(code, function(i, val) {
+                                                            var option1 = $("<option>").val(val.c_id).text(val.c_name);
+                                                            $("#bu_c_id").append(option1);
+                                                            form.render('select');
+                                                        });
+                                                        $("#bu_c_id").get(0).selectedIndex=0;
+                                                    }
+                                                });
+                                            });
+                                            layedit.build('demo'); //建立编辑器
+                                            //自定义验证规则
+                                            form.verify({
+                                                title: function(value){
+                                                    if(value.length < 2){
+                                                        return '至少得2个字符啊';
+                                                    }
+                                                }
+                                                ,pass: [/(.+){6,12}$/, '密码必须6到12位']
+                                                ,content: function(value){
+                                                    layedit.sync(editIndex);
+                                                }
+                                            });
+                                        });
+                                    </script>
+                                    {include file="indexs/footer" /}

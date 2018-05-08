@@ -1,0 +1,75 @@
+{include file="indexs/header" /}
+<div class="layui-body">
+    <!-- 内容主体区域 -->
+    <blockquote class="layui-elem-quote">修改类型</blockquote>
+    <div style="padding: 15px;">
+        <form class="layui-form layui-form-pane1" action="<?=url('setinfo/edittype')?>?type_id={$typeInfo.type_id}" method="post">
+            <div class="layui-form-item">
+                <label class="layui-form-label">类型名称</label>
+                <div class="layui-input-block">
+                    <input type="text" name="type_name" lay-verify="required|type_name" required placeholder="请输入类型名称" autocomplete="off" value="{$typeInfo.type_name}" class="layui-input">
+                </div>
+            </div>
+            <div class="layui-form-item layui-form-text">
+                <label class="layui-form-label">类型简介</label>
+                <div class="layui-input-block">
+                    <textarea placeholder="请输入类型简介" name="type_remarks" class="layui-textarea">{$typeInfo.type_remarks}</textarea>
+                </div>
+            </div>
+            <div class="layui-form-item" pane>
+                <label class="layui-form-label">是否可用</label>
+                <div class="layui-input-block">
+                    <input type="radio" name="type_isable" value="1" title="是" {if condition="$typeInfo.type_isable eq '1'"}checked{/if}>
+                    <input type="radio" name="type_isable" value="2" title="否" {if condition="$typeInfo.type_isable eq '2'"}checked{/if}>
+                </div>
+            </div>
+            <div class="layui-form-item">
+                <div class="layui-input-block">
+                    <button class="layui-btn" type="submit">立即提交</button>
+                    <button type="reset" class="layui-btn layui-btn-primary">重置</button>
+                </div>
+            </div>
+        </form>
+
+    </div>
+</div>
+<script>
+    layui.use('form', function(){
+        var form = layui.form;
+        form.on('radio', function(data){
+            console.log(data);
+        });
+        //监听提交
+        form.on('submit(*)', function(data){
+            console.log(data)
+            return false;
+        });
+    });
+</script>
+<script>
+    layui.use('upload',function(){
+        var upload = layui.upload,
+            jq = layui.jquery;
+        var img='';
+        upload.render({
+            url: '{:url("setinfo/upload")}'
+            ,elem:'#image'
+            ,ext: 'jpg|png|gif'
+            ,area: ['500', '500px']
+            ,before: function(input){
+                loading = layer.load(2, {
+                    shade: [0.2,'#000']
+                });
+            }
+            ,done: function(res){
+                console.log(res);
+                layer.close(loading);
+                jq('input[name=img]').val(res.path);
+                img.src = res.path;
+                layer.msg(res.msg, {icon: 1, time: 1000});
+            }
+        });
+
+    })
+</script>
+{include file="indexs/footer" /}

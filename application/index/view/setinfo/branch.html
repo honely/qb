@@ -1,0 +1,75 @@
+{include file="indexs/header" /}
+<div class="layui-body">
+    <!-- 内容主体区域 -->
+    <div style="margin: 10px">
+        <div class="layui-btn-group">
+            <button class="layui-btn" onclick="addLevel()">开通分站</button>
+        </div>
+        <table class="layui-table" lay-filter="parse-table-demo" style="padding: 10px;text-align: center;border: 1px;solid-color: #28282c">
+            <thead>
+            <tr>
+                <td>编号</td>
+                <td>站点名称</td>
+                <td>所属区域</td>
+                <td>站点地址</td>
+                <td>站点电话</td>
+                <!--<td>站点备案号</td>-->
+                <td>开站时间</td>
+                <td>去首页</td>
+                <td>是否开通</td>
+                <td>操作</td>
+            </tr>
+            </thead>
+            <tbody>
+            {if condition="$branch eq null"}
+            <tr>
+                <td colspan="9">暂无内容</td>
+            </tr>
+            {/if}
+            {volist name='branch' id='bran'}
+            <tr>
+                <td>{$bran.b_id}</td>
+                <td>{$bran.b_name}</td>
+                <td>{$bran.p_name}-{$bran.c_name}</td>
+                <td>{$bran.b_address}</td>
+                <td>{$bran.b_tel}</td>
+                <!--<td>{$bran.b_record}</td>-->
+                <td>{$bran.b_createtime}</td>
+                <td>{$bran.b_toweb}</td>
+                <td>{if condition="$bran['b_isopen'] eq '1'"}是{else/}否{/if}</td>
+                <td>
+                    <button class="layui-btn layui-btn-xs" onclick="editBranch({$bran.b_id})">编辑</button>
+                    <button class="layui-btn layui-btn-danger layui-btn-xs" onclick="delBranch({$bran.b_id})">删除</button>
+                </td>
+            </tr>
+            {/volist}
+            </tbody>
+        </table>
+    </div>
+    <div id="demo1"></div>
+</div>
+<script>
+    layui.use('layer', function(){
+    });
+    function delBranch(b_id) {
+        layer.confirm('确定删除这个站点？删除后不可恢复！', {
+            btn : [ '确定', '取消' ]//按钮
+        }, function() {
+            window.location.href='<?=url("setinfo/delBranch")?>?b_id='+ b_id ;
+            layer.msg('您已删除此站点', {icon: 1});
+        },function(){
+            layer.msg('您已取消该操作！',{
+                time: 2000
+            });
+        });
+    }
+</script>
+<script type="text/javascript">
+    function addLevel(){
+        window.location.href='<?=url('setinfo/addbranch')?>';
+    }
+    function editBranch(b_id){
+        window.location.href='<?=url("setinfo/editBranch")?>?b_id='+ b_id ;
+    }
+</script>
+{include file="indexs/footer" /}

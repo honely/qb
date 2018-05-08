@@ -1,0 +1,93 @@
+{include file="indexs/header" /}
+<div class="layui-body">
+    <fieldset class="layui-elem-field layui-field-title" style="margin-top: 30px;">
+        <legend>案例管理</legend>
+    </fieldset>
+    <div class="layui-tab">
+        <div class="layui-tab-content">
+            <!--省份列表-->
+            <div class="layui-tab-item layui-show">
+                <div style="margin: 10px">
+                    <div class="layui-btn-group">
+                        <button class="layui-btn" onclick="addArt()">发布案例</button>
+                    </div>
+                    <table class="layui-table" lay-filter="parse-table-demo" style="padding: 10px;text-align: center;border: 1px;solid-color: #28282c">
+                        <thead>
+                        <tr>
+                            <td>编号</td>
+                            <td>城市</td>
+                            <td>案例标题</td>
+                            <td>设计师</td>
+                            <td>设计风格</td>
+                            <td>发布时间</td>
+                            <td>浏览量</td>
+                            <td>是否显示</td>
+                            <td>操作</td>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        {volist name='example' id='art'}
+                        <tr>
+                            <td>{$art.case_id}</td>
+                            <td>{$art.p_name}-{$art.c_name}</td>
+                            <td>{$art.case_title}</td>
+                            <td>{$art.des_name}</td>
+                            <td>{$art.type_name}</td>
+                            <td>{$art.case_decotime}</td>
+                            <td>{$art.case_view}</td>
+                            <td>{$art.case_isable}</td>
+                            <td>
+                                <button class="layui-btn layui-btn-xs" onclick="editProv({$art.case_id})">编辑</button>
+                                <button class="layui-btn layui-btn-danger layui-btn-xs" onclick="delProv({$art.case_id})" data-type="test2">删除</button>
+                            </td>
+                        </tr>
+                        {/volist}
+                        </tbody>
+                    </table>
+                </div>
+                <div id="pages" style="text-align: center"></div>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+    layui.use(['laypage','layer','jquery'], function(){
+        var $ = layui.jquery,
+            laypage = layui.laypage;
+        laypage.render({
+            //自定义每页条数的选择项
+            elem: 'pages'
+            ,count: {$count}
+            ,limit: {$limit}
+            ,curr: {$page}
+            ,limits: [10, 15, 20]
+            ,layout: ['count', 'prev', 'page', 'next', 'limit', 'skip']
+            ,jump: function(obj,frist){
+                if(!frist){
+                    window.location.href="<?=url('example/example')?>?page="+obj.curr+"&limit="+obj.limit;
+                }
+            }
+        });
+    });
+    function delProv(case_id) {
+        layer.confirm('确定删除该案例？删除后不可恢复！', {
+            btn : [ '确定', '取消' ]//按钮
+        }, function() {
+            window.location.href="<?=url('example/del')?>?case_id="+case_id;
+            layer.msg('您已删除该案例', {icon: 1});
+        },function(){
+            layer.msg('您已取消该操作！',{
+                time: 2000
+            });
+        });
+    }
+</script>
+<script type="text/javascript">
+    function addArt(){
+        window.location.href='<?=url('example/add')?>';
+    }
+    function editProv(case_id){
+        window.location.href='<?=url("example/edit")?>?case_id='+ case_id ;
+    }
+</script>
+{include file="indexs/footer" /}

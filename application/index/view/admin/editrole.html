@@ -1,0 +1,133 @@
+{include file="indexs/header" /}
+<div class="layui-body">
+    <blockquote class="layui-elem-quote">修改角色</blockquote>
+    <div style="padding: 15px;">
+        <form class="layui-form" id="addRoles" method="post">
+            <div class="layui-form-item">
+                <label class="layui-form-label">角色名称</label>
+                <div class="layui-input-block">
+                    <input type="hidden" value="{$roleInfo.r_id}" id="r_id"/>
+                    <input type="text" name="r_name" value="{$roleInfo.r_name}" id="r_name" lay-verify="required|title" placeholder="请输入角色名称" autocomplete="off" class="layui-input">
+                </div>
+            </div>
+
+            <div class="layui-collapse">
+                {volist name="menuList" id="menu"}
+                <div class="layui-colla-item">
+                    <h2 class="layui-colla-title">
+                        <input type="checkbox" class="checkParents checks"
+                            {volist name='m_ids' id='items'}
+                                {if condition="$items eq $menu.m_id"}checked{/if}
+                            {/volist}
+                        lay-filter="checkAll" value="{$menu.m_id}" lay-skin="primary" />{$menu.m_name}</h2>
+                    <div class="layui-colla-content layui-show">
+                        <div class="layui-collapse">
+                            {volist name="menu.child" id="child"}
+                            <div class="layui-colla-item">
+                                <h2 class="layui-colla-title">
+                                    <input class="checkChild checks" type="checkbox" lay-filter="checkFun" value="{$child.m_id}"
+                                     {volist name='m_ids' id='item'}
+                                           {if condition="$item eq $child.m_id"}checked{/if}
+                                     {/volist}
+                                    lay-skin="primary" />
+                                    {$child.m_name}
+                                </h2>
+                                <div class="layui-colla-content layui-show">
+                                    {volist name="child.children" id="children"}
+                                        <input type="checkbox" class="checkFun checks"
+                                               {volist name='m_ids' id='itemss'}
+                                               {if condition="$itemss eq $children.m_id"}checked{/if}
+                                    {/volist}
+                                        value="{$children.m_id}" lay-skin="primary" />
+                                        {$children.m_name}
+                                    {/volist}
+                                </div>
+                            </div>
+                            {/volist}
+                        </div>
+                    </div>
+                </div>
+                {/volist}
+            </div>
+            <div class="layui-form-item">
+                <div class="layui-input-block">
+                    <span class="layui-btn" lay-submit="" lay-filter="saveInfo" id="saveInfo">保存</span>
+                    <a class="layui-btn layui-btn-primary" href="<?=url('admin/admin')?>">返回</a>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+<script>
+    layui.use(['form', 'jquery','element'], function(){
+        var form = layui.form
+            ,$ = layui.jquery;
+        //选中某一模块，模块下面的菜单和方法都选中
+        form.on("checkbox(checkAll)",function (data) {
+            var child = $(data.elem).parent(".layui-colla-title").siblings(".layui-colla-content").children(".layui-collapse").children(".layui-colla-item").children(".layui-colla-title").children(".checkChild");
+            var childs =$(data.elem).parent(".layui-colla-title").siblings(".layui-colla-content").children(".layui-collapse").children(".layui-colla-item").children(".layui-colla-content").children(".checkFun");
+            child.each(function (index,item) {
+                item.checked = data.elem.checked;
+            });
+            childs.each(function (index,item) {
+                item.checked = data.elem.checked;
+            });
+            form.render('checkbox');
+        });
+        //选中某一菜单，菜单下面的方法都选中；
+        form.on("checkbox(checkFun)",function (data) {
+            var child = $(data.elem).parent(".layui-colla-title").siblings(".layui-colla-content").children(".checkFun");
+            child.each(function (index,item) {
+
+                item.checked = data.elem.checked;
+            });
+            form.render('checkbox');
+        });
+
+
+        form.on('submit(saveInfo)', function(data){
+
+            //1.获取选中的id；
+            var ids = "";
+            var icheck=document.getElementsByClassName('checks');
+            for(var i=0;i<icheck.length;i++){
+                if(icheck.item(i).checked){
+                    ids+=icheck.item(i).value;
+                    ids+=",";
+                }
+            }
+            var r_name=$('#r_name').val();
+            var r_id=$('#r_id').val();
+            $.ajax({
+                'type':"post",
+                'url': "<?=url('admin/editmenuids')?>?r_id="+ r_id +"&ids=" +ids+ "&r_name=" +r_name,
+                // 'data':$("#addRoles").serialize(),
+                'success':function (result) {
+                    if(result.code == '1'){
+                        layer.alert('修改角色成功！', {
+                            icon: 1,
+                            skin: 'layer-ext-moon',
+                            time: 2000,
+                            end: function(){
+                                window.location.href='<?=url("admin/role")?>';
+                            }
+                        });
+                    }else{
+                        layer.alert('修改角色失败！', {
+                            icon: 2,
+                            skin: 'layer-ext-moon',
+                            time: 2000,
+                            end: function(){
+                                window.location.href='<?=url("admin/role")?>';
+                            }
+                        });
+                    }
+                },
+                'error':function (error) {
+                    window.location.href='<?=url("admin/role")?>';
+                }
+            })
+        });
+    });
+</script>
+{include file="indexs/footer" /}

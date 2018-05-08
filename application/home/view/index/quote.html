@@ -1,0 +1,28 @@
+{include file="index/header" /}
+<div class="quote">
+    <div class="quote-group">
+        <h3><img src="__HOME__/img/quote01.png" alt=""></h3>
+        <p><span>*</span>权威数字显示，95%的业主在装修中容易预算超支...<br/>3秒钟获取个性化的装修预算清单，轻松避开后期增强陷阱</p>
+        <div class="quote-con">
+            <div class="quote-top">
+                <form class="form-quote" name='feedback' method='post' enctype='multipart/form-data' action='/e/enews/index.php'>
+                    <input type=hidden name=ecmsfrom value="/ ">
+                    <input name='enews' type='hidden' value='AddFeedback'>
+                    <input name='title' type='hidden' value='实景案例预约'>
+                    <input type=hidden name=bid value=2>
+                    <input type=hidden name=laiyuan id=laiyuan>
+                    <input type=hidden name=chuangyi id=chuangyi>
+
+                    <input type="text " name="name" class="nickname input" id="name " placeholder="请输入您的称呼 " />
+                    <input type="number " name="mycall" class="phone input" id="mycall " placeholder="请输入您的手机号码，获取免费服务 " />
+                    <div class="btn-container">
+                        <div class="btn-bg"></div>
+                        <button type="submit" class="quote-btn">开始<br/>计算</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- 底部展示begin -->
+{include file="index/footer" /}

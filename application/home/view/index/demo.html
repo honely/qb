@@ -1,0 +1,772 @@
+{include file="index/header" /}
+<!-- banner区 begin -->
+<div class="case-ban">
+    <img src="__HOME__/img/caseban.png" alt="">
+    <div class="caseban-con">
+        <form class="form-show" name='feedback' method='post' enctype='multipart/form-data' action='/e/enews/index.php'>
+            <input type=hidden name=ecmsfrom value="/">
+            <input name='enews' type='hidden' value='AddFeedback'>
+            <input name='title' type='hidden' value='实景案例预约'>
+            <input type=hidden name=bid value=2>
+            <input type=hidden name=laiyuan id=laiyuan>
+            <input type=hidden name=chuangyi id=chuangyi>
+            <!-- 可见表单 -->
+            <input type="number" name="mycall" class="phone" id="mycall" placeholder="请输入您的手机号码" />
+            <input type="submit" class="subtn" value="立即预约" />
+        </form>
+    </div>
+</div>
+<!-- banner区 end -->
+<!-- 案例展示 -->
+<div class="case-group">
+    <div class="tab-box">
+        <ul class="tab-wrap">
+            <li class="tab_list">
+                <img src="__HOME__/img/casetab01.png" alt="">
+                <div class="tab_list-title actived">
+                    北欧宜家风<br/>给装修加满分
+                </div>
+                <!-- <div class="tab-active">
+                </div> -->
+            </li>
+            <li class="tab_list">
+                <img src="__HOME__/img/casetab02.png" alt="">
+                <div class="tab_list-title">
+                    恬静简美风<br/>给你一个明亮的家
+                </div>
+            </li>
+            <li class="tab_list">
+                <img src="__HOME__/img/casetab03.png" alt="">
+                <div class="tab_list-title">
+                    90后夫妇<br/>也爱的新中式设计
+                </div>
+            </li>
+            <li class="tab_list">
+                <img src="__HOME__/img/casetab04.png" alt="">
+                <div class="tab_list-title">
+                    现代两居<br/>实用又富有设计感
+                </div>
+            </li>
+            <li class="tab_list">
+                <img src="__HOME__/img/casetab05.png" alt="">
+                <div class="tab_list-title">
+                    后现代<br/>精致的感官体验
+                </div>
+            </li>
+        </ul>
+    </div>
+    <div class="case-content">
+        <ul class="tabs">
+            <li class="tab-show">
+                <h3 class="case-title"><img src="__HOME__/img/line-lefT.png" alt=""><span>精选案例，预见您未来的家</span><img src="__HOME__/img/line-right.png" alt=""></h3>
+                <div class="tab-active1"></div>
+                <ul class="case-cons">
+                    <li class="case-con-list">
+                        <div class="case-pic">
+                            <img src="__HOME__/img/case01.png" alt="">
+                            <a href="<?=url('index/case_list')?>" class="floor-plan">
+                                <img src="__HOME__/img/case-01.png" alt="">
+                            </a>
+                            <a href="#" class="vr">
+                                <span>720°全景</span>
+                                <i class="player"></i>
+                            </a>
+                        </div>
+                        <div class="case-infos">
+                            <h4><img src="__HOME__/img/address.png" alt=""><span>枫叶新都市</span><i>--美式乡村</i></h4>
+                            <p><span>2018-04-23</span><i>【168㎡】7-8万</i></p>
+                            <span class="designer-pic"><img src="__HOME__/img/case-designer01.png" alt=""></span>
+                            <div class="btn-wraps">
+                                <div class="my-bnt">
+                                    <span class="de-btn de-form-btn1"><i>预约服务</i><img src="__HOME__/img/icon_rt01.png" alt=""></span>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="case-con-list">
+                        <div class="case-pic">
+                            <img src="__HOME__/img/case01.png" alt="">
+                            <a href="<?=url('index/case_list')?>" class="floor-plan">
+                                <img src="__HOME__/img/case-01.png" alt="">
+                            </a>
+                            <a href="#" class="vr">
+                                <span>720°全景</span>
+                                <i class="player"></i>
+                            </a>
+                        </div>
+                        <div class="case-infos">
+                            <h4><img src="__HOME__/img/address.png" alt=""><span>枫叶新都市</span><i>--美式乡村</i></h4>
+                            <p><span>2018-04-23</span><i>【168㎡】7-8万</i></p>
+                            <span class="designer-pic"><img src="__HOME__/img/case-designer01.png" alt=""></span>
+                            <div class="btn-wraps">
+                                <div class="my-bnt">
+                                    <span class="de-btn de-form-btn1"><i>预约服务</i><img src="__HOME__/img/icon_rt01.png" alt=""></span>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="case-con-list">
+                        <div class="case-pic">
+                            <img src="__HOME__/img/case01.png" alt="">
+                            <a href="<?=url('index/case_list')?>" class="floor-plan">
+                                <img src="__HOME__/img/case-01.png" alt="">
+                            </a>
+                            <a href="#" class="vr">
+                                <span>720°全景</span>
+                                <i class="player"></i>
+                            </a>
+                        </div>
+                        <div class="case-infos">
+                            <h4><img src="__HOME__/img/address.png" alt=""><span>枫叶新都市</span><i>--美式乡村</i></h4>
+                            <p><span>2018-04-23</span><i>【168㎡】7-8万</i></p>
+                            <span class="designer-pic"><img src="__HOME__/img/case-designer01.png" alt=""></span>
+                            <div class="btn-wraps">
+                                <div class="my-bnt">
+                                    <span class="de-btn de-form-btn1"><i>预约服务</i><img src="__HOME__/img/icon_rt01.png" alt=""></span>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="case-con-list">
+                        <div class="case-pic">
+                            <img src="__HOME__/img/case01.png" alt="">
+                            <a href="<?=url('index/case_list')?>" class="floor-plan">
+                                <img src="__HOME__/img/case-01.png" alt="">
+                            </a>
+                            <a href="#" class="vr">
+                                <span>720°全景</span>
+                                <i class="player"></i>
+                            </a>
+                        </div>
+                        <div class="case-infos">
+                            <h4><img src="__HOME__/img/address.png" alt=""><span>枫叶新都市</span><i>--美式乡村</i></h4>
+                            <p><span>2018-04-23</span><i>【168㎡】7-8万</i></p>
+                            <span class="designer-pic"><img src="__HOME__/img/case-designer01.png" alt=""></span>
+                            <div class="btn-wraps">
+                                <div class="my-bnt">
+                                    <span class="de-btn de-form-btn1"><i>预约服务</i><img src="__HOME__/img/icon_rt01.png" alt=""></span>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="case-con-list">
+                        <div class="case-pic">
+                            <img src="__HOME__/img/case01.png" alt="">
+                            <a href="<?=url('index/case_list')?>" class="floor-plan">
+                                <img src="__HOME__/img/case-01.png" alt="">
+                            </a>
+                            <a href="#" class="vr">
+                                <span>720°全景</span>
+                                <i class="player"></i>
+                            </a>
+                        </div>
+                        <div class="case-infos">
+                            <h4><img src="__HOME__/img/address.png" alt=""><span>枫叶新都市</span><i>--美式乡村</i></h4>
+                            <p><span>2018-04-23</span><i>【168㎡】7-8万</i></p>
+                            <span class="designer-pic"><img src="__HOME__/img/case-designer01.png" alt=""></span>
+                            <div class="btn-wraps">
+                                <div class="my-bnt">
+                                    <span class="de-btn de-form-btn1"><i>预约服务</i><img src="__HOME__/img/icon_rt01.png" alt=""></span>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="case-con-list">
+                        <div class="case-pic">
+                            <img src="__HOME__/img/case01.png" alt="">
+                            <a href="<?=url('index/case_list')?>" class="floor-plan">
+                                <img src="__HOME__/img/case-01.png" alt="">
+                            </a>
+                            <a href="#" class="vr">
+                                <span>720°全景</span>
+                                <i class="player"></i>
+                            </a>
+                        </div>
+                        <div class="case-infos">
+                            <h4><img src="__HOME__/img/address.png" alt=""><span>枫叶新都市</span><i>--美式乡村</i></h4>
+                            <p><span>2018-04-23</span><i>【168㎡】7-8万</i></p>
+                            <span class="designer-pic"><img src="__HOME__/img/case-designer01.png" alt=""></span>
+                            <div class="btn-wraps">
+                                <div class="my-bnt">
+                                    <span class="de-btn de-form-btn1"><i>预约服务</i><img src="__HOME__/img/icon_rt01.png" alt=""></span>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+            </li>
+            <li class="tab-show">
+                <h3 class="case-title"><img src="__HOME__/img/line-lefT.png" alt=""><span>精选案例，预见您未来的家</span><img src="__HOME__/img/line-right.png" alt=""></h3>
+                <div class="tab-active2"></div>
+                <ul class="case-cons">
+                    <li class="case-con-list">
+                        <div class="case-pic">
+                            <img src="__HOME__/img/case01.png" alt="">
+                            <a href="<?=url('index/case_list')?>" class="floor-plan">
+                                <img src="__HOME__/img/case-01.png" alt="">
+                            </a>
+                            <a href="#" class="vr">
+                                <span>720°全景</span>
+                                <i class="player"></i>
+                            </a>
+                        </div>
+                        <div class="case-infos">
+                            <h4><img src="__HOME__/img/address.png" alt=""><span>枫叶新都市</span><i>--美式乡村</i></h4>
+                            <p><span>2018-04-24</span><i>【168㎡】7-8万</i></p>
+                            <span class="designer-pic"><img src="__HOME__/img/case-designer01.png" alt=""></span>
+                            <div class="btn-wraps">
+                                <div class="my-bnt">
+                                    <span class="de-btn de-form-btn1"><i>预约服务</i><img src="__HOME__/img/icon_rt01.png" alt=""></span>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="case-con-list">
+                        <div class="case-pic">
+                            <img src="__HOME__/img/case01.png" alt="">
+                            <a href="<?=url('index/case_list')?>" class="floor-plan">
+                                <img src="__HOME__/img/case-01.png" alt="">
+                            </a>
+                            <a href="#" class="vr">
+                                <span>720°全景</span>
+                                <i class="player"></i>
+                            </a>
+                        </div>
+                        <div class="case-infos">
+                            <h4><img src="__HOME__/img/address.png" alt=""><span>枫叶新都市</span><i>--美式乡村</i></h4>
+                            <p><span>2018-04-24</span><i>【168㎡】7-8万</i></p>
+                            <span class="designer-pic"><img src="__HOME__/img/case-designer01.png" alt=""></span>
+                            <div class="btn-wraps">
+                                <div class="my-bnt">
+                                    <span class="de-btn de-form-btn1"><i>预约服务</i><img src="__HOME__/img/icon_rt01.png" alt=""></span>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="case-con-list">
+                        <div class="case-pic">
+                            <img src="__HOME__/img/case01.png" alt="">
+                            <a href="<?=url('index/case_list')?>" class="floor-plan">
+                                <img src="__HOME__/img/case-01.png" alt="">
+                            </a>
+                            <a href="#" class="vr">
+                                <span>720°全景</span>
+                                <i class="player"></i>
+                            </a>
+                        </div>
+                        <div class="case-infos">
+                            <h4><img src="__HOME__/img/address.png" alt=""><span>枫叶新都市</span><i>--美式乡村</i></h4>
+                            <p><span>2018-04-24</span><i>【168㎡】7-8万</i></p>
+                            <span class="designer-pic"><img src="__HOME__/img/case-designer01.png" alt=""></span>
+                            <div class="btn-wraps">
+                                <div class="my-bnt">
+                                    <span class="de-btn de-form-btn1"><i>预约服务</i><img src="__HOME__/img/icon_rt01.png" alt=""></span>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="case-con-list">
+                        <div class="case-pic">
+                            <img src="__HOME__/img/case01.png" alt="">
+                            <a href="<?=url('index/case_list')?>" class="floor-plan">
+                                <img src="__HOME__/img/case-01.png" alt="">
+                            </a>
+                            <a href="#" class="vr">
+                                <span>720°全景</span>
+                                <i class="player"></i>
+                            </a>
+                        </div>
+                        <div class="case-infos">
+                            <h4><img src="__HOME__/img/address.png" alt=""><span>枫叶新都市</span><i>--美式乡村</i></h4>
+                            <p><span>2018-04-24</span><i>【168㎡】7-8万</i></p>
+                            <span class="designer-pic"><img src="__HOME__/img/case-designer01.png" alt=""></span>
+                            <div class="btn-wraps">
+                                <div class="my-bnt">
+                                    <span class="de-btn de-form-btn1"><i>预约服务</i><img src="__HOME__/img/icon_rt01.png" alt=""></span>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="case-con-list">
+                        <div class="case-pic">
+                            <img src="__HOME__/img/case01.png" alt="">
+                            <a href="<?=url('index/case_list')?>" class="floor-plan">
+                                <img src="__HOME__/img/case-01.png" alt="">
+                            </a>
+                            <a href="#" class="vr">
+                                <span>720°全景</span>
+                                <i class="player"></i>
+                            </a>
+                        </div>
+                        <div class="case-infos">
+                            <h4><img src="__HOME__/img/address.png" alt=""><span>枫叶新都市</span><i>--美式乡村</i></h4>
+                            <p><span>2018-04-24</span><i>【168㎡】7-8万</i></p>
+                            <span class="designer-pic"><img src="__HOME__/img/case-designer01.png" alt=""></span>
+                            <div class="btn-wraps">
+                                <div class="my-bnt">
+                                    <span class="de-btn de-form-btn1"><i>预约服务</i><img src="__HOME__/img/icon_rt01.png" alt=""></span>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="case-con-list">
+                        <div class="case-pic">
+                            <img src="__HOME__/img/case01.png" alt="">
+                            <a href="<?=url('index/case_list')?>" class="floor-plan">
+                                <img src="__HOME__/img/case-01.png" alt="">
+                            </a>
+                            <a href="#" class="vr">
+                                <span>720°全景</span>
+                                <i class="player"></i>
+                            </a>
+                        </div>
+                        <div class="case-infos">
+                            <h4><img src="__HOME__/img/address.png" alt=""><span>枫叶新都市</span><i>--美式乡村</i></h4>
+                            <p><span>2018-04-23</span><i>【168㎡】7-8万</i></p>
+                            <span class="designer-pic"><img src="__HOME__/img/case-designer01.png" alt=""></span>
+                            <div class="btn-wraps">
+                                <div class="my-bnt">
+                                    <span class="de-btn de-form-btn1"><i>预约服务</i><img src="__HOME__/img/icon_rt01.png" alt=""></span>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+            </li>
+            <li class="tab-show">
+                <h3 class="case-title"><img src="__HOME__/img/line-lefT.png" alt=""><span>精选案例，预见您未来的家</span><img src="__HOME__/img/line-right.png" alt=""></h3>
+                <div class="tab-active3"></div>
+                <ul class="case-cons">
+                    <li class="case-con-list">
+                        <div class="case-pic">
+                            <img src="__HOME__/img/case01.png" alt="">
+                            <a href="<?=url('index/case_list')?>" class="floor-plan">
+                                <img src="__HOME__/img/case-01.png" alt="">
+                            </a>
+                            <a href="#" class="vr">
+                                <span>720°全景</span>
+                                <i class="player"></i>
+                            </a>
+                        </div>
+                        <div class="case-infos">
+                            <h4><img src="__HOME__/img/address.png" alt=""><span>枫叶新都市</span><i>--美式乡村</i></h4>
+                            <p><span>2018-04-26</span><i>【168㎡】7-8万</i></p>
+                            <span class="designer-pic"><img src="__HOME__/img/case-designer01.png" alt=""></span>
+                            <div class="btn-wraps">
+                                <div class="my-bnt">
+                                    <span class="de-btn de-form-btn1"><i>预约服务</i><img src="__HOME__/img/icon_rt01.png" alt=""></span>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="case-con-list">
+                        <div class="case-pic">
+                            <img src="__HOME__/img/case01.png" alt="">
+                            <a href="<?=url('index/case_list')?>" class="floor-plan">
+                                <img src="__HOME__/img/case-01.png" alt="">
+                            </a>
+                            <a href="#" class="vr">
+                                <span>720°全景</span>
+                                <i class="player"></i>
+                            </a>
+                        </div>
+                        <div class="case-infos">
+                            <h4><img src="__HOME__/img/address.png" alt=""><span>枫叶新都市</span><i>--美式乡村</i></h4>
+                            <p><span>2018-04-26</span><i>【168㎡】7-8万</i></p>
+                            <span class="designer-pic"><img src="__HOME__/img/case-designer01.png" alt=""></span>
+                            <div class="btn-wraps">
+                                <div class="my-bnt">
+                                    <span class="de-btn de-form-btn1"><i>预约服务</i><img src="__HOME__/img/icon_rt01.png" alt=""></span>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="case-con-list">
+                        <div class="case-pic">
+                            <img src="__HOME__/img/case01.png" alt="">
+                            <a href="<?=url('index/case_list')?>" class="floor-plan">
+                                <img src="__HOME__/img/case-01.png" alt="">
+                            </a>
+                            <a href="#" class="vr">
+                                <span>720°全景</span>
+                                <i class="player"></i>
+                            </a>
+                        </div>
+                        <div class="case-infos">
+                            <h4><img src="__HOME__/img/address.png" alt=""><span>枫叶新都市</span><i>--美式乡村</i></h4>
+                            <p><span>2018-04-26</span><i>【168㎡】7-8万</i></p>
+                            <span class="designer-pic"><img src="__HOME__/img/case-designer01.png" alt=""></span>
+                            <div class="btn-wraps">
+                                <div class="my-bnt">
+                                    <span class="de-btn de-form-btn1"><i>预约服务</i><img src="__HOME__/img/icon_rt01.png" alt=""></span>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="case-con-list">
+                        <div class="case-pic">
+                            <img src="__HOME__/img/case01.png" alt="">
+                            <a href="<?=url('index/case_list')?>" class="floor-plan">
+                                <img src="__HOME__/img/case-01.png" alt="">
+                            </a>
+                            <a href="#" class="vr">
+                                <span>720°全景</span>
+                                <i class="player"></i>
+                            </a>
+                        </div>
+                        <div class="case-infos">
+                            <h4><img src="__HOME__/img/address.png" alt=""><span>枫叶新都市</span><i>--美式乡村</i></h4>
+                            <p><span>2018-04-26</span><i>【168㎡】7-8万</i></p>
+                            <span class="designer-pic"><img src="__HOME__/img/case-designer01.png" alt=""></span>
+                            <div class="btn-wraps">
+                                <div class="my-bnt">
+                                    <span class="de-btn de-form-btn1"><i>预约服务</i><img src="__HOME__/img/icon_rt01.png" alt=""></span>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="case-con-list">
+                        <div class="case-pic">
+                            <img src="__HOME__/img/case01.png" alt="">
+                            <a href="<?=url('index/case_list')?>" class="floor-plan">
+                                <img src="__HOME__/img/case-01.png" alt="">
+                            </a>
+                            <a href="#" class="vr">
+                                <span>720°全景</span>
+                                <i class="player"></i>
+                            </a>
+                        </div>
+                        <div class="case-infos">
+                            <h4><img src="__HOME__/img/address.png" alt=""><span>枫叶新都市</span><i>--美式乡村</i></h4>
+                            <p><span>2018-04-26</span><i>【168㎡】7-8万</i></p>
+                            <span class="designer-pic"><img src="__HOME__/img/case-designer01.png" alt=""></span>
+                            <div class="btn-wraps">
+                                <div class="my-bnt">
+                                    <span class="de-btn de-form-btn1"><i>预约服务</i><img src="__HOME__/img/icon_rt01.png" alt=""></span>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="case-con-list">
+                        <div class="case-pic">
+                            <img src="__HOME__/img/case01.png" alt="">
+                            <a href="<?=url('index/case_list')?>" class="floor-plan">
+                                <img src="__HOME__/img/case-01.png" alt="">
+                            </a>
+                            <a href="#" class="vr">
+                                <span>720°全景</span>
+                                <i class="player"></i>
+                            </a>
+                        </div>
+                        <div class="case-infos">
+                            <h4><img src="__HOME__/img/address.png" alt=""><span>枫叶新都市</span><i>--美式乡村</i></h4>
+                            <p><span>2018-04-23</span><i>【168㎡】7-8万</i></p>
+                            <span class="designer-pic"><img src="__HOME__/img/case-designer01.png" alt=""></span>
+                            <div class="btn-wraps">
+                                <div class="my-bnt">
+                                    <span class="de-btn de-form-btn1"><i>预约服务</i><img src="__HOME__/img/icon_rt01.png" alt=""></span>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+            </li>
+            <li class="tab-show">
+                <h3 class="case-title"><img src="__HOME__/img/line-lefT.png" alt=""><span>精选案例，预见您未来的家</span><img src="__HOME__/img/line-right.png" alt=""></h3>
+                <div class="tab-active4"></div>
+                <ul class="case-cons">
+                    <li class="case-con-list">
+                        <div class="case-pic">
+                            <img src="__HOME__/img/case01.png" alt="">
+                            <a href="<?=url('index/case_list')?>" class="floor-plan">
+                                <img src="__HOME__/img/case-01.png" alt="">
+                            </a>
+                            <a href="#" class="vr">
+                                <span>720°全景</span>
+                                <i class="player"></i>
+                            </a>
+                        </div>
+                        <div class="case-infos">
+                            <h4><img src="__HOME__/img/address.png" alt=""><span>枫叶新都市</span><i>--美式乡村</i></h4>
+                            <p><span>2018-06-23</span><i>【168㎡】7-8万</i></p>
+                            <span class="designer-pic"><img src="__HOME__/img/case-designer01.png" alt=""></span>
+                            <div class="btn-wraps">
+                                <div class="my-bnt">
+                                    <span class="de-btn de-form-btn1"><i>预约服务</i><img src="__HOME__/img/icon_rt01.png" alt=""></span>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="case-con-list">
+                        <div class="case-pic">
+                            <img src="__HOME__/img/case01.png" alt="">
+                            <a href="<?=url('index/case_list')?>" class="floor-plan">
+                                <img src="__HOME__/img/case-01.png" alt="">
+                            </a>
+                            <a href="#" class="vr">
+                                <span>720°全景</span>
+                                <i class="player"></i>
+                            </a>
+                        </div>
+                        <div class="case-infos">
+                            <h4><img src="__HOME__/img/address.png" alt=""><span>枫叶新都市</span><i>--美式乡村</i></h4>
+                            <p><span>2018-06-23</span><i>【168㎡】7-8万</i></p>
+                            <span class="designer-pic"><img src="__HOME__/img/case-designer01.png" alt=""></span>
+                            <div class="btn-wraps">
+                                <div class="my-bnt">
+                                    <span class="de-btn de-form-btn1"><i>预约服务</i><img src="__HOME__/img/icon_rt01.png" alt=""></span>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="case-con-list">
+                        <div class="case-pic">
+                            <img src="__HOME__/img/case01.png" alt="">
+                            <a href="<?=url('index/case_list')?>" class="floor-plan">
+                                <img src="__HOME__/img/case-01.png" alt="">
+                            </a>
+                            <a href="#" class="vr">
+                                <span>720°全景</span>
+                                <i class="player"></i>
+                            </a>
+                        </div>
+                        <div class="case-infos">
+                            <h4><img src="__HOME__/img/address.png" alt=""><span>枫叶新都市</span><i>--美式乡村</i></h4>
+                            <p><span>2018-06-23</span><i>【168㎡】7-8万</i></p>
+                            <span class="designer-pic"><img src="__HOME__/img/case-designer01.png" alt=""></span>
+                            <div class="btn-wraps">
+                                <div class="my-bnt">
+                                    <span class="de-btn de-form-btn1"><i>预约服务</i><img src="__HOME__/img/icon_rt01.png" alt=""></span>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="case-con-list">
+                        <div class="case-pic">
+                            <img src="__HOME__/img/case01.png" alt="">
+                            <a href="<?=url('index/case_list')?>" class="floor-plan">
+                                <img src="__HOME__/img/case-01.png" alt="">
+                            </a>
+                            <a href="#" class="vr">
+                                <span>720°全景</span>
+                                <i class="player"></i>
+                            </a>
+                        </div>
+                        <div class="case-infos">
+                            <h4><img src="__HOME__/img/address.png" alt=""><span>枫叶新都市</span><i>--美式乡村</i></h4>
+                            <p><span>2018-06-23</span><i>【168㎡】7-8万</i></p>
+                            <span class="designer-pic"><img src="__HOME__img/case-designer01.png" alt=""></span>
+                            <div class="btn-wraps">
+                                <div class="my-bnt">
+                                    <span class="de-btn de-form-btn1"><i>预约服务</i><img src="__HOME__/img/icon_rt01.png" alt=""></span>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="case-con-list">
+                        <div class="case-pic">
+                            <img src="__HOME__/img/case01.png" alt="">
+                            <a href="<?=url('index/case_list')?>" class="floor-plan">
+                                <img src="__HOME__/img/case-01.png" alt="">
+                            </a>
+                            <a href="#" class="vr">
+                                <span>720°全景</span>
+                                <i class="player"></i>
+                            </a>
+                        </div>
+                        <div class="case-infos">
+                            <h4><img src="__HOME__/img/address.png" alt=""><span>枫叶新都市</span><i>--美式乡村</i></h4>
+                            <p><span>2018-06-23</span><i>【168㎡】7-8万</i></p>
+                            <span class="designer-pic"><img src="__HOME__/img/case-designer01.png" alt=""></span>
+                            <div class="btn-wraps">
+                                <div class="my-bnt">
+                                    <span class="de-btn de-form-btn1"><i>预约服务</i><img src="__HOME__/img/icon_rt01.png" alt=""></span>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="case-con-list">
+                        <div class="case-pic">
+                            <img src="__HOME__/img/case01.png" alt="">
+                            <a href="<?=url('index/case_list')?>" class="floor-plan">
+                                <img src="__HOME__/img/case-01.png" alt="">
+                            </a>
+                            <a href="#" class="vr">
+                                <span>720°全景</span>
+                                <i class="player"></i>
+                            </a>
+                        </div>
+                        <div class="case-infos">
+                            <h4><img src="__HOME__/img/address.png" alt=""><span>枫叶新都市</span><i>--美式乡村</i></h4>
+                            <p><span>2018-06-23</span><i>【168㎡】7-8万</i></p>
+                            <span class="designer-pic"><img src="__HOME__/img/case-designer01.png" alt=""></span>
+                            <div class="btn-wraps">
+                                <div class="my-bnt">
+                                    <span class="de-btn de-form-btn1"><i>预约服务</i><img src="__HOME__/img/icon_rt01.png" alt=""></span>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+            </li>
+            <li class="tab-show">
+                <h3 class="case-title"><img src="__HOME__/img/line-lefT.png" alt=""><span>精选案例，预见您未来的家</span><img src="__HOME__/img/line-right.png" alt=""></h3>
+                <div class="tab-active5"></div>
+                <ul class="case-cons">
+                    <li class="case-con-list">
+                        <div class="case-pic">
+                            <img src="__HOME__/img/case01.png" alt="">
+                            <a href="<?=url('index/case_list')?>" class="floor-plan">
+                                <img src="__HOME__/img/case-01.png" alt="">
+                            </a>
+                            <a href="#" class="vr">
+                                <span>720°全景</span>
+                                <i class="player"></i>
+                            </a>
+                        </div>
+                        <div class="case-infos">
+                            <h4><img src="__HOME__/img/address.png" alt=""><span>枫叶新都市</span><i>--美式乡村</i></h4>
+                            <p><span>2018-05-23</span><i>【168㎡】7-8万</i></p>
+                            <span class="designer-pic"><img src="__HOME__/img/case-designer01.png" alt=""></span>
+                            <div class="btn-wraps">
+                                <div class="my-bnt">
+                                    <span class="de-btn de-form-btn1"><i>预约服务</i><img src="__HOME__/img/icon_rt01.png" alt=""></span>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="case-con-list">
+                        <div class="case-pic">
+                            <img src="__HOME__/img/case01.png" alt="">
+                            <a href="<?=url('index/case_list')?>" class="floor-plan">
+                                <img src="__HOME__/img/case-01.png" alt="">
+                            </a>
+                            <a href="#" class="vr">
+                                <span>720°全景</span>
+                                <i class="player"></i>
+                            </a>
+                        </div>
+                        <div class="case-infos">
+                            <h4><img src="__HOME__/img/address.png" alt=""><span>枫叶新都市</span><i>--美式乡村</i></h4>
+                            <p><span>2018-05-23</span><i>【168㎡】7-8万</i></p>
+                            <span class="designer-pic"><img src="__HOME__/img/case-designer01.png" alt=""></span>
+                            <div class="btn-wraps">
+                                <div class="my-bnt">
+                                    <span class="de-btn de-form-btn1"><i>预约服务</i><img src="__HOME__/img/icon_rt01.png" alt=""></span>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="case-con-list">
+                        <div class="case-pic">
+                            <img src="__HOME__/img/case01.png" alt="">
+                            <a href="<?=url('index/case_list')?>" class="floor-plan">
+                                <img src="__HOME__/img/case-01.png" alt="">
+                            </a>
+                            <a href="#" class="vr">
+                                <span>720°全景</span>
+                                <i class="player"></i>
+                            </a>
+                        </div>
+                        <div class="case-infos">
+                            <h4><img src="__HOME__/img/address.png" alt=""><span>枫叶新都市</span><i>--美式乡村</i></h4>
+                            <p><span>2018-05-23</span><i>【168㎡】7-8万</i></p>
+                            <span class="designer-pic"><img src="__HOME__/img/case-designer01.png" alt=""></span>
+                            <div class="btn-wraps">
+                                <div class="my-bnt">
+                                    <span class="de-btn de-form-btn1"><i>预约服务</i><img src="__HOME__/img/icon_rt01.png" alt=""></span>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="case-con-list">
+                        <div class="case-pic">
+                            <img src="__HOME__/img/case01.png" alt="">
+                            <a href="<?=url('index/case_list')?>" class="floor-plan">
+                                <img src="__HOME__/img/case-01.png" alt="">
+                            </a>
+                            <a href="#" class="vr">
+                                <span>720°全景</span>
+                                <i class="player"></i>
+                            </a>
+                        </div>
+                        <div class="case-infos">
+                            <h4><img src="__HOME__/img/address.png" alt=""><span>枫叶新都市</span><i>--美式乡村</i></h4>
+                            <p><span>2018-05-23</span><i>【168㎡】7-8万</i></p>
+                            <span class="designer-pic"><img src="__HOME__/img/case-designer01.png" alt=""></span>
+                            <div class="btn-wraps">
+                                <div class="my-bnt">
+                                    <span class="de-btn de-form-btn1"><i>预约服务</i><img src="__HOME__/img/icon_rt01.png" alt=""></span>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="case-con-list">
+                        <div class="case-pic">
+                            <img src="__HOME__/img/case01.png" alt="">
+                            <a href="<?=url('index/case_list')?>" class="floor-plan">
+                                <img src="__HOME__/img/case-01.png" alt="">
+                            </a>
+                            <a href="#" class="vr">
+                                <span>720°全景</span>
+                                <i class="player"></i>
+                            </a>
+                        </div>
+                        <div class="case-infos">
+                            <h4><img src="__HOME__/img/address.png" alt=""><span>枫叶新都市</span><i>--美式乡村</i></h4>
+                            <p><span>2018-05-23</span><i>【168㎡】7-8万</i></p>
+                            <span class="designer-pic"><img src="__HOME__/img/case-designer01.png" alt=""></span>
+                            <div class="btn-wraps">
+                                <div class="my-bnt">
+                                    <span class="de-btn de-form-btn1"><i>预约服务</i><img src="__HOME__/img/icon_rt01.png" alt=""></span>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="case-con-list">
+                        <div class="case-pic">
+                            <img src="__HOME__/img/case01.png" alt="">
+                            <a href="<?=url('index/case_list')?>" class="floor-plan">
+                                <img src="__HOME__/img/case-01.png" alt="">
+                            </a>
+                            <a href="#" class="vr">
+                                <span>720°全景</span>
+                                <i class="player"></i>
+                            </a>
+                        </div>
+                        <div class="case-infos">
+                            <h4><img src="__HOME__/img/address.png" alt=""><span>枫叶新都市</span><i>--美式乡村</i></h4>
+                            <p><span>2018-05-23</span><i>【168㎡】7-8万</i></p>
+                            <span class="designer-pic"><img src="__HOME__/img/case-designer01.png" alt=""></span>
+                            <div class="btn-wraps">
+                                <div class="my-bnt">
+                                    <span class="de-btn de-form-btn1"><i>预约服务</i><img src="__HOME__/img/icon_rt01.png" alt=""></span>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+            </li>
+        </ul>
+        <p class="page">
+            <a href="javascript:;" class="prev-page pages">上一页</a>
+            <a href="javascript:;" class="num-page page-active">1</a>
+            <a href="javascript:;" class="num-page">2</a>
+            <a href="javascript:;" class="num-page">3</a>
+            <a href="javascript:;" class="next-page pages">下一页</a>
+        </p>
+    </div>
+</div>
+<!-- 专题案例 begin -->
+<div class="special-topic">
+    <div class="special-case">
+        <h3>专题案例</h3>
+        <ul>
+            <li><img src="__HOME__/img/case-show01.png" alt=""><a href="javascript:;">追求性价比？<br/>80㎡北欧设计推荐给他#</a></li>
+            <li><img src="__HOME__/img/case-show02.png" alt=""><a href="javascript:;">#如何装出别墅范？#</a></li>
+            <li><img src="__HOME__/img/case-show03.png" alt=""><a href="javascript:;">#简约不等于简单#</a></li>
+        </ul>
+    </div>
+</div>
+<!-- 底部展示begin -->
+{include file="index/footer" /}

@@ -1,0 +1,568 @@
+@import (less, optional) "common.less";
+
+.sjban{
+    .w(100%);
+    .h(500px);
+    .ps-r;
+}
+.sjban img{
+    .w(100%);
+    .h(500px);
+}
+.form-box{
+    .w;
+    .h(100%);
+    .ps-a;
+    left: 0;
+    right: 0;
+    top:0;
+    .ma;
+    .sjform-wrap{
+        .w(340px);
+        .h(390px);
+        .bg(#fff);
+        .ps-a;
+        right: 0;
+        top: 0;
+        bottom: 0;
+        margin: auto 0;
+        padding: 30px;
+        .tc;
+    }
+    h3{
+        
+        .fs(20px);
+        .color(#333);
+    }
+    p{
+        .fs(12px);
+        .color(#333);
+        .lh(20px);
+        .mt(10px);
+    }
+    
+    .input{
+        .w(100%);
+        .h(42px);
+        .mt(20px);
+        .border(#ddd);
+        .bg(#fff);
+    }
+    .sub_btn{
+        .w(100%);
+        .h(42px);
+        .bg(#37A89D);
+        .color(#fff);
+        .bor-n;
+        .fs(18px);
+        .mt(30px);
+    }
+    .sub_btn:hover{
+        .bg(#2e958b)
+    }
+    // .nick-name{
+        
+    // }
+}
+// 装修流程
+.flow{
+    .w;
+    .h(190px);
+    .ma;
+    padding: 26px 0;
+    .flow-show{
+        .w(100%);
+        .h(100%);
+        .flex-con1;
+    }
+    .flow-list{
+        .w(286px);
+        .h(138px);
+        .bg(#fff);
+        .flex-con1;
+        align-items: center;
+        padding: 0 20px;
+        box-shadow: 0 1px 10px #ddd;
+        .tsion(.5s);
+        h4{
+            .fs(24px);
+            .color(#333);
+            font-weight: normal;
+        }
+        p{
+            .fs(16px);
+            .color(#333);
+            .mt(10px);
+        }
+    }
+    .flow-list:hover{
+        .tslatey(-10px);
+        box-shadow: 0 1px 20px #bbb;
+    }
+}
+// 全房设计
+.all-room-design{
+    .w(100%);
+    .h-auto;
+    .bg(#fff);
+    .pb(50px);
+    .all-room-con{
+        .w;
+        .h-auto;
+        .ma;
+        padding: 40px 0;
+    }
+    .all-room-show{
+        .flex-con1;
+        padding: 0 10px;
+        .mt(60px);
+    }
+    .all-room-show-list{
+        .w(382px);
+        .h(428px);
+        .ps-r;
+        .tc;
+        box-shadow: 0 1px 5px #eee;
+        .tsion(.5s);
+        p{
+            .w(100%);
+            .h(80px);
+            .lh(70px);
+            .ps-a;
+            left: 0;
+            bottom: 0;
+            .fs(20px);
+            .color(#333);
+        }
+    }
+    .numbers{
+        .display;
+        .w(100px);
+        .h(100px);
+        .bor-r(50%);
+        .bg(#fff);
+        .fs(48px);
+        .color(#333);
+        .lh(100px);
+        box-shadow: 0 0 5px #ddd;
+        .ps-a;
+        left: 0;
+        right: 0;
+        top:244px;
+        .ma;
+    }
+    .all-room-show-list:hover{
+        box-shadow: 0 2px 20px #ddd;
+        .tslatey(-10px);
+    }
+}
+// 定制设计图
+.design-pic{
+    .w(100%);
+    .h-auto;
+    background: #fff url(../img/topbg.png) no-repeat top;
+    padding: 40px 0;
+    .design-pic-show{
+        .w;
+        .h-auto;
+        .ma;
+        padding: 20px 5px;
+        
+    }
+    .design-con-show{
+        .w(100%);
+        .h(700px);
+        .ps-r;
+        .mt(60px);
+    }
+    .design-con-list{
+        .w(554px);
+        .h(505px);
+        .tc;
+        .ps-a;
+        top: 0;
+        bottom: 0;
+        margin: auto 0;
+        // cursor: pointer;
+        .tsion;
+        p{
+            .fs(20px);
+            .color(#333);
+            .mt(20px);
+        }
+    }
+    .design-con-list1{
+        left: 0;
+    }
+    .design-con-list2{
+        right: 0;
+    }
+    .design-con-list div{
+        .w(554px);
+        .h(451px);
+        .tsion;
+    }
+    .design-con-list div img{
+        .w(100%);
+    }
+    .show-big{
+        .w(680px);
+        .h(630px);
+        z-index: 3;
+        div{
+            .w(680px);
+            .h(560px);
+            border: 8px solid rgba(80,179,169,.5);
+            .oh;
+        }
+        div img{
+            .w(100%);
+            .scale(1.03);
+            .tsion;
+        }
+        div:hover{
+            img{
+                .scale(1.1);
+            }
+        }
+    }
+}
+
+// 送您20㎡惊喜
+.surprise{
+    .w(100%);
+    .h-auto;
+    background: #fff url(../img/topbg.png) no-repeat top;
+    padding: 40px 0;
+    .surprise-con{
+        .w;
+        .h-auto;
+        .ma;
+        padding: 20 0;
+    }
+    .contrast{
+        .w(100%);
+        .h-auto;
+        .flex-con1;
+        .mt(60px);
+    }
+    .contrast-list{
+        .w(578px);
+        .h(471px);
+        .ps-r;
+        p{
+            .w(100%);
+            .h(66px);
+            .lh(66px);
+            .tc;
+            .color(#fff);
+            .fs(20px);
+            .ps-a;
+            left: 0;
+            bottom: 0;
+            .bg(rgba(0,0,0,.5));
+        }
+    }
+    .contrast-word{
+        .display;
+        .w(100px);
+        .h(100px);
+        .bor-r(50%);
+        .bg(rgba(55,168,157,0.5));
+        .color(#fff);
+        .lh(100px);
+        .tc;
+        .ps-a;
+        right: 20px;
+        top: 20px;
+        .fs(36px);
+    }
+    .sur-content{
+        .w(295px);
+        .h(134px);
+        .bg(rgba(0,0,0,.5));
+        .bor-r(6px);
+        .ps-auto;
+        padding: 30px;
+        .color(#fff);
+        .fs(18px);
+        .tc;
+    }
+    .wave{
+        .display;
+        .w(80px);
+        .h(80px);
+        // .bg(yellowgreen);
+        .ps-a;
+        .bor-r(50%);
+        .oh;
+    }
+    .wave1{
+        left: 25px;
+        bottom: 100px;
+    }
+    .wave2{
+        right: 25px;
+        bottom: 220px;
+    }
+    .wave3{
+        left: 250px;
+        bottom: 50px;
+    }
+    .wave i{
+        .display;
+        .w(20px);
+        .h(20px);
+        .bg(rgba(0,0,0,.5));
+        .bor-r(50%);
+        .ps-auto;
+    }
+    .wave em{
+        .display;
+        .w(80px);
+        .h(80px);
+        .bg(#fff);
+        .bor-r(50%);
+        .ps-auto;
+        animation: sf 1s linear infinite;
+    }
+
+
+    @keyframes sf {
+        0%{
+            .scale;
+            opacity: 1;
+        }
+        100%{
+            .scale(1);
+            opacity: 0;
+        }
+    }
+
+}
+
+
+// *************
+.design-team{
+    .w(100%);
+    .h-auto;
+    .mt(30px);
+    padding: 40px 0;
+    .bg(#fff);
+    .banner{
+        .mt(60px);
+    }
+    .banlist{
+        .ps-r;
+    }
+    .designer{
+        .w;
+        .h(100%);
+        .ps-auto;
+    }
+    .designer-info{
+        .w(356px);
+        .h(100%);
+        .bg(rgba(255,255,255,.8));
+        .tc;
+        padding: 40px;
+    }
+    .designer-name{
+        .fs(20px);
+        .color(#333);
+        .mt(10px);
+    }
+    .designer-exp{
+        .fs(24px);
+        .color(#333); 
+        font-weight: normal;
+        .mt(20px);
+    }
+    .designer-say{
+        .fs(16px);
+        .color(#333);
+        .mt(10px);
+    }
+    .swiper-button-prev{
+        background:url(../img/left.png) no-repeat center; 
+    }
+    .swiper-button-next{
+        background:url(../img/right.png) no-repeat center; 
+    }
+}
+
+// 增值服务
+
+.vas-group{
+    .w(100%);
+    .h-auto;
+    .bg(#fff);
+    padding: 20px 0 60px;
+    .vas-show{
+        .w;
+        .h-auto;
+        padding: 40px 0;
+        .ma;
+    }
+    .vas-con{
+        .flex-con1;
+        .mt(60px);
+    }
+    .vas-list{
+        .w(580px);
+    }
+   .vas-list-show1{
+        .flex-con1;
+    }
+    .vas-list-show1 li{
+        .w(286px);
+        .h(300px);
+        .oh;
+        .ps-r;
+        div{
+            .w(100%);
+            .h(100%);
+            .ps-a;
+            left: 0;
+            top: 0;
+            .bg(rgba(0,0,0,.5));
+            .color(#fff);
+            .tc;
+            padding: 100px 0;
+            h4{
+                .fs(24px);
+                font-weight: normal;
+            }
+            p{
+                .fs(18px);
+                .lh(30px);
+                .mt(10px);
+            }
+        }
+        .heightlight{
+            .ps-a;
+            top: 0;
+            left: -150px;
+            opacity: 0.3;
+        }
+    }
+    .vas-list-show1 li>p{
+        .w(100%);
+        .h(300px);
+        .lh(300px);
+        .ps-a;
+        top: 0;
+        left: 0;
+        .tc;
+        .color(#fff);
+        .fs(32px);
+        .bg(rgba(0,0,0,.3))
+    }
+    .vas-list-show2{
+        .mt(20px);
+    }
+    .vas-list-show{
+        .w(100%);
+        .h(340px);
+        .oh;
+        .ps-r;
+    }
+    .vas-list-info{
+        .w(100%);
+        .h(100%);
+        .ps-a;
+        left: 0;
+        top: 0;
+        .bg(rgba(0,0,0,.5));
+        .color(#fff);
+        padding: 60px 80px;
+        .tc;
+        h4{
+            .fs(36px);
+            font-weight: normal;
+        }
+        p{
+            .fs(20px);
+            .lh(40px);
+            .mt(10px);
+        }
+        .heightlight{
+            .ps-a;
+            top: 0;
+            left: -150px;
+            opacity: 0.3;
+        }
+        .de-btn {
+            .display(inline-block);
+            .w(150px);
+            .h(42px);
+            .bor-r(21px);
+            .border(#fff);
+            .lh(40px);
+            .color(#fff);
+            .ml(15px);
+            .mr(15px);
+            .oh;
+            .mt(25px);
+            .fs(16px);
+            letter-spacing: 2px;
+            cursor: pointer;
+            i {
+                .ml(25px);
+                .tsion(.5s);
+            }
+            img {
+                .tslatex(60px);
+                .tsion(.5s);
+            }
+        }
+        .de-btn:hover {
+            i {
+                .ml(0);
+            }
+            img {
+                .tslatex(5px);
+            }
+        }
+    }
+    .vas-list-show:hover .heightlight{
+        animation:rt 0.5s linear;
+    }
+    .vas-list-show1:hover .heightlight{
+        animation:rt 1s linear;
+    }    
+    
+    @keyframes rt {
+        0%{
+            .tslatex(0)
+        }
+        100%{
+            .tslatex(700px)
+        }
+    }
+}
+
+// 上门量房即送全套设计图纸
+.drawing{
+    .w(100%);
+    .h-auto;
+    .bg(#fff);
+    .mt(30px);
+    .drawing-show{
+        .w;
+        .h-auto;
+        .ma;
+        padding: 40px 0;
+    }
+    .drawing-con-show{
+        .flex-con1;
+        .mt(60px);
+    }
+    .drawing-con-list{
+        .tc;
+        p{
+            .fs(18px);
+            .lh(60px);
+        }
+    }
+}

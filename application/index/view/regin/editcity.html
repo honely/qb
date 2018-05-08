@@ -1,0 +1,86 @@
+{include file="indexs/header" /}
+<div class="layui-body">
+    <!-- 内容主体区域 -->
+    <blockquote class="layui-elem-quote">修改城市</blockquote>
+    <div style="padding: 15px;">
+        <form class="layui-form layui-form-pane1" >
+            <div class="layui-form-item">
+                <label class="layui-form-label">省份</label>
+                <div class="layui-input-block">
+                    <select name="p_id" lay-verify="required" id="p_id">
+                        <option value="">请选择省份</option>
+                        {volist name='prov' id='vo'}
+                            <option value="{$vo.p_id}" {if condition="$vo.p_id eq $city.p_id"}selected{/if}>{$vo.p_name}</option>
+                        {/volist}
+                    </select>
+                </div>
+            </div>
+            <div class="layui-form-item">
+                <label class="layui-form-label">城市名称</label>
+                <div class="layui-input-block">
+                    <input type="text" name="c_name" id="c_name" value="{$city.c_name}" lay-verify="required|c_name" required placeholder="请输入城市名称" autocomplete="off" class="layui-input">
+                </div>
+            </div>
+            {volist name="quality" id="qua"}
+                <div class="layui-form-item">
+                    <label class="layui-form-label">{$qua.type_name}</label>
+                    <input type="hidden" class="c_q_id" name="c_q_id" value="{$qua.type_id}"/>
+                    <div class="layui-input-inline">
+                        <input type="text" style="width: 300px;" name="c_q_price" required placeholder="请输入平米单价,单位：（元）" autocomplete="off" value="{$qua.price}" class="layui-input c_q_price">
+                    </div>
+                </div>
+            {/volist}
+            <div class="layui-form-item">
+                <div class="layui-input-block">
+                    <span class="layui-btn" id="saveInfo" >提交</span>
+                    <a class="layui-btn" href="<?=url('district/district')?>">返回</a>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+<script>
+    layui.use(['form','jquery'], function(){
+        // var form = layui.form,
+        var     $ = layui.jquery;
+        $('#saveInfo').click(function () {
+            //品质id
+            var ids = "";
+            var q_id=document.getElementsByClassName('c_q_id');
+            for(var i=0;i<q_id.length;i++){
+                ids+=q_id.item(i).value;
+                ids+=",";
+            }
+            //品质单价
+            var prices = "";
+            var price=document.getElementsByClassName('c_q_price');
+            for(var i=0;i<price.length;i++){
+                prices+=price.item(i).value;
+                prices+=",";
+            }
+            var p_id=$('#p_id').val();
+            var c_name=$('#c_name').val();
+            $.ajax({
+                type: 'POST',
+                url: "<?=url('regin/editcity')?>?c_id={$city.c_id}",
+                data: {ids:ids,prices:prices,p_id:p_id,c_name:c_name},
+                dataType:  'json',
+                success: function(data){
+                    console.log(data);
+                    console.log(data.code);
+                    if(data.code == 1){
+                        layer.alert('修改成功！', {
+                            icon: 1,
+                            skin: 'layer-ext-moon',
+                            time: 2000,
+                            end: function(){
+                                window.location.href='<?=url("district/district")?>';
+                            }
+                        });
+                    }
+                }
+            });
+        });
+    });
+</script>
+{include file="indexs/footer" /}

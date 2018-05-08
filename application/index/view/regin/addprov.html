@@ -1,0 +1,32 @@
+{include file="indexs/header" /}
+<div class="layui-body">
+    <!-- 内容主体区域 -->
+    <blockquote class="layui-elem-quote">添加省份</blockquote>
+    <div style="padding: 15px;">
+        <form class="layui-form layui-form-pane1" action="<?=url('regin/addProv')?>" method="post">
+            <div class="layui-form-item">
+                <label class="layui-form-label">省份名称</label>
+                <div class="layui-input-block">
+                    <input type="text" name="p_name" lay-verify="required|p_name" required placeholder="请输入省份名称" autocomplete="off" class="layui-input">
+                </div>
+            </div>
+            <div class="layui-form-item">
+                <div class="layui-input-block">
+                    <button class="layui-btn">提交</button>
+                    <a class="layui-btn" href="<?=url('district/district')?>">返回</a>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+<script>
+    layui.use('form', function(){
+        var form = layui.form;
+        //监听提交
+        form.on('submit(*)', function(data){
+            console.log(data)
+            return false;
+        });
+    });
+</script>
+{include file="indexs/footer" /}

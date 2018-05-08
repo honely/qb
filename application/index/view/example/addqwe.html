@@ -1,0 +1,148 @@
+{include file="indexs/header" /}
+<div class="layui-body">
+    <blockquote class="layui-elem-quote">发布案例</blockquote>
+    <div class="layui-tab">
+        <div class="layui-tab-content">
+            <div class="layui-tab-item layui-show">
+                <div style="margin: 10px">
+                    <div style="padding: 15px;">
+                        <form class="layui-form" action="<?=url('example/add')?>" method="post">
+                            <fieldset class="layui-elem-field layui-field-title" style="margin-top: 30px;">
+                                <legend>上传案例效果图</legend>
+                            </fieldset>
+                            <div class="layui-form-item">
+                                <div class="layui-row" style="margin-bottom: 30px">
+                                    <div class="layui-col-xs4" style="height: 200px;overflow: hidden; background: #00b7ee;text-align: center;"><img src="" alt=""></div>
+                                    <div class="layui-col-xs4" style="height: 200px; overflow:hidden;line-height: 26px;text-align: center;background: greenyellow">标题</div>
+                                    <div class="layui-col-xs4" style="height: 200px; overflow:hidden;line-height: 26px;text-align: center;background: yellowgreen">内容</div>
+                                </div>
+                            </div>
+                            <div class="layui-form-item">
+                                <div class="layui-input-block">
+                                    <button class="layui-btn" lay-submit lay-filter="saveInfo">保存</button>
+                                    <a class="layui-btn layui-btn-primary" href="<?=url('example/example')?>">返回</a>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+    layui.use(['form', 'jquery','upload','layedit'], function(){
+        var form = layui.form
+            ,upload = layui.upload
+            ,layedit = layui.layedit
+            ,$ = layui.jquery;
+        //编辑器图片上传接口
+        layedit.set({
+            uploadImage: {
+                url: '/index/example/editUpload' //接口url
+                ,type: 'post', //默认post
+                success:function(res){
+                    console.log(res);
+                },
+                error:function (res) {
+                    console.log(res);
+                }
+            }
+        });
+
+        layedit.build('demo'); //建立编辑器
+        //自定义验证规则
+        form.verify({
+            title: function(value){
+                if(value.length < 2){
+                    return '标题至少得2个字符啊';
+                }
+            }
+            ,pass: [/(.+){6,12}$/, '密码必须6到12位']
+            ,content: function(value){
+                layedit.sync(editIndex);
+            }
+        });
+        form.on('select(bu_p_id)', function(data){
+            var p_id=data.value;
+            $.ajax({
+                type: 'POST',
+                url: "<?=url('user/getCityName')?>?p_id="+p_id,
+                data: {p_id:p_id},
+                dataType:  'json',
+                success: function(data){
+                    var code=data.data;
+                    $("#bu_c_id").html("<option value=''>请选择城市</option>");
+                    $.each(code, function(i, val) {
+                        var option1 = $("<option>").val(val.c_id).text(val.c_name);
+                        $("#bu_c_id").append(option1);
+                        form.render('select');
+                    });
+                    $("#bu_c_id").get(0).selectedIndex=0;
+                }
+            });
+        });
+        // //多图片上传
+        // upload.render({
+        //     elem: '#test2'
+        //     ,url: '{:url("setinfo/upload")}'
+        //     ,multiple: true
+        //     ,done: function(res){
+        //         console.log(res.state);
+        //         if(res.state == 1){
+        //             $('#demo2').append('<img src="__PUBLIC__'+ res.path +'" class="layui-upload-img">');
+        //             $('#mutUrl').append(","+res.path);
+        //         }
+        //     }
+        // });
+        //案例效果图
+        upload.render({
+            elem: '#uploadCase'
+            ,url: '{:url("setinfo/upload")}'
+            ,size:120 //限制文件大小，单位 KB
+            ,ext: 'jpg|png|gif'
+            ,accept: 'images' //限制文件大小，单位 KB
+            ,before: function(input){
+                loading = layer.load(2, {
+                    shade: [0.2,'#000']
+                });
+            }
+            ,done: function(res){
+                console.log(res);
+                layer.close(loading);
+                $('#case_iamge').append(","+res.path);
+                $('#demo2').append('<img src="__PUBLIC__'+ res.path +'" class="layui-upload-img">');
+                layer.msg(res.msg, {icon: 1, time: 1000});
+            }
+            ,error: function(res){
+                layer.msg(res.msg, {icon: 2, time: 1000});
+            }
+        });
+        //户型图片上传
+        upload.render({
+            elem: '#uploadLogo'
+            ,url: '{:url("setinfo/upload")}'
+            ,size:120 //限制文件大小，单位 KB
+            ,ext: 'jpg|png|gif'
+            ,accept: 'images' //限制文件大小，单位 KB
+            ,before: function(input){
+                loading = layer.load(2, {
+                    shade: [0.2,'#000']
+                });
+            }
+            ,done: function(res){
+                $('#logoPre').removeAttr('src');
+                $('#art_img').val('');
+                console.log(res);
+                layer.close(loading);
+                $('#art_img').val(res.path);
+                $('#logoPre').attr('src',"__PUBLIC__"+res.path);
+                layer.msg(res.msg, {icon: 1, time: 1000});
+            }
+            ,error: function(res){
+                layer.msg(res.msg, {icon: 2, time: 1000});
+            }
+        });
+    });
+</script>
+{include file="indexs/footer" /}

@@ -1,0 +1,80 @@
+{include file="indexs/header" /}
+<div class="layui-body">
+    <!-- 内容主体区域 -->
+    <!--选项卡写法-->
+    <fieldset class="layui-elem-field layui-field-title" style="margin-top: 30px;">
+        <legend>类型参数</legend>
+    </fieldset>
+    <div class="layui-tab">
+        <div class="layui-tab-content">
+            <!--客户标记-->
+            <div class="layui-tab-item layui-show">
+                <div style="margin: 10px">
+                    <div class="layui-btn-group">
+                        <button class="layui-btn" onclick="addSet()">添加配置</button>
+                    </div>
+                    <table class="layui-table" lay-filter="parse-table-demo" style="padding: 10px;text-align: center;border: 1px;solid-color: #28282c">
+                        <thead>
+                        <tr>
+                            <td>编号</td>
+                            <td>配置key</td>
+                            <td>配置值</td>
+                            <td>是否可用</td>
+                            <td>操作</td>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        {if condition="$setinfo eq null"}
+                        <tr><td colspan="5">暂无内容</td></tr>
+                        {/if}
+                        {volist name='setinfo' id='type'}
+                        <tr>
+                            <td>{$type.s_id}</td>
+                            <td>{$type.s_key}</td>
+                            <td>{$type.s_value}</td>
+                            <td>{if condition="$type['s_is_able'] eq '1'"}是{else/}否{/if}</td>
+                            <td>
+                                <button class="layui-btn layui-btn-sm" onclick="editType({$type.s_id})"><i class="layui-icon">&#xe642;</i></button>
+                                <button class="layui-btn layui-btn-sm" onclick="delSet({$type.s_id})" data-type="test2"><i class="layui-icon">&#xe640;</i></button>
+                            </td>
+                        </tr>
+                        {/volist}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+    layui.use('layer', function(){
+        var $ = layui.jquery,
+            layer = layui.layer; //独立版的layer无需执行这一句
+        $('.demo').on('click', function(){
+            var type = $(this).data('type');
+            active[type] ? active[type].call(this) : '';
+        });
+    });
+    //删除配置
+    function delSet(s_id) {
+        layer.confirm('确定删除这个配置？删除后不可恢复！', {
+            btn : [ '确定', '取消' ]
+        }, function() {
+            layer.msg('您已删除此配置', {icon: 1});
+            window.location.href='<?=url("setinfo/delSet")?>?s_id='+ s_id ;
+        },function(){
+            layer.msg('您已取消该操作！',{
+                time: 2000
+            });
+        });
+    }
+</script>
+<script type="text/javascript">
+    function addSet(){
+        window.location.href='<?=url('setinfo/addSet')?>';
+    }
+    function editType(s_id){
+        window.location.href='<?=url("setinfo/editSet")?>?s_id='+ s_id ;
+    }
+</script>
+{include file="indexs/footer" /}

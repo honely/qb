@@ -1,0 +1,44 @@
+{include file="indexs/header" /}
+<div class="layui-body">
+    <!-- 内容主体区域 -->
+    <blockquote class="layui-elem-quote">修改系统配置</blockquote>
+    <div style="padding: 15px;">
+        <form class="layui-form layui-form-pane1" action="<?=url('setinfo/editset')?>?s_id={$set.s_id}" method="post">
+            <div class="layui-form-item">
+                <label class="layui-form-label">配置key</label>
+                <div class="layui-input-block">
+                    <input type="text" name="s_key" value="{$set.s_key}" lay-verify="required|s_key" placeholder="请输入配置key" autocomplete="off" class="layui-input">
+                </div>
+            </div>
+            <div class="layui-form-item">
+                <label class="layui-form-label">配置value</label>
+                <div class="layui-input-block">
+                    <input type="text" name="s_value" value="{$set.s_value}" lay-verify="required|s_value" required placeholder="请输入配置value" autocomplete="off" class="layui-input">
+                </div>
+            </div>
+
+            <div class="layui-form-item" pane>
+                <label class="layui-form-label">是否可用</label>
+                <div class="layui-input-block">
+                    <input type="radio" name="s_is_able" value="1" title="是" {if condition="$set.s_is_able eq 1"}checked{/if} >
+                    <input type="radio" name="s_is_able" value="2" title="否" {if condition="$set.s_is_able eq 2"}checked{/if} >
+                </div>
+            </div>
+            <div class="layui-form-item">
+                <div class="layui-input-block">
+                    <button class="layui-btn" lay-submit lay-filter="*">保存</button>
+                    <a class="layui-btn layui-btn-primary" href="setlist.html">返回</a>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+<script>
+    layui.use('form', function(){
+        var form = layui.form;
+        form.on('radio', function(data){
+            console.log(data);
+        });
+    });
+</script>
+{include file="indexs/footer" /}

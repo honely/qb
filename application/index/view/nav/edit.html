@@ -1,0 +1,36 @@
+{include file="indexs/header" /}
+<div class="layui-body">
+    <blockquote class="layui-elem-quote">修改导航</blockquote>
+    <div style="padding: 15px;">
+        <form class="layui-form layui-form-pane1" action="<?=url('nav/edit')?>?nav_id={$nav.nav_id}" method="post">
+            <div class="layui-form-item">
+                <label class="layui-form-label">导航名称</label>
+                <div class="layui-input-block">
+                    <input type="text" name="nav_title" value="{$nav.nav_title}" lay-verify="required|nav_title" placeholder="请输入导航名称" autocomplete="off" class="layui-input">
+                </div>
+            </div>
+            <div class="layui-form-item" pane>
+                <label class="layui-form-label">是否可用</label>
+                <div class="layui-input-block">
+                    <input type="radio" name="nav_isable" value="1" title="是" {if condition="$nav.nav_isable eq 1"}checked{/if} >
+                    <input type="radio" name="nav_isable" value="2" title="否" {if condition="$nav.nav_isable eq 2"}checked{/if} >
+                </div>
+            </div>
+            <div class="layui-form-item">
+                <div class="layui-input-block">
+                    <button class="layui-btn" lay-submit lay-filter="*">保存</button>
+                    <a class="layui-btn layui-btn-primary" href="navlist.html">返回</a>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+<script>
+    layui.use('form', function(){
+        var form = layui.form;
+        form.on('radio', function(data){
+            console.log(data);
+        });
+    });
+</script>
+{include file="indexs/footer" /}

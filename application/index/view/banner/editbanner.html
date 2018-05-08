@@ -1,0 +1,146 @@
+{include file="indexs/header" /}
+<div class="layui-body">
+    <!-- 内容主体区域 -->
+    <blockquote class="layui-elem-quote">修改Banner图</blockquote>
+    <div class="layui-tab">
+        <div class="layui-tab-content">
+            <!--基本信息-->
+            <div class="layui-tab-item layui-show">
+                <div style="margin: 10px">
+                    <div style="padding: 15px;">
+                        <form class="layui-form" action="<?=url('banner/editBanner')?>?ba_id={$ban.ba_id}" method="post">
+                            <div class="layui-form-item">
+                                <label class="layui-form-label">banner主题</label>
+                                <div class="layui-input-block">
+                                    <input type="text" name="ba_title" lay-verify="required|title" placeholder="请输入banner主题" value="{$ban.ba_title}" class="layui-input">
+                                </div>
+                            </div>
+                            <div class="layui-form-item">
+                                <label class="layui-form-label">显示端</label>
+                                <div class="layui-input-inline">
+                                    <select name="ba_via" lay-verify="required" lay-filter="ba_via">
+                                        <option value="">请选择显示端</option>
+                                        <option value="1" {if condition="$ban.ba_via eq 1"}selected{/if} >PC端</option>
+                                        <option value="2" {if condition="$ban.ba_via eq 2"}selected{/if} >移动端</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="layui-form-item">
+                                <label class="layui-form-label">Banner图</label>
+                                <div class="layui-upload">
+                                    <button type="button" class="layui-btn" id="uploadLogo">上传图片</button>
+                                    <input type="hidden" name="ba_img" id="ba_img" value="{$ban.ba_img}"/>
+                                    <div class="layui-upload-list" style="margin-left: 60px;">
+                                        <img class="layui-upload-img" src="__PUBLIC__{$ban.ba_img}" style="height: 100px;width: 350px" id="logoPre">
+                                    </div>
+                                </div>
+                                <div class="layui-form-mid layui-word-aux" id="tips" style="margin-left: 100px; color:red !important;">
+                                    {if condition="$ban.ba_via eq 1"}
+                                    备注：PC端图片规格1200*600px
+                                    {else/}
+                                    备注：移动端图片规格600*368px
+                                    {/if}
+                                </div>
+                            </div>
+                            <div class="layui-form-item">
+                                <label class="layui-form-label">图片alt</label>
+                                <div class="layui-input-block">
+                                    <input type="text" name="ba_alt" value="{$ban.ba_alt}" lay-verify="required|title" placeholder="请输入banner图片alt" autocomplete="off" class="layui-input">
+                                </div>
+                            </div>
+                            <div class="layui-form-item" pane>
+                                <label class="layui-form-label">是否开张</label>
+                                <div class="layui-input-block">
+                                    <input type="radio" name="ba_isable" value="1" title="是" {if condition="$ban.ba_isable eq 1"} checked{/if}>
+                                    <input type="radio" name="ba_isable" value="2" title="否" {if condition="$ban.ba_isable eq 2"} checked{/if}>
+                                </div>
+                            </div>
+                            <div class="layui-form-item">
+                                <div class="layui-input-block">
+                                    <button class="layui-btn" lay-submit lay-filter="saveInfo">保存</button>
+                                    <a class="layui-btn layui-btn-primary" href="<?=url('banner/bannerlist')?>">返回</a>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+    layui.use(['form', 'jquery','upload'], function(){
+        var form = layui.form
+            ,upload = layui.upload
+            ,$ = layui.jquery;
+        //自定义验证规则
+        form.verify({
+            title: function(value){
+                if(value.length < 2){
+                    return '至少得2个字符啊';
+                }
+            }
+            ,pass: [/(.+){6,12}$/, '密码必须6到12位']
+            ,content: function(value){
+                layedit.sync(editIndex);
+            }
+        });
+        //选择不同的显示端；对图片的规格要求；
+        form.on('select(ba_via)', function(data){
+            var ba_via=data.value;
+            if(ba_via == 1){
+                $('#tips').html("备注：PC端图片规格1200*600px");
+                //PC端banner图片上传
+                upload.render({
+                    elem: '#uploadLogo'
+                    ,url: '{:url("setinfo/upload")}'
+                    ,size:120 //限制文件大小，单位 KB
+                    ,ext: 'jpg|png|gif'
+                    ,accept: 'images' //限制文件大小，单位 KB
+                    ,before: function(input){
+                        loading = layer.load(2, {
+                            shade: [0.2,'#000']
+                        });
+                    }
+                    ,done: function(res){
+                        console.log(res);
+                        layer.close(loading);
+                        $('#ba_img').val(res.path);
+                        $("#logoPre").removeAttr("src");
+                        $('#logoPre').attr('src',"__PUBLIC__"+res.path);
+                        layer.msg(res.msg, {icon: 1, time: 1000});
+                    }
+                    ,error: function(res){
+                        layer.msg(res.msg, {icon: 2, time: 1000});
+                    }
+                });
+            }else if(ba_via == 2){
+                $('#tips').html("备注：移动端图片规格600*368px");
+                //移动端banner图片上传
+                upload.render({
+                    elem: '#uploadLogo'
+                    ,url: '{:url("setinfo/upload")}'
+                    ,size: 60 //限制文件大小，单位 KB
+                    ,ext: 'jpg|png|gif'
+                    ,accept: 'images'
+                    ,before: function(input){
+                        loading = layer.load(2, {
+                            shade: [0.2,'#000']
+                        });
+                    }
+                    ,done: function(res){
+                        console.log(res);
+                        layer.close(loading);
+                        $('#ba_img').val(res.path);
+                        $('#logoPre').attr('src',"__PUBLIC__"+res.path);
+                        layer.msg(res.msg, {icon: 1, time: 1000});
+                    }
+                    ,error: function(res){
+                        layer.msg(res.msg, {icon: 2, time: 1000});
+                    }
+                });
+            }
+        });
+    });
+</script>
+{include file="indexs/footer" /}
