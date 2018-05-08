@@ -5,6 +5,9 @@
     -webkit-tap-highlight-color: rgba(0,0,0,0);
     -webkit-tap-highlight-color: transparent; 
 }
+img{
+    border: none;
+}
 html,body{
     background: #f5f5f5;
     font:  14px "微软雅黑", Helvetica, STHeiti, Droid Sans Fallback;
@@ -49,9 +52,9 @@ em,i{
 ul li,ul ol{
     list-style: none;
 }
-input,select,button{
-    -webkit-appearance: none;
-}
+// input,select,button{
+//     -webkit-appearance: none;
+// }
 input[type=number] {  
     -moz-appearance:textfield;  
 }  
@@ -280,15 +283,21 @@ input[type=number]::-webkit-outer-spin-button {
     }   
 }
 //头部导航end
-
+.foot-container{
+    .w(100%);
+    .h-auto;
+    .bg(#ddd);
+}
 // 底部开始
 .foot-info{
     .w;
-    .h(290px);
-    .ma;
+    .h(254px);
     padding: 50px 0;
+    .ma;
     .bot-left{
+        .display(inline-block);
         .w(300px);
+        .mt(7px);
         .fl;
         p{
             .mt(20px)
@@ -299,7 +308,6 @@ input[type=number]::-webkit-outer-spin-button {
             .lh(30px);
             .mt(55px);
             font-weight: normal;
-            // .bg(yellowgreen);
             img{
                 .mr(15px);
                 .fl;
@@ -312,19 +320,36 @@ input[type=number]::-webkit-outer-spin-button {
             }
         }
     }
-    .bot-nav{
+    .hot-line{
+        .display(inline-block);
         .w(400px);
-        .fl;
-        .tc;
-        .ml(200px);
-        a{
-            .fs(16px);
-            .color(#666);
-            padding: 0 14px;
-            .lh(30px);
+        .ml(230px);
+        p{
+            .h-auto;
+            .mt(10px);
+            img{
+                .display(inline-block); 
+                .fl;
+            }
+            span{
+                .display(inline-block);
+                .color(#333);
+                .fs(16px);
+                .ml(15px);
+                .fl;
+                i{
+                    .color(#37A89D);
+                    .fs(18px);
+                }
+                em{
+                    .color(#666);
+                    .fs(14px);
+                }
+            }
         }
     }
     .code-con{
+        .display(inline-block);
         .w(140px);
         .tc;
         .fr;
@@ -339,13 +364,25 @@ input[type=number]::-webkit-outer-spin-button {
     .w(100%);
     .h(105px);
     .bg(#000);
-    .color(#fff);
+    .color(#999);
     .fs(14px);
     .tc;
-    .lh(30px);
-    padding: 25px 0;
+    .lh(26px);
+    padding: 16px 0;
     a{
-        .color(#fff);  
+        .color(#999);  
+    }
+    .bot-nav{
+        a{
+            .fs(14px);
+            .color(#999);
+            .ml(8px);
+            .mr(8px);
+            &:hover{
+                .color(#37A89D);
+            }
+        }
+        
     }
 }
 // ********************
@@ -430,6 +467,7 @@ input[type=number]::-webkit-outer-spin-button {
     .subtn:hover{
         .bg(rgb(46, 149, 139));
     }
+    
 }
 @keyframes movebl3 {
     0%{
@@ -454,5 +492,59 @@ input[type=number]::-webkit-outer-spin-button {
         -moz-transform:translate(0,0); /* Firefox */
         -webkit-transform:translate(0,0); /* Safari 和 Chrome */
         -o-transform:translate(0,0); /* Opera */
+    }
+}
+
+
+// 侧边栏导航
+
+.slidebar{
+    .w(100px);
+    .h(318px); 
+    position: fixed;
+    right: 20px;
+    top: 0;
+    bottom: 0;
+    margin: auto 0;
+    z-index: 660;
+    .tc;
+    ul{
+        .w(100%);
+        .h(100%);
+        .oh;
+        .bor-r(10px);
+        .bg(rgba(75,218,204,.3));
+    }
+}
+.slidebar-list{
+    .w(100%);
+    .h(62px);
+    .bg(rgba(0,0,0,.5));
+    
+    padding: 4px 0;
+    cursor: pointer;
+    .color(#fff);
+    a{
+        .color(#fff);
+    }
+}
+.bt{
+    .mt(2px);
+}
+.slidebar-list:hover{
+    .bg(rgba(55,168,157,.5));
+}
+.code{
+    .w(130px);
+    .h(120px);
+    .ps-a;
+    left: -130px;
+    bottom: 36px;
+   .oh;    
+    img{
+        .w(120px);
+        .ps-a;
+        left: 130px;
+        top: 0;
     }
 }

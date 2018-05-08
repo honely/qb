@@ -5,6 +5,9 @@
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
   -webkit-tap-highlight-color: transparent;
 }
+img {
+  border: none;
+}
 html,
 body {
   background: #f5f5f5;
@@ -49,11 +52,6 @@ i {
 ul li,
 ul ol {
   list-style: none;
-}
-input,
-select,
-button {
-  -webkit-appearance: none;
 }
 input[type=number] {
   -moz-appearance: textfield;
@@ -177,14 +175,22 @@ input[type=number]::-webkit-outer-spin-button {
   margin-left: 10px;
   font-size: 18px;
 }
+.foot-container {
+  width: 100%;
+  height: auto;
+  overflow: hidden;
+  background: #ddd;
+}
 .foot-info {
   width: 1200px;
-  height: 290px;
-  margin: 0 auto;
+  height: 254px;
   padding: 50px 0;
+  margin: 0 auto;
 }
 .foot-info .bot-left {
+  display: inline-block;
   width: 300px;
+  margin-top: 7px;
   float: left;
 }
 .foot-info .bot-left p {
@@ -207,19 +213,37 @@ input[type=number]::-webkit-outer-spin-button {
   font-size: 14px;
   color: #666;
 }
-.foot-info .bot-nav {
+.foot-info .hot-line {
+  display: inline-block;
   width: 400px;
-  float: left;
-  text-align: center;
-  margin-left: 200px;
+  margin-left: 230px;
 }
-.foot-info .bot-nav a {
+.foot-info .hot-line p {
+  height: auto;
+  overflow: hidden;
+  margin-top: 10px;
+}
+.foot-info .hot-line p img {
+  display: inline-block;
+  float: left;
+}
+.foot-info .hot-line p span {
+  display: inline-block;
+  color: #333;
   font-size: 16px;
+  margin-left: 15px;
+  float: left;
+}
+.foot-info .hot-line p span i {
+  color: #37A89D;
+  font-size: 18px;
+}
+.foot-info .hot-line p span em {
   color: #666;
-  padding: 0 14px;
-  line-height: 30px;
+  font-size: 14px;
 }
 .foot-info .code-con {
+  display: inline-block;
   width: 140px;
   text-align: center;
   float: right;
@@ -233,14 +257,23 @@ input[type=number]::-webkit-outer-spin-button {
   width: 100%;
   height: 105px;
   background: #000;
-  color: #fff;
+  color: #999;
   font-size: 14px;
   text-align: center;
-  line-height: 30px;
-  padding: 25px 0;
+  line-height: 26px;
+  padding: 16px 0;
 }
 .footer a {
-  color: #fff;
+  color: #999;
+}
+.footer .bot-nav a {
+  font-size: 14px;
+  color: #999;
+  margin-left: 8px;
+  margin-right: 8px;
+}
+.footer .bot-nav a:hover {
+  color: #37A89D;
 }
 .float-box {
   width: 100%;
@@ -361,6 +394,55 @@ input[type=number]::-webkit-outer-spin-button {
     /* Opera */
   }
 }
+.slidebar {
+  width: 100px;
+  height: 318px;
+  position: fixed;
+  right: 20px;
+  top: 0;
+  bottom: 0;
+  margin: auto 0;
+  z-index: 660;
+  text-align: center;
+}
+.slidebar ul {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  border-radius: 10px;
+  background: rgba(75, 218, 204, 0.3);
+}
+.slidebar-list {
+  width: 100%;
+  height: 62px;
+  background: rgba(0, 0, 0, 0.5);
+  padding: 4px 0;
+  cursor: pointer;
+  color: #fff;
+}
+.slidebar-list a {
+  color: #fff;
+}
+.bt {
+  margin-top: 2px;
+}
+.slidebar-list:hover {
+  background: rgba(55, 168, 157, 0.5);
+}
+.code {
+  width: 130px;
+  height: 120px;
+  position: absolute;
+  left: -130px;
+  bottom: 36px;
+  overflow: hidden;
+}
+.code img {
+  width: 120px;
+  position: absolute;
+  left: 130px;
+  top: 0;
+}
 .quote {
   width: 100%;
   height: 836px;
@@ -398,13 +480,12 @@ input[type=number]::-webkit-outer-spin-button {
   width: 100%;
   height: 475px;
   position: relative;
+  padding: 40px 60px;
 }
 .quote-group .form-quote {
-  width: 100%;
+  width: 50%;
   height: 100%;
-  position: absolute;
-  left: 0;
-  top: 0;
+  float: left;
 }
 .quote-group .btn-container {
   width: 130px;
@@ -462,4 +543,151 @@ input[type=number]::-webkit-outer-spin-button {
   cursor: pointer;
   font-size: 20px;
   color: #fff;
+}
+.quote-group .form-title {
+  font-weight: normal;
+  text-align: left;
+}
+.quote-group .form-title span {
+  font-size: 24px;
+  color: #333;
+}
+.quote-group .form-title i {
+  font-size: 16px;
+  color: #FF6D0F;
+  margin-left: 20px;
+}
+.quote-group .form-title em {
+  font-weight: 600;
+}
+.quote-group label {
+  display: block;
+  margin-top: 20px;
+  width: 360px;
+  height: 36px;
+  position: relative;
+}
+.quote-group label span {
+  font-size: 16px;
+  color: #333;
+}
+.quote-group label i {
+  color: #FF6D0F;
+}
+.quote-group label .input {
+  width: 260px;
+  height: 36px;
+  border: 1px solid #ddd;
+  background: #fff;
+  padding-left: 15px;
+}
+.quote-group label select {
+  width: 260px;
+  height: 36px;
+  border: 1px solid #ddd;
+  background: #fff;
+  padding-left: 15px;
+  color: #333;
+}
+.quote-group label .unit {
+  position: absolute;
+  top: 6px;
+  right: 15px;
+  color: #999;
+}
+.quote-group label .lx-type {
+  margin-left: 5px;
+  margin-right: 20px;
+}
+.quote-group label .lx-title {
+  line-height: 36px;
+}
+.quote-group .hint {
+  text-align: left;
+  padding-left: 80px;
+  font-size: 14px;
+}
+.quote-group .hint i {
+  color: #FF6D0F;
+}
+.budget {
+  width: 400px;
+  height: 100%;
+  float: right;
+}
+.budget h3 {
+  font-size: 24px;
+  font-weight: normal;
+}
+.budget h3 span {
+  display: inline-block;
+  width: 100px;
+  color: #FF6D0F;
+}
+.budget .budget-box {
+  width: 400px;
+  height: 280px;
+  background: #f5f5f5;
+  padding: 25px 65px;
+  margin-top: 20px;
+}
+.budget .budget-box p {
+  width: 100%;
+  height: auto;
+  overflow: hidden;
+  line-height: 38px;
+  margin-top: 0;
+}
+.budget .budget-box p span {
+  color: #333;
+}
+.budget .budget-box .price {
+  color: #FF6D0F;
+}
+.budget .budget-title {
+  display: inline-block;
+  width: 80px;
+  float: left;
+  text-align: left;
+}
+.budget .budget-title .colon {
+  float: right;
+}
+.budget .price-show {
+  float: right;
+}
+.budget .price-show .price {
+  display: inline-block;
+  width: 100px;
+}
+.budget .hints {
+  font-size: 14px;
+  padding: 0 30px;
+}
+.quote-bot {
+  width: 100%;
+  height: 80px;
+  padding: 10px 60px;
+}
+.quote-bot h3 {
+  width: 180px;
+  font-size: 22px;
+  color: #fff;
+  font-weight: normal;
+  float: left;
+}
+.quote-bot .counts {
+  display: inline-block;
+  width: 60px;
+}
+.quote-bot .msg-show {
+  width: 700px;
+  height: 100%;
+  float: right;
+}
+.quote-bot .msgbox {
+  width: 350px;
+  float: left;
+  color: #fff;
+  font-size: 14px;
 }

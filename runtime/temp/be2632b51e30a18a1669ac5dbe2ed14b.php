@@ -1,3 +1,4 @@
+<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:72:"D:\xampp\htdocs\qbl\public/../application/home\view\index\case_list.html";i:1525773762;}*/ ?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -10,12 +11,12 @@
     <meta name="description" content="贵阳交换空间装饰CCTV合作中国装修设计第一品牌！咨询电话：0851-8683 9697">
     <link rel="icon" href="../favicon.ico">
     <!-- <link rel="stylesheet" href="css/animate.min.css"> -->
-    <link rel="stylesheet" href="../css/swiper.css">
-    <link rel="stylesheet" href="../css/animate.min.css">
-    <link rel="stylesheet" href="../css/common.css">
-    <!-- <link rel="stylesheet" href="../css/style.css"> -->
-    <link rel="stylesheet" href="../css/case_list.css">
-    <link rel="stylesheet" href="../css/ad_gallery.css">
+    <link rel="stylesheet" href="__PUBLIC__/home/css/swiper.css">
+    <link rel="stylesheet" href="__PUBLIC__/home/css/animate.min.css">
+    <link rel="stylesheet" href="__PUBLIC__/home/css/common.css">
+    <!-- <link rel="stylesheet" href="__PUBLIC__/home/css/style.css"> -->
+    <link rel="stylesheet" href="__PUBLIC__/home/css/case_list.css">
+    <link rel="stylesheet" href="__PUBLIC__/home/css/ad_gallery.css">
 </head>
 
 <body>
@@ -44,7 +45,7 @@
                     <a href="/case/index.html">实景样板间</a>
                 </li>
                 <li class="navlist">
-                    <a href="/about/index.html">关于我们</a>
+                    <a href="/about/index.html">装修资讯</a>
                 </li>
             </ul>
             <div class="tel-group">
@@ -141,10 +142,10 @@
                         <input type=hidden name=bid value=2>
                         <input type=hidden name=laiyuan id=laiyuan>
                         <input type=hidden name=chuangyi id=chuangyi>
-
-                        <input type="text " name="name" class="nickname input" id="name " placeholder="请输入您的称呼 " />
-                        <input type="number " name="mycall" class="phone input" id="mycall " placeholder="请输入您的手机号码，获取免费服务 " />
-                        <input type="submit " class="subtn2 " value="立即预约 " />
+                    
+                        <input type="text" name="name" class="nickname input" id="name " placeholder="请输入您的称呼 " />
+                        <input type="number" name="mycall" class="phone input" id="mycall " placeholder="请输入您的手机号码，获取免费服务 " />
+                        <input type="submit" class="subtn2 " value="立即预约 " />
                     </form>
                     <div class="info-show">
                         <p>*已有 <i>265</i> 位业主预约设计师</p>
@@ -203,50 +204,122 @@
         </div>
     </div>
     <!-- 底部展示begin -->
-    <div class="foot-info ">
-        <div class="bot-left ">
-            <h3>
-                <a href="/index.html ">
-                    <img src="../img/logo.png " alt=" ">
-                </a>
-            </h3>
-            <p>
-                <img src="../img/logo_bot.png " alt=" ">
-            </p>
-            <h5>
-                <img src="../img/address.png " alt=" ">
-                <span>贵州省贵阳市云岩区兴中元大厦3-4层</span>
-            </h5>
+    <div class="foot-container">
+            <div class="foot-info">
+                <div class="bot-left">
+                    <h3>
+                        <a href="/index.html">
+                            <img src="../img/logo.png" alt="">
+                        </a>
+                    </h3>
+                    <p>
+                        <img src="../img/logo_bot.png" alt="">
+                    </p>
+                </div>
+                <div class="hot-line">
+                    <p>
+                        <img src="../img/tel.png" alt="">
+                        <span>
+                            官方服务热线：
+                            <br/>
+                            <i>0851-86839697</i>
+                        </span>
+                    </p>
+                    <p>
+                        <img src="../img/service.png" alt="">
+                        <span>
+                            贵阳交换空间装饰工程有限公司
+                            <br/>
+                            <em>服务时间：9:00-22:00</em>
+                        </span>
+                    </p>
+                </div>
+                <div class="code-con">
+                    <img src="../img/code.png" alt="">
+                    <p>扫码关注微信公众号</p>
+                </div>
+            </div>
         </div>
-        <div class="bot-nav ">
-            <a href="/about/index.html ">关于我们</a>
-            <a href="/quote/index.html ">智能报价</a>
-            <a href="/design/index.html ">量房设计</a>
-            <a href="/case/index.html ">实景体验馆</a>
-            <a href="/product/index.html ">定制整装</a>
-            <a href="# ">商务合作</a>
-            <a href="# ">投诉建议</a>
-        </div>
-        <div class="code-con ">
-            <img src="../img/code.png " alt=" ">
-            <p>扫码关注微信公众号</p>
-        </div>
-    </div>
-    <div class="footer ">
-        <p>Copyright © 2018
-            <a href="http//www.jhkjgy.com ">www.jhkjgy.com</a> 贵阳交换空间装饰工程有限公司 版权所有 </p>
-        <p>
-            <a href="http://www.miitbeian.gov.cn/ " target="_blank ">黔ICP备18002532号</a>&nbsp&nbsp&nbsp
-            <script src="https://s13.cnzz.com/z_stat.php?id=1273005258&web_id=1273005258 " language="JavaScript "></script>
-        </p>
-    </div>
+    
+        <div class="footer">
+                <p class="bot-nav">
+                    <a href="/about/index.html">装修资讯</a>|<a href="/quote/index.html">智能报价</a>|<a href="/design/index.html">量房设计</a>|<a href="/case/index.html">实景体验馆</a>|<a href="/product/index.html">定制整装</a>|<a href="javascript:;">商务合作</a>|<a href="javascript:;">投诉建议</a>
+                </p>
+                <p>Copyright All Rights Reserved.&nbsp&nbsp贵阳交换空间装饰工程有限公司&nbsp&nbsp版权所有&nbsp&nbsp
+                    <script src="https://s13.cnzz.com/z_stat.php?id=1273005258&web_id=1273005258" language="JavaScript"></script>&nbsp&nbsp
+                    <span>公司地址：贵州省贵阳市云岩区兴中元大厦3-4层</span><br/>
+                    <a href="http://www.miitbeian.gov.cn/" target="_blank">黔ICP备18002532号</a>
+                </p>
+            </div>
     <!-- 表单 -->
+    <div class="float-box">
+            <div class="form-fixed">
+                <ul>
+                    <li class="f-lt">
+                        <img src="../img/hand.png" alt="">
+                    </li>
+                    <li class="f-title">
+                        <h3>现在预约</h3>
+                        <p>免费获取全房装修设计效果图</p>
+                    </li>
+                    <li class="f-form">
+                        <form class="form" name='feedback' method='post' enctype='multipart/form-data' action='/e/enews/index.php'>
+                            <input type=hidden name=ecmsfrom value="/">
+                            <input name='enews' type='hidden' value='AddFeedback'>
+                            <input name='title' type='hidden' value='底部固定预约'>
+                            <input type=hidden name=bid value=2>
+                            <input type=hidden name=laiyuan id=laiyuan>
+                            <input type=hidden name=chuangyi id=chuangyi>
+                            <input type="text" name="name" class="nickname" id="name" placeholder="请输入您的称呼" />
+                            <input type="number" name="mycall" class="phone" id="mycall" placeholder="请输入您的手机号码" />
+                            <input type="submit" class="subtn" value="立即预约" />
+                        </form>
+                    </li>
+                    <li class="colsebtn">
+                        <img src="../img/colse01.png" alt="">
+                    </li>
+                </ul>
+            </div>
+        </div>
+         <!-- 侧边栏导航 -->
+    <div class="slidebar">
+        <ul>
+            <li class="slidebar-list">
+                <a href="javascript:;">
+                    <div><img src="../img/icon-tel.png" alt=""></div>
+                    <p>在线咨询</p>
+                </a>
+            </li>
+            <li class="slidebar-list bt show-btn" data-layer="10">
+                <div><img src="../img/icon-order.png" alt=""></div>
+                <p>预约参观</p>
+            </li>
+            <li class="slidebar-list bt">
+                <a href="/quote/index.html">
+                    <div><img src="../img/icon-quote.png" alt=""></div>
+                    <p>免费报价</p>
+                </a>
+            </li>
+            <li class="slidebar-list bt code-hover">
+                <div><img src="../img/icon-code.png" alt=""></div>
+                <p>关注微信</p>
+            </li>
+            <li class="slidebar-list bt to-top">
+                <div><img src="../img/icon-top.png" alt=""></div>
+                <p>返回顶部</p>
+            </li>
+        </ul>
+        <div class="code">
+            <img src="../img/code.png" alt="">
+        </div>
+    </div>
     <script src="../js/jquery.js "></script>
     <script src="../js/swiper.js "></script>
     <script src="../js/wow.min.js "></script>
     <script src="../js/fdx.js "></script>
     <script src="../js/index.js "></script>
     <script src="../js/ad-gallery.js"></script>
+    <script src="../js/form.js"></script>
     <script>
             $(document).ready(function(e) {
                  var galleries = $('.ad-gallery').adGallery();

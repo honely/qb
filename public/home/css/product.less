@@ -23,6 +23,7 @@
             .ps-a;
             left: 0;
             top: 0;
+            cursor: pointer;
         }
         img{
             animation: toDown 4s linear infinite;
@@ -334,68 +335,14 @@
 .pro-logo-list:not(:nth-of-type(5n)){
     .mr(35px);
 }
-.logo-list1{
-    background: url(../img/pro-logo01.png) no-repeat center;
+.logo-hide{
+    .display(none);
 }
-.logo-list2{
-    background: url(../img/pro-logo02.png) no-repeat center;
+.show{
+    .display; 
 }
-.logo-list3{
-    background: url(../img/pro-logo03.png) no-repeat center;
-}
-.logo-list4{
-    background: url(../img/pro-logo04.png) no-repeat center;
-}
-.logo-list5{
-    background: url(../img/pro-logo05.png) no-repeat center;
-}
-.logo-list6{
-    background: url(../img/pro-logo06.png) no-repeat center;
-}
-.logo-list7{
-    background: url(../img/pro-logo07.png) no-repeat center;
-}
-.logo-list8{
-    background: url(../img/pro-logo08.png) no-repeat center;
-}
-.logo-list9{
-    background: url(../img/pro-logo09.png) no-repeat center;
-}
-.logo-list10{
-    background: url(../img/pro-logo010.png) no-repeat center;
-}
-.logo-hover{
-    background: url(../img/pro-logo11.png) no-repeat center;
-}
-.logo-list1:hover{
-    background: url(../img/pro-logo11.png) no-repeat center;
-}
-.logo-list2:hover{
-    background: url(../img/pro-logo12.png) no-repeat center;
-}
-.logo-list3:hover{
-    background: url(../img/pro-logo13.png) no-repeat center;
-}
-.logo-list4:hover{
-    background: url(../img/pro-logo14.png) no-repeat center;
-}
-.logo-list5:hover{
-    background: url(../img/pro-logo15.png) no-repeat center;
-}
-.logo-list6:hover{
-    background: url(../img/pro-logo16.png) no-repeat center;
-}
-.logo-list7:hover{
-    background: url(../img/pro-logo17.png) no-repeat center;
-}
-.logo-list8:hover{
-    background: url(../img/pro-logo18.png) no-repeat center;
-}
-.logo-list9:hover{
-    background: url(../img/pro-logo19.png) no-repeat center;
-}
-.logo-list10:hover{
-    background: url(../img/pro-logo110.png) no-repeat center;
+.hide{
+    .display(none);
 }
 // 德系工艺
 
@@ -480,7 +427,9 @@ lineimg{
 .case-show-list{
     .w(374px);
     .h(476px);
-    box-shadow: 0 1px 10px #eee;
+    box-shadow: 0 0 1px #eee;
+	-moz-box-shadow: 0 0 1px #eee;
+	-webkit-box-shadow: 0 0 1px #eee;
 }
 .case-img-box{
     .ps-r;
@@ -499,6 +448,8 @@ lineimg{
 }
 .case-show-list:hover{
     box-shadow: 0 1px 30px #ddd;
+	-moz-box-shadow: 0 1px 30px #ddd;
+	-webkit-box-shadow: 0 1px 30px #ddd;
     .sh-box{
         .scale(1);
     } 

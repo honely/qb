@@ -1,3 +1,4 @@
+<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:68:"D:\xampp\htdocs\qbl\public/../application/home\view\index\quote.html";i:1525773864;}*/ ?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -387,13 +388,13 @@
             <img src="../img/code.png" alt="">
         </div>
     </div>
-    <script src="__PUBLIC__/home/js/jquery.js "></script>
-    <script src="__PUBLIC__/home/js/swiper.js"></script>
-    <script src="__PUBLIC__/home/js/wow.min.js "></script>
-    <script src="__PUBLIC__/home/js/fdx.js "></script>
-    <script src="__PUBLIC__/home/js/index.js "></script>
-    <script src="__PUBLIC__/home/js/quote.js"></script>
-    <script src="__PUBLIC__/home/js/form.js"></script>
+    <script src="../js/jquery.js "></script>
+    <script src="../js/swiper.js"></script>
+    <script src="../js/wow.min.js "></script>
+    <script src="../js/fdx.js "></script>
+    <script src="../js/index.js "></script>
+    <script src="../js/quote.js"></script>
+    <script src="../js/form.js"></script>
 </body>
 
 </html>

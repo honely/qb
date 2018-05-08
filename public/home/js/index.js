@@ -38,33 +38,7 @@ $('#video').click(function() {
 	$('#player').show();
 });
 
-// ***************表单显示
 
-$('.visit-btn').click(function() {
-	$(this).parents('.btn-group').siblings('.form-wrap1').addClass('show');
-});
-
-$('.casebtn').click(function() {
-	$(this).parents('.case').siblings('.form-wrap3').addClass('show');
-});
-$('.orderbtn').click(function() {
-	$(this).parents('.valua-group').siblings('.form-wrap4').addClass('show');
-});
-$('.sub-btn1').click(function() {
-	$(this).parents('.server-show').siblings('.form-wrap4').addClass('show');
-});
-$('.sub-btn2').click(function() {
-	$(this).parents('.deploy').siblings('.form-wrap4').addClass('show');
-});
-$('.de-form-btn').click(function() {
-	$(this).parents('.deploy').siblings('.form-wrap2').addClass('show');
-});
-$('.form-btn1').click(function() {
-	$(this).parents('.finish-case').siblings('.form-wrap4').addClass('show');
-});
-$('.closebtn').click(function() {
-	$(this).parents('.form-wrap').removeClass('show');
-});
 // ******************************
 
 var c_width = document.documentElement.clientWidth;
@@ -129,13 +103,8 @@ $('.product-depict-list:not(:first)').hide();
 
 $('.pro-logo-show li').click(function() {
 	var $index = $(this).index();
-	// var $active = $(this).attr("data-img");
-	// $(".acitve").css({background:"url("+$active+") no-repeat center !important;"});
-	// $(this).addClass("active").siblings().removeClass("active");
-
-	// console.log();
-
-	$(this).css({ background: 'url(../img/pro-logo1' + ($index + 1) + '.png)' });
+	$(this).children(".logo-show").hide().siblings(".logo-hide").show();
+	$(this).siblings().children(".logo-show").show().siblings(".logo-hide").hide();
 	$(this)
 		.parents('.collect-show-rt')
 		.children('.product-depict')
@@ -188,7 +157,152 @@ var swiper = new Swiper('#swiper-container', {
 	slidesPerView: 3,
 	paginationClickable: true,
 	spaceBetween: 10,
-	mousewheelControl: true,
+	simulateTouch : false,
 	loop: true,
 	autoplay:2500,
 });
+
+
+// *********装修资讯**************
+
+var swiper = new Swiper('#swiper-container3', {
+	pagination: '.swiper-pagination',
+	direction: 'vertical',
+	slidesPerView: 3,
+	paginationClickable: true,
+	spaceBetween: 10,
+	simulateTouch : false,
+	loop: true,
+	autoplay:2500,
+});
+
+$(".tab-list-con:not(:first)").hide();
+$(".tabs").click(function(){
+	var $index=$(this).index();
+	$(this).addClass("actives").siblings().removeClass("actives");
+	$(this).parents(".tab-control").siblings(".tab-boxs").children(".tab-list-con").eq($index).show().siblings().hide();
+})
+
+$(".msgimg:not(:first)").hide();
+$(".info-case").mouseover(function(){
+	$(this).siblings(".msgimg").show();
+	$(this).parents(".info-case-show").siblings(".info-case-show").children(".msgimg").hide();
+})
+
+
+// ***************************************
+var m=true;
+var num=0
+$(".like").click(function(){
+	
+	if(m == true){
+		$(".click_like").attr("src","../img/zan02.png");
+		$(".click_like").parents(".like").css({"border":"1px solid #FF934D"});
+		$(".click_like").siblings(".likenum").css({"color":"#FF934D"})
+		num++;
+		$(".likenum").text(num);
+		m=false;
+	}else{
+		$(".click_like").attr("src","../img/zan01.png");
+		$(".click_like").parents(".like").css({"border":"1px solid #ddd"});
+		$(".click_like").siblings(".likenum").css({"color":"#ddd"})
+		num--;
+		$(".likenum").text(num);
+		m=true;
+	}
+})
+
+$(".like").hover(function(){
+	$(".click_like").attr("src","../img/zan02.png");
+		$(".click_like").parents(".like").css({"border":"1px solid #FF934D"});
+		$(".click_like").siblings(".likenum").css({"color":"#FF934D"})
+},function(){
+
+	$(".click_like").attr("src","../img/zan01.png");
+	$(".click_like").parents(".like").css({"border":"1px solid #ddd"});
+	$(".click_like").siblings(".likenum").css({"color":"#ddd"})
+
+}
+)
+
+// ***************************
+
+// 随机数................
+var t = 200; //在这里设置刷新时间，单位是毫秒，比如1秒钟就是1000
+var min = 100; //生成的最小的数字，比如200
+var max = 500000; //生成的最大的数字，比如500
+var maxx = 5000;
+
+
+window.onload = function() {
+	Refreshs();
+	setInterval('Refreshs();', t);
+};
+function Refreshs() {
+	document.getElementById('prices').innerHTML = parseInt(Math.random() * (max - min + 1) + min);
+	document.getElementById('prices1').innerHTML = parseInt(Math.random() * (maxx - min + 1) + min);
+	document.getElementById('prices2').innerHTML = parseInt(Math.random() * (maxx - min + 1) + min);
+	document.getElementById('prices3').innerHTML = parseInt(Math.random() * (maxx - min + 1) + min);
+	document.getElementById('prices4').innerHTML = parseInt(Math.random() * (maxx - min + 1) + min);
+}
+
+
+
+// *************************
+
+window._bd_share_config = {
+	common: {
+		bdSnsKey: {},
+		bdText: '',
+		bdMini: '1',
+		bdMiniList: false,
+		bdPic: '',
+		bdStyle: '1',
+		bdSize: '16'
+	},
+	share: {}
+};
+with (document)
+	(0)[
+		((getElementsByTagName('head')[0] || body).appendChild(createElement('script')).src =
+			'http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion=' + ~(-new Date() / 36e5))
+	];
+
+
+
+	// **************
+
+	$(".code-hover").hover(function(){
+		$(".code img").animate(
+			{
+				left:"0"
+			},500
+		)
+	},function(){
+		$(".code img").animate(
+			{
+				left:"130px"
+			}
+		)
+	}
+)
+
+$(".to-top").click(function(){
+	var top=0;
+	$("html,body").animate({scrollTop:top},500);
+})
+$(".slidebar").hide();
+$(document).scroll(function() {
+	var mytop = $(document).scrollTop();
+	if (mytop < 300) {
+		$(".slidebar").fadeOut();
+	}else{
+		$(".slidebar").fadeIn();
+	}
+});
+
+
+$(".to-down").click(function(){
+	var top=1000;
+	$("html,body").animate({scrollTop:top},500);
+})

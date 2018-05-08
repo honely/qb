@@ -5,6 +5,9 @@
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
   -webkit-tap-highlight-color: transparent;
 }
+img {
+  border: none;
+}
 html,
 body {
   background: #f5f5f5;
@@ -49,11 +52,6 @@ i {
 ul li,
 ul ol {
   list-style: none;
-}
-input,
-select,
-button {
-  -webkit-appearance: none;
 }
 input[type=number] {
   -moz-appearance: textfield;
@@ -146,7 +144,7 @@ input[type=number]::-webkit-outer-spin-button {
 .header .logo img {
   width: 100%;
 }
-.header .nav {
+.header .navs {
   display: -webkit-flex;
   display: flex;
   width: 500px;
@@ -177,14 +175,22 @@ input[type=number]::-webkit-outer-spin-button {
   margin-left: 10px;
   font-size: 18px;
 }
+.foot-container {
+  width: 100%;
+  height: auto;
+  overflow: hidden;
+  background: #ddd;
+}
 .foot-info {
   width: 1200px;
-  height: 290px;
-  margin: 0 auto;
+  height: 254px;
   padding: 50px 0;
+  margin: 0 auto;
 }
 .foot-info .bot-left {
+  display: inline-block;
   width: 300px;
+  margin-top: 7px;
   float: left;
 }
 .foot-info .bot-left p {
@@ -207,19 +213,37 @@ input[type=number]::-webkit-outer-spin-button {
   font-size: 14px;
   color: #666;
 }
-.foot-info .bot-nav {
+.foot-info .hot-line {
+  display: inline-block;
   width: 400px;
-  float: left;
-  text-align: center;
-  margin-left: 200px;
+  margin-left: 230px;
 }
-.foot-info .bot-nav a {
+.foot-info .hot-line p {
+  height: auto;
+  overflow: hidden;
+  margin-top: 10px;
+}
+.foot-info .hot-line p img {
+  display: inline-block;
+  float: left;
+}
+.foot-info .hot-line p span {
+  display: inline-block;
+  color: #333;
   font-size: 16px;
+  margin-left: 15px;
+  float: left;
+}
+.foot-info .hot-line p span i {
+  color: #37A89D;
+  font-size: 18px;
+}
+.foot-info .hot-line p span em {
   color: #666;
-  padding: 0 14px;
-  line-height: 30px;
+  font-size: 14px;
 }
 .foot-info .code-con {
+  display: inline-block;
   width: 140px;
   text-align: center;
   float: right;
@@ -233,14 +257,23 @@ input[type=number]::-webkit-outer-spin-button {
   width: 100%;
   height: 105px;
   background: #000;
-  color: #fff;
+  color: #999;
   font-size: 14px;
   text-align: center;
-  line-height: 30px;
-  padding: 25px 0;
+  line-height: 26px;
+  padding: 16px 0;
 }
 .footer a {
-  color: #fff;
+  color: #999;
+}
+.footer .bot-nav a {
+  font-size: 14px;
+  color: #999;
+  margin-left: 8px;
+  margin-right: 8px;
+}
+.footer .bot-nav a:hover {
+  color: #37A89D;
 }
 .float-box {
   width: 100%;
@@ -320,6 +353,8 @@ input[type=number]::-webkit-outer-spin-button {
   border: none;
   outline: none;
   cursor: pointer;
+  text-align: center;
+  font-size: 14px;
 }
 .float-box .subtn:hover {
   background: #2e958b;
@@ -359,6 +394,55 @@ input[type=number]::-webkit-outer-spin-button {
     /* Opera */
   }
 }
+.slidebar {
+  width: 100px;
+  height: 318px;
+  position: fixed;
+  right: 20px;
+  top: 0;
+  bottom: 0;
+  margin: auto 0;
+  z-index: 660;
+  text-align: center;
+}
+.slidebar ul {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  border-radius: 10px;
+  background: rgba(75, 218, 204, 0.3);
+}
+.slidebar-list {
+  width: 100%;
+  height: 62px;
+  background: rgba(0, 0, 0, 0.5);
+  padding: 4px 0;
+  cursor: pointer;
+  color: #fff;
+}
+.slidebar-list a {
+  color: #fff;
+}
+.bt {
+  margin-top: 2px;
+}
+.slidebar-list:hover {
+  background: rgba(55, 168, 157, 0.5);
+}
+.code {
+  width: 130px;
+  height: 120px;
+  position: absolute;
+  left: -130px;
+  bottom: 36px;
+  overflow: hidden;
+}
+.code img {
+  width: 120px;
+  position: absolute;
+  left: 130px;
+  top: 0;
+}
 .ban-group {
   width: 100%;
   height: auto;
@@ -382,6 +466,7 @@ input[type=number]::-webkit-outer-spin-button {
   position: absolute;
   left: 0;
   top: 0;
+  cursor: pointer;
 }
 .ban-group .to-down img {
   animation: toDown 4s linear infinite;
@@ -724,68 +809,14 @@ input[type=number]::-webkit-outer-spin-button {
 .pro-logo-list:not(:nth-of-type(5n)) {
   margin-right: 35px;
 }
-.logo-list1 {
-  background: url(../img/pro-logo01.png) no-repeat center;
+.logo-hide {
+  display: none;
 }
-.logo-list2 {
-  background: url(../img/pro-logo02.png) no-repeat center;
+.show {
+  display: block;
 }
-.logo-list3 {
-  background: url(../img/pro-logo03.png) no-repeat center;
-}
-.logo-list4 {
-  background: url(../img/pro-logo04.png) no-repeat center;
-}
-.logo-list5 {
-  background: url(../img/pro-logo05.png) no-repeat center;
-}
-.logo-list6 {
-  background: url(../img/pro-logo06.png) no-repeat center;
-}
-.logo-list7 {
-  background: url(../img/pro-logo07.png) no-repeat center;
-}
-.logo-list8 {
-  background: url(../img/pro-logo08.png) no-repeat center;
-}
-.logo-list9 {
-  background: url(../img/pro-logo09.png) no-repeat center;
-}
-.logo-list10 {
-  background: url(../img/pro-logo010.png) no-repeat center;
-}
-.logo-hover {
-  background: url(../img/pro-logo11.png) no-repeat center;
-}
-.logo-list1:hover {
-  background: url(../img/pro-logo11.png) no-repeat center;
-}
-.logo-list2:hover {
-  background: url(../img/pro-logo12.png) no-repeat center;
-}
-.logo-list3:hover {
-  background: url(../img/pro-logo13.png) no-repeat center;
-}
-.logo-list4:hover {
-  background: url(../img/pro-logo14.png) no-repeat center;
-}
-.logo-list5:hover {
-  background: url(../img/pro-logo15.png) no-repeat center;
-}
-.logo-list6:hover {
-  background: url(../img/pro-logo16.png) no-repeat center;
-}
-.logo-list7:hover {
-  background: url(../img/pro-logo17.png) no-repeat center;
-}
-.logo-list8:hover {
-  background: url(../img/pro-logo18.png) no-repeat center;
-}
-.logo-list9:hover {
-  background: url(../img/pro-logo19.png) no-repeat center;
-}
-.logo-list10:hover {
-  background: url(../img/pro-logo110.png) no-repeat center;
+.hide {
+  display: none;
 }
 .process {
   width: 1200px;
@@ -873,7 +904,9 @@ lineimg {
 .case-show-list {
   width: 374px;
   height: 476px;
-  box-shadow: 0 1px 10px #eee;
+  box-shadow: 0 0 1px #eee;
+  -moz-box-shadow: 0 0 1px #eee;
+  -webkit-box-shadow: 0 0 1px #eee;
 }
 .case-img-box {
   position: relative;
@@ -904,6 +937,8 @@ lineimg {
 }
 .case-show-list:hover {
   box-shadow: 0 1px 30px #ddd;
+  -moz-box-shadow: 0 1px 30px #ddd;
+  -webkit-box-shadow: 0 1px 30px #ddd;
 }
 .case-show-list:hover .sh-box {
   transform: scale(1);
