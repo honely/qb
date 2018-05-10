@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:3:{s:71:"D:\xampp\htdocs\qbl\public/../application/index\view\user\userback.html";i:1525744259;s:71:"D:\xampp\htdocs\qbl\public/../application/index\view\indexs\header.html";i:1525742386;s:71:"D:\xampp\htdocs\qbl\public/../application/index\view\indexs\footer.html";i:1525742360;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:3:{s:71:"D:\xampp\htdocs\qbl\public/../application/index\view\user\userback.html";i:1525935274;s:71:"D:\xampp\htdocs\qbl\public/../application/index\view\indexs\header.html";i:1525742386;s:71:"D:\xampp\htdocs\qbl\public/../application/index\view\indexs\footer.html";i:1525742360;}*/ ?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -79,7 +79,9 @@
         <thead>
         <tr>
             <td>全选<input type="checkbox" lay-skin="primary" lay-filter="checkAll"  id="checkAll"/></td>
+            <td>用户编号</td>
             <td>预约城市</td>
+            <td>预约站点</td>
             <td>预约时间</td>
             <td>客户姓名</td>
             <td>联系方式</td>
@@ -88,6 +90,7 @@
             <td>网址入口+位置</td>
             <!--<td>用户IP</td>-->
             <td>推广来源</td>
+            <td>系统来源</td>
             <td>推广创意</td>
             <td>关键词</td>
             <td>标记状态</td>
@@ -100,10 +103,11 @@
         <?php if(is_array($userBack) || $userBack instanceof \think\Collection || $userBack instanceof \think\Paginator): $i = 0; $__LIST__ = $userBack;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$cus): $mod = ($i % 2 );++$i;?>
         <tr>
             <td>
-                <!--<?php echo $cus['cus_id']; ?>-->
                 <input type="checkbox" lay-skin="primary" class="checks" value="<?php echo $cus['cus_id']; ?>"/>
             </td>
+            <td><?php echo $cus['cus_bid']; ?></td>
             <td><?php echo $cus['p_name']; ?>-<?php echo $cus['c_name']; ?></td>
+            <td><?php echo $cus['b_name']; ?></td>
             <td><?php echo $cus['cus_opptime']; ?></td>
             <td><?php echo $cus['cus_name']; ?></td>
             <td><?php echo $cus['cus_phone']; ?></td>
@@ -112,9 +116,10 @@
             <td><?php echo $cus['cus_link']; ?><br/><?php echo $cus['cus_position']; ?></td>
             <!--<td><?php echo $cus['cus_ip']; ?></td>-->
             <td><?php echo $cus['cus_from']; ?></td>
+            <td><?php echo $cus['cus_sys']; ?></td>
             <td><?php echo $cus['cus_origin']; ?></td>
             <td><?php echo $cus['cus_keywords']; ?></td>
-            <td><?php echo $cus['cus_status']; ?></td>
+            <td><?php echo $cus['type_name']; ?></td>
             <td><?php echo $cus['cus_opeater']; ?></td>
             <td><?php echo $cus['cus_backtime']; ?></td>
             <td>

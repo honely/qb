@@ -21,9 +21,18 @@ class Building extends Controller{
 
     //小区楼盘
     public function builds(){
-        $city_id=intval(session('ad_c_id'));
-        $where=" bu_c_id = ".$city_id;
+        $ad_role=intval(session('ad_role'));
+        //分站id
+        $ad_branch = intval(session('ad_branch'));
+        if($ad_role == 1 ){// 超级管理员
+            $where =' 1 = 1';
+        }else{
+            $where=' bu_branch = '.$ad_branch;
+        }
         $count=Db::table('qbl_buildings')
+                ->join('qbl_province','qbl_province.p_id = qbl_buildings.bu_p_id')
+                ->join('qbl_city','qbl_city.c_id = qbl_buildings.bu_c_id')
+                ->join('qbl_branch','qbl_branch.b_id = qbl_buildings.bu_branch')
                 ->where($where)
                 ->count();
         $page= $this->request->param('page',1,'intval');
@@ -31,6 +40,7 @@ class Building extends Controller{
         $builds=Db::table('qbl_buildings')
             ->join('qbl_province','qbl_province.p_id = qbl_buildings.bu_p_id')
             ->join('qbl_city','qbl_city.c_id = qbl_buildings.bu_c_id')
+            ->join('qbl_branch','qbl_branch.b_id = qbl_buildings.bu_branch')
             ->limit(($page-1)*$limit,$limit)
             ->where($where)
             ->order('bu_id desc')
@@ -54,6 +64,7 @@ class Building extends Controller{
             $data['bu_p_id'] = $_POST['bu_p_id'];
             $data['bu_img_alt'] = $_POST['bu_img_alt'];
             $data['bu_c_id'] = $_POST['bu_c_id'];
+            $data['bu_branch'] = $_POST['bu_branch'];
             $data['bu_img'] = $_POST['bu_img'];
             $data['bu_seo_title'] = $_POST['bu_seo_title'];
             $data['bu_seo_keywords'] = $_POST['bu_seo_keywords'];
@@ -85,6 +96,7 @@ class Building extends Controller{
             $data['bu_address'] = $_POST['bu_address'];
             $data['bu_p_id'] = $_POST['bu_p_id'];
             $data['bu_c_id'] = $_POST['bu_c_id'];
+            $data['bu_branch'] = $_POST['bu_branch'];
             $data['bu_img'] = $_POST['bu_img'];
             $data['bu_img_alt'] = $_POST['bu_img_alt'];
             $data['bu_seo_title'] = $_POST['bu_seo_title'];
@@ -105,6 +117,9 @@ class Building extends Controller{
             $provInfo=Db::table('qbl_province')->select();
             $provid=$buildsInfo['bu_p_id'];
             $cusCity=Db::table('qbl_city')->where(['p_id' => $provid])->select();
+            $c_id=$buildsInfo['bu_c_id'];
+            $branch=Db::table('qbl_branch')->where(['b_city' =>$c_id ])->field('b_id,b_name')->select();
+            $this->assign('branchs',$branch);
             $this->assign('prov',$provInfo);
             $this->assign('city',$cusCity);
             $this->assign('builds',$buildsInfo);

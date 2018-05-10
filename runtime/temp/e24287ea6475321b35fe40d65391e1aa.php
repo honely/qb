@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:3:{s:68:"D:\xampp\htdocs\qbl\public/../application/index\view\admin\role.html";i:1525765104;s:71:"D:\xampp\htdocs\qbl\public/../application/index\view\indexs\header.html";i:1525742386;s:71:"D:\xampp\htdocs\qbl\public/../application/index\view\indexs\footer.html";i:1525742360;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:3:{s:68:"D:\xampp\htdocs\qbl\public/../application/index\view\admin\role.html";i:1525922502;s:71:"D:\xampp\htdocs\qbl\public/../application/index\view\indexs\header.html";i:1525742386;s:71:"D:\xampp\htdocs\qbl\public/../application/index\view\indexs\footer.html";i:1525742360;}*/ ?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -49,7 +49,7 @@
                             <td><?php echo $na['r_name']; ?></td>
                             <td>
                                 <button class="layui-btn layui-btn-sm" onclick="editRole(<?php echo $na['r_id']; ?>)"><i class="layui-icon">&#xe642;</i></button>
-                                <button class="layui-btn layui-btn-sm" onclick="delRole(<?php echo $na['r_id']; ?>)" data-type="test2"><i class="layui-icon">&#xe640;</i></button>
+                                <!--<button class="layui-btn layui-btn-sm" onclick="delRole(<?php echo $na['r_id']; ?>)" data-type="test2"><i class="layui-icon">&#xe640;</i></button>-->
                             </td>
                         </tr>
                         <?php endforeach; endif; else: echo "" ;endif; ?>

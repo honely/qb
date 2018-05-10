@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:68:"D:\xampp\htdocs\qbl\public/../application/home\view\index\quote.html";i:1525773864;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:68:"D:\xampp\htdocs\qbl\public/../application/home\view\index\quote.html";i:1525945294;}*/ ?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -27,22 +27,22 @@
             </div>
             <ul class="navs">
                 <li class="navlist">
-                    <a href="/index.html">首页</a>
+                    <a href="<?=url('index/index')?>">首页</a>
                 </li>
                 <li class="navlist">
-                    <a href="/product/index.html">定制整装</a>
+                    <a href="<?=url('index/product')?>">定制整装</a>
                 </li>
                 <li class="navlist">
-                    <a href="/design/index.html">量房设计</a>
+                    <a href="<?=url('index/design')?>">量房设计</a>
                 </li>
                 <li class="navlist cur">
-                    <a href="/quote/index.html">智能报价</a>
+                    <a href="<?=url('index/quote')?>">智能报价</a>
                 </li>
                 <li class="navlist">
-                    <a href="/case/index.html">实景样板间</a>
+                    <a href="<?=url('index/demo')?>">实景样板间</a>
                 </li>
                 <li class="navlist">
-                    <a href="/about/index.html">装修资讯</a>
+                    <a href="<?=url('index/about')?>">装修资讯</a>
                 </li>
             </ul>
             <div class="tel-group">
@@ -62,7 +62,7 @@
                 <br/>3秒钟获取个性化的装修价格清单，轻松避开后期增强陷阱</p>
             <div class="quote-con">
                 <div class="quote-top">
-                    <form class="form-quote" name='feedback' method='post' enctype='multipart/form-data' action='/e/enews/index.php'>
+                    <form class="form-quote" name='feedback' method='post' enctype='multipart/form-data' action="<?=url('index/index')?>">
                         <h3 class="form-title">
                             <span>装修计算器</span>
                             <i>今日已有
@@ -328,7 +328,7 @@
                     <p>免费获取全房装修设计效果图</p>
                 </li>
                 <li class="f-form">
-                    <form class="form" name='feedback' method='post' enctype='multipart/form-data' action='/e/enews/index.php'>
+                    <form class="form" name='feedback' method='post' enctype='multipart/form-data' action="<?=url('index/index')?>">
                         <input type=hidden name=ecmsfrom value="/">
                         <input name='enews' type='hidden' value='AddFeedback'>
                         <input name='title' type='hidden' value='底部固定预约'>
@@ -388,13 +388,13 @@
             <img src="../img/code.png" alt="">
         </div>
     </div>
-    <script src="../js/jquery.js "></script>
-    <script src="../js/swiper.js"></script>
-    <script src="../js/wow.min.js "></script>
-    <script src="../js/fdx.js "></script>
-    <script src="../js/index.js "></script>
-    <script src="../js/quote.js"></script>
-    <script src="../js/form.js"></script>
+    <script src="__PUBLIC__/home/js/jquery.js "></script>
+    <script src="__PUBLIC__/home/js/swiper.js"></script>
+    <script src="__PUBLIC__/home/js/wow.min.js "></script>
+    <script src="__PUBLIC__/home/js/fdx.js "></script>
+    <script src="__PUBLIC__/home/js/index.js "></script>
+    <script src="__PUBLIC__/home/js/quote.js"></script>
+    <script src="__PUBLIC__/home/js/form.js"></script>
 </body>
 
 </html>

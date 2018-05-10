@@ -200,7 +200,7 @@ class Admin extends Controller{
                 $menuList[$k]['child'] = Db::table('qbl_menu')->where(['m_fid' => $v['m_id'], 'm_type' => '1'])->select();
                 //操作方法；
                 foreach($menuList[$k]['child'] as $key =>$val){
-                    $menuList[$k]['child'][$key]['children']= Db::table('qbl_menu')->where(['m_fid' => $v['m_id'], 'm_type' => '2'])->select();
+                    $menuList[$k]['child'][$key]['children']= Db::table('qbl_menu')->where(['m_fid' => $val['m_id'], 'm_type' => '2'])->select();
                 }
             }
             $this->assign('menuList',$menuList);
@@ -244,7 +244,7 @@ class Admin extends Controller{
                 $menuList[$k]['child'] = Db::table('qbl_menu')->where(['m_fid' => $v['m_id'], 'm_type' => '1'])->select();
                 //操作方法；
                 foreach($menuList[$k]['child'] as $key =>$val){
-                    $menuList[$k]['child'][$key]['children']= Db::table('qbl_menu')->where(['m_fid' => $v['m_id'], 'm_type' => '2'])->select();
+                    $menuList[$k]['child'][$key]['children']= Db::table('qbl_menu')->where(['m_fid' => $val['m_id'], 'm_type' => '2'])->select();
                 }
             }
             $this->assign('menuList',$menuList);
@@ -289,16 +289,24 @@ class Admin extends Controller{
         if(isset($_GET['m_id'])){
             $m_fid=intval($_GET['m_id']);
         }
-        $where=" m_fid = ".$m_fid." ";
+        //查看他是否为顶级菜单
+        $isTopMenu=Db::table('qbl_menu')->where(['m_id' => $m_fid])->find();
+        $istop=$isTopMenu['m_fid'];
+        if($istop == 0 ){
+            $where=" m_fid = ".$m_fid." and m_type = 1 ";
+//            $where=" m_fid = ".$m_fid;
+        }else{
+            $where=" m_fid = ".$m_fid." and m_type = 2 ";
+//            $where=" m_fid = ".$m_fid;
+        }
         $count=Db::table('qbl_menu')
-            ->where(['m_type' => '1'])
             ->where($where)
             ->count();
         $page= $this->request->param('page',1,'intval');
         $limit=$this->request->param('limit',10,'intval');
         $menuList=Db::table('qbl_menu')
-            ->where(['m_type' => '1'])
             ->where($where)
+//            ->fetchSql(true)
             ->order('m_id desc')
             ->limit(($page-1)*$limit,$limit)
             ->select();

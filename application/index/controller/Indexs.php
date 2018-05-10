@@ -48,7 +48,7 @@ class Indexs extends Controller
         return  $this->fetch();
     }
 
-    public function index(){
+    public function index_1(){
         //获取管理员信息
         $adminId=session('adminId');
         $adminInfo=Db::table('qbl_admin')->where(['ad_id' => $adminId])->find();
@@ -63,6 +63,54 @@ class Indexs extends Controller
         $this->assign('menuList',$menuList);
         return  $this->fetch();
     }
+
+ public function index(){
+        $adminId = session('adminId');
+        $userData = Db::table("qbl_admin")
+                    ->alias('admin')
+                    ->join('qbl_role role',"admin.ad_role=role.r_id")
+                    ->where(['admin.ad_id' => $adminId])
+                    ->find();
+        if($userData){
+            $power_list = explode(',',trim($userData['r_power'],','));
+            if($power_list){
+                foreach ($power_list as $val){
+                    $menu_list = Db::table("qbl_menu")
+                                 ->where(['m_id' =>$val])
+                                 ->find();
+                    $powerData[] = $menu_list;
+                }
+            }
+        };
+        if($powerData){
+            $parentData = [];
+            foreach ($powerData as $key => $val){
+                if($val['m_fid'] == 0 && $val['m_type'] == 1){
+                    $parentData[] = $val;
+                }
+            }
+            foreach ($powerData as $key => $val){
+                if($val['m_fid'] != 0 && $val['m_type'] == 1){
+                    if(!empty($parentData)){
+                        foreach ($parentData as $k => $v){
+                            if($v !== null){
+                                if($v['m_id'] == $val['m_fid']){
+                                    $parentData[$k]['child'][] = $val;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        $adminInfo=Db::table('qbl_admin')->where(['ad_id' => $adminId])->find();
+        $this->assign('admin',$adminInfo);
+        $this->assign('menuList',$parentData);
+        return  $this->fetch();
+    }
+
+
+
 
     //重置密码
     public function resetpwd(){

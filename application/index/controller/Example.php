@@ -60,6 +60,7 @@ class Example extends Controller{
             $data['case_style']=$_POST['case_style'];
             $data['case_p_id']=$_POST['case_p_id'];
             $data['case_c_id']=$_POST['case_c_id'];
+            $data['case_b_id']=$_POST['case_b_id'];
             $data['case_price']=$_POST['case_price'];
             $data['case_type']=$_POST['dinner'].",".$_POST['room'].",".$_POST['wash'];
             $data['case_bulid']=$_POST['case_bulid'];
@@ -112,6 +113,7 @@ class Example extends Controller{
             $data['case_style']=$_POST['case_style'];
             $data['case_p_id']=$_POST['case_p_id'];
             $data['case_c_id']=$_POST['case_c_id'];
+            $data['case_b_id']=$_POST['case_b_id'];
             $data['case_price']=$_POST['case_price'];
             $data['case_type']=$_POST['dinner'].",".$_POST['room'].",".$_POST['wash'];
             $data['case_bulid']=$_POST['case_bulid'];
@@ -153,7 +155,10 @@ class Example extends Controller{
             $artInfo['case_img_desc']=explode(',',$artInfo['case_img_desc']);
             $artInfo['case_type']=explode(',',$artInfo['case_type']);
             $provId=$artInfo['case_p_id'];
+            $c_id=$artInfo['case_c_id'];
             $city=Db::table('qbl_city')->where(['p_id' => $provId])->select();
+            $branchs=Db::table('qbl_branch')->where(['b_city' =>$c_id ])->field('b_id,b_name')->select();
+            $this->assign('branchs',$branchs);
             $this->assign('city',$city);
             $this->assign('case',$artInfo);
             return $this->fetch();

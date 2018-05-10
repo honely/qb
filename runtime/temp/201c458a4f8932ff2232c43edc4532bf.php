@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:3:{s:71:"D:\xampp\htdocs\qbl\public/../application/index\view\admin\addrole.html";i:1525764985;s:71:"D:\xampp\htdocs\qbl\public/../application/index\view\indexs\header.html";i:1525742386;s:71:"D:\xampp\htdocs\qbl\public/../application/index\view\indexs\footer.html";i:1525742360;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:3:{s:71:"D:\xampp\htdocs\qbl\public/../application/index\view\admin\addrole.html";i:1525920502;s:71:"D:\xampp\htdocs\qbl\public/../application/index\view\indexs\header.html";i:1525742386;s:71:"D:\xampp\htdocs\qbl\public/../application/index\view\indexs\footer.html";i:1525742360;}*/ ?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -44,7 +44,8 @@
                                 <h2 class="layui-colla-title"><input class="checkChild checks" type="checkbox" lay-filter="checkFun" value="<?php echo $child['m_id']; ?>" lay-skin="primary" /><?php echo $child['m_name']; ?></h2>
                                 <div class="layui-colla-content layui-show">
                                     <?php if(is_array($child['children']) || $child['children'] instanceof \think\Collection || $child['children'] instanceof \think\Paginator): $i = 0; $__LIST__ = $child['children'];if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$children): $mod = ($i % 2 );++$i;?>
-                                    <input type="checkbox" class="checkFun checks" value="<?php echo $children['m_id']; ?>" lay-skin="primary" /><?php echo $children['m_name']; endforeach; endif; else: echo "" ;endif; ?>
+                                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="checkbox" class="checkFun checks" value="<?php echo $children['m_id']; ?>" lay-skin="primary" /><?php echo $children['m_name']; ?>&nbsp;&nbsp;&nbsp;&nbsp;
+                                    <?php endforeach; endif; else: echo "" ;endif; ?>
                                 </div>
                             </div>
                             <?php endforeach; endif; else: echo "" ;endif; ?>

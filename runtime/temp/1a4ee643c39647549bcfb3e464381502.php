@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:3:{s:72:"D:\xampp\htdocs\qbl\public/../application/index\view\admin\editmenu.html";i:1525748900;s:71:"D:\xampp\htdocs\qbl\public/../application/index\view\indexs\header.html";i:1525742386;s:71:"D:\xampp\htdocs\qbl\public/../application/index\view\indexs\footer.html";i:1525742360;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:3:{s:72:"D:\xampp\htdocs\qbl\public/../application/index\view\admin\editmenu.html";i:1525943852;s:71:"D:\xampp\htdocs\qbl\public/../application/index\view\indexs\header.html";i:1525742386;s:71:"D:\xampp\htdocs\qbl\public/../application/index\view\indexs\footer.html";i:1525742360;}*/ ?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -35,7 +35,6 @@
                 <label class="layui-form-label">菜单父级</label>
                 <div class="layui-input-block">
                     <input type="text" lay-verify="required" value="<?php echo $finfo['m_name']; ?>" readonly autocomplete="off" class="layui-input">
-                    <input type="text" name="m_fid" value="<?php echo $finfo['m_id']; ?>" class="layui-input">
                 </div>
             </div>
             <div class="layui-form-item">

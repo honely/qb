@@ -22,7 +22,7 @@
                                 <h2 class="layui-colla-title"><input class="checkChild checks" type="checkbox" lay-filter="checkFun" value="{$child.m_id}" lay-skin="primary" />{$child.m_name}</h2>
                                 <div class="layui-colla-content layui-show">
                                     {volist name="child.children" id="children"}
-                                    <input type="checkbox" class="checkFun checks" value="{$children.m_id}" lay-skin="primary" />{$children.m_name}
+                                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="checkbox" class="checkFun checks" value="{$children.m_id}" lay-skin="primary" />{$children.m_name}&nbsp;&nbsp;&nbsp;&nbsp;
                                     {/volist}
                                 </div>
                             </div>

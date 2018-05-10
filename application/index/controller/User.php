@@ -22,26 +22,34 @@ class User extends Controller{
     }
     //客户列表
     public function userlist(){
-        $city_id=intval(session('ad_c_id'));
-        $where='cus_isdelete = 1 and  cus_cityid = '.$city_id;
+        $where=" 1 = 1";
+        //根据role_id 去判断这个登录的人是超管 1  ？站长 6？ 客服 8  ？ 推广 12 ；目前就是这4个身份；
+        $ad_role=intval(session('ad_role'));
+        //分站id
+        $ad_branch = intval(session('ad_branch'));
+        if($ad_role == 1 ){// 超级管理员
+            $where.=' and cus_isdelete = 1';
+        }else{
+            $where='cus_isdelete = 1 and  cus_branchid = '.$ad_branch;
+        }
         if($_GET){
-            if($_GET['keywords']){
+            if(isset($_GET['keywords']) && !empty($_GET['keywords'])){
                 $where.=" and ( cus_name like '%".$_GET['keywords']."%' or cus_phone like '%".$_GET['keywords']."%' )";
                 $this->assign('keywords',$_GET['keywords']);
             }
-            if($_GET['cus_status']){
+            if(isset($_GET['cus_status']) && !empty($_GET['cus_status'])){
                 $where.=" and cus_status = ".$_GET['cus_status'];
                 $this->assign('cus_status',$_GET['cus_status']);
             }
-            if($_GET['cus_sys']){
+            if(isset($_GET['cus_sys']) && !empty($_GET['cus_sys'])){
                 $where.=" and cus_sys = ".$_GET['cus_sys'];
                 $this->assign('cus_sys',$_GET['cus_sys']);
             }
-//            if($_GET['cus_via']){
+//            if(issent($_GET['cus_via']) && !empty($_GET['cus_via'])){
 //                $where.=" and cus_via = ".$_GET['cus_via'];
 //                $this->assign('cus_from',$_GET['cus_from']);
 //            }
-            if($_GET['cus_opptime']){
+            if(isset($_GET['cus_opptime']) && !empty($_GET['cus_opptime'])){
                 $cus_opptime=$_GET['cus_opptime'];
                 $sdate=strtotime(substr($cus_opptime,'0','10')." 00:00:00");
                 $edate=strtotime(substr($cus_opptime,'-10')." 23:59:59");
@@ -51,14 +59,18 @@ class User extends Controller{
         }
         //分页统计总数；
         $count=Db::table('qbl_customer')
-            ->join('qbl_province','qbl_customer.cus_provid = qbl_province.p_id')
-            ->join('qbl_city','qbl_customer.cus_cityid = qbl_city.c_id')
+                    ->join('qbl_province','qbl_customer.cus_provid = qbl_province.p_id')
+                    ->join('qbl_city','qbl_customer.cus_cityid = qbl_city.c_id')
+                    ->join('qbl_branch','qbl_customer.cus_branchid = qbl_branch.b_id')
+                    ->join('qbl_type','qbl_customer.cus_status = qbl_type.type_id')
                     ->where($where)->count();
         $page= $this->request->param('page',1,'intval');
         $limit=$this->request->param('limit',10,'intval');
         $cusInfo=Db::table('qbl_customer')
             ->join('qbl_province','qbl_customer.cus_provid = qbl_province.p_id')
             ->join('qbl_city','qbl_customer.cus_cityid = qbl_city.c_id')
+            ->join('qbl_branch','qbl_customer.cus_branchid = qbl_branch.b_id')
+            ->join('qbl_type','qbl_customer.cus_status = qbl_type.type_id')
             ->where($where)
             ->limit(($page-1)*$limit,$limit)
             ->order('cus_id desc')
@@ -66,7 +78,10 @@ class User extends Controller{
         foreach($cusInfo as $k => $v){
             $cusInfo[$k]['cus_opptime']=date('Y-m-d H:i:s',$v['cus_opptime']);
             $cusInfo[$k]['cus_backtime']=date('Y-m-d H:i:s',$v['cus_backtime']);
-            $cusInfo[$k]['cus_phone'] = substr_replace($v['cus_phone'],'****',3,4);
+            $cusInfo[$k]['cus_sys']=$v['cus_sys'] == 1  ? '手机端': 'PC端';
+            if($ad_role == 12){
+                $cusInfo[$k]['cus_phone'] = substr_replace($v['cus_phone'],'****',3,4);
+            }
         }
         //获取客户标签
         $userTip=Db::table('qbl_type')
@@ -77,10 +92,17 @@ class User extends Controller{
 //        $extends=Db::table('qbl_extend')->where(['ex_isable' =>'1'])->field('ex_id,ex_name')->select();
 //        $this->assign('extends',$extends);
         $this->assign('userTip',$userTip);
+        $this->assign('ad_role',$ad_role);
         $this->assign('cusInfo',$cusInfo);
         $this->assign('count',$count);
         $this->assign('page',$page);
         $this->assign('limit',$limit);
+        if($ad_role == 12 ){ //推广
+            return $this->fetch('spread');
+        }
+        if($ad_role == 8 ){ // 客服
+            return $this->fetch('cusservice');
+        }
         return $this->fetch();
     }
     //客户列表style2
@@ -197,26 +219,34 @@ class User extends Controller{
 
     //回收站
     public function userBack(){
-        $city_id = intval(session('ad_c_id'));
-        $where = ' cus_isdelete = 2 and  cus_cityid = '.$city_id;
+        $where=" 1 = 1";
+        //根据role_id 去判断这个登录的人是超管 1  ？站长 6？ 客服 8  ？ 推广 12 ；目前就是这4个身份；
+        $ad_role = intval(session('ad_role'));
+        //分站id
+        $ad_branch = intval(session('ad_branch'));
+        if($ad_role == 1 ){// 超级管理员
+            $where.=' and cus_isdelete = 2';
+        }else{
+            $where='cus_isdelete = 2 and  cus_branchid = '.$ad_branch;
+        }
         if($_GET){
-            if($_GET['keywords']){
+            if(isset($_GET['keywords']) && !empty($_GET['keywords'])){
                 $where.=" and ( cus_name like '%".$_GET['keywords']."%' or cus_phone like '%".$_GET['keywords']."%' )";
                 $this->assign('keywords',$_GET['keywords']);
             }
-            if($_GET['cus_status']){
+            if(isset($_GET['cus_status']) && !empty($_GET['cus_status'])){
                 $where.=" and cus_status = ".$_GET['cus_status'];
                 $this->assign('cus_status',$_GET['cus_status']);
             }
-            if($_GET['cus_sys']){
+            if(isset($_GET['cus_sys']) && !empty($_GET['cus_sys'])){
                 $where.=" and cus_sys = ".$_GET['cus_sys'];
                 $this->assign('cus_sys',$_GET['cus_sys']);
             }
-//            if($_GET['cus_via']){
+//            if(issent($_GET['cus_via']) && !empty($_GET['cus_via'])){
 //                $where.=" and cus_via = ".$_GET['cus_via'];
-////                $this->assign('cus_via',$_GET['cus_via']);
+//                $this->assign('cus_from',$_GET['cus_from']);
 //            }
-            if($_GET['cus_opptime']){
+            if(isset($_GET['cus_opptime']) && !empty($_GET['cus_opptime'])){
                 $cus_opptime=$_GET['cus_opptime'];
                 $sdate=strtotime(substr($cus_opptime,'0','10')." 00:00:00");
                 $edate=strtotime(substr($cus_opptime,'-10')." 23:59:59");
@@ -228,18 +258,23 @@ class User extends Controller{
         $count=Db::table('qbl_customer')
             ->join('qbl_province','qbl_customer.cus_provid = qbl_province.p_id')
             ->join('qbl_city','qbl_customer.cus_cityid = qbl_city.c_id')
+            ->join('qbl_branch','qbl_customer.cus_branchid = qbl_branch.b_id')
+            ->join('qbl_type','qbl_customer.cus_status = qbl_type.type_id')
             ->where($where)->count();
         $page= $this->request->param('page',1,'intval');
         $limit=$this->request->param('limit',10,'intval');
         $userBack=Db::table('qbl_customer')
             ->join('qbl_province','qbl_customer.cus_provid = qbl_province.p_id')
             ->join('qbl_city','qbl_customer.cus_cityid = qbl_city.c_id')
+            ->join('qbl_branch','qbl_customer.cus_branchid = qbl_branch.b_id')
+            ->join('qbl_type','qbl_customer.cus_status = qbl_type.type_id')
             ->limit(($page-1)*$limit,$limit)
             ->where($where)
             ->select();
         foreach($userBack as $k => $v){
             $userBack[$k]['cus_opptime']=date('Y-m-d H:i:s',$v['cus_opptime']);
             $userBack[$k]['cus_backtime']=date('Y-m-d H:i:s',$v['cus_backtime']);
+            $userBack[$k]['cus_sys'] = $v['cus_sys'] == 1  ? '手机端': 'PC端';
             $userBack[$k]['cus_phone'] = substr_replace($v['cus_phone'],'****',3,4);
         }
         //获取客户标签

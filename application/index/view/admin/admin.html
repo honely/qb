@@ -30,6 +30,22 @@
                         <tr><td colspan="10">暂无内容</td></tr>
                         {/if}
                         {volist name='admin' id='na'}
+                        {if condition="$na.ad_id eq 1"}
+                        <tr>
+                            <td>{$na.ad_id}</td>
+                            <td>{$na.ad_realname}</td>
+                            <td>{$na.r_name}</td>
+                            <td>{$na.ad_sex}</td>
+                            <td>----</td>
+                            <td>----</td>
+                            <td>{$na.ad_phone}</td>
+                            <td>{$na.ad_email}</td>
+                            <td>{if condition="$na['ad_isable'] eq '1'"}是{else/}否{/if}</td>
+                            <td>
+                                <button class="layui-btn layui-btn-xs" onclick="editAdmin({$na.ad_id})">编辑</button>
+                            </td>
+                        </tr>
+                        {else/}
                         <tr>
                             <td>{$na.ad_id}</td>
                             <td>{$na.ad_realname}</td>
@@ -41,10 +57,11 @@
                             <td>{$na.ad_email}</td>
                             <td>{if condition="$na['ad_isable'] eq '1'"}是{else/}否{/if}</td>
                             <td>
-                                <button class="layui-btn layui-btn-sm" onclick="editAdmin({$na.ad_id})"><i class="layui-icon">&#xe642;</i></button>
-                                <button class="layui-btn layui-btn-sm" onclick="delAdmin({$na.ad_id})" data-type="test2"><i class="layui-icon">&#xe640;</i></button>
+                                <button class="layui-btn layui-btn-xs" onclick="editAdmin({$na.ad_id})">编辑</button>
+                                <button class="layui-btn layui-btn-danger layui-btn-xs" onclick="delAdmin({$na.ad_id})" data-type="test2">删除</button>
                             </td>
                         </tr>
+                        {/if}
                         {/volist}
                         </tbody>
                     </table>

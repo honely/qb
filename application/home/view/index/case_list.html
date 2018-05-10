@@ -29,22 +29,22 @@
             </div>
             <ul class="navs">
                 <li class="navlist">
-                    <a href="/index.html">首页</a>
+                    <a href="<?=url('index/index')?>">首页</a>
                 </li>
                 <li class="navlist">
-                    <a href="/product/index.html">定制整装</a>
+                    <a href="<?=url('index/product')?>">定制整装</a>
                 </li>
                 <li class="navlist">
-                    <a href="/design/index.html">量房设计</a>
+                    <a href="<?=url('index/design')?>">量房设计</a>
                 </li>
                 <li class="navlist">
-                    <a href="/quote/index.html">智能报价</a>
+                    <a href="<?=url('index/quote')?>">智能报价</a>
                 </li>
                 <li class="navlist cur">
-                    <a href="/case/index.html">实景样板间</a>
+                    <a href="<?=url('index/demo')?>">实景样板间</a>
                 </li>
                 <li class="navlist">
-                    <a href="/about/index.html">装修资讯</a>
+                    <a href="<?=url('index/about')?>">装修资讯</a>
                 </li>
             </ul>
             <div class="tel-group">
@@ -134,7 +134,7 @@
                 <div class="oder-group">
                     <img src="../img/hot.png" alt="" class="hot">
                     <h3>预约本方案设计师</h3>
-                    <form class="form-rt" name='feedback' method='post' enctype='multipart/form-data' action='/e/enews/index.php'>
+                    <form class="form-rt" name='feedback' method='post' enctype='multipart/form-data' action="<?=url('index/index')?>">
                         <input type=hidden name=ecmsfrom value="/ ">
                         <input name='enews' type='hidden' value='AddFeedback'>
                         <input name='title' type='hidden' value='实景案例预约'>
@@ -194,11 +194,11 @@
         <div class="tjcase">
             <h3><span>推荐案例</span><a href="/case/index.html">更多>></a></h3>
             <div>
-                <a href="/case_list/index.html"><img src="../img/details01.png" alt=""></a>
-                <a href="/case_list/index.html"><img src="../img/details02.png" alt=""></a>
-                <a href="/case_list/index.html"><img src="../img/details03.png" alt=""></a>
-                <a href="/case_list/index.html"><img src="../img/details04.png" alt=""></a>
-                <a href="/case_list/index.html"><img src="../img/details05.png" alt=""></a>
+                <a href="<?=url('index/case_list')?>"><img src="../img/details01.png" alt=""></a>
+                <a href="<?=url('index/case_list')?>"><img src="../img/details02.png" alt=""></a>
+                <a href="<?=url('index/case_list')?>"><img src="../img/details03.png" alt=""></a>
+                <a href="<?=url('index/case_list')?>"><img src="../img/details04.png" alt=""></a>
+                <a href="<?=url('index/case_list')?>"><img src="../img/details05.png" alt=""></a>
             </div>
         </div>
     </div>
@@ -207,7 +207,7 @@
             <div class="foot-info">
                 <div class="bot-left">
                     <h3>
-                        <a href="/index.html">
+                        <a href="<?=url('index/index')>">
                             <img src="../img/logo.png" alt="">
                         </a>
                     </h3>
@@ -262,7 +262,7 @@
                         <p>免费获取全房装修设计效果图</p>
                     </li>
                     <li class="f-form">
-                        <form class="form" name='feedback' method='post' enctype='multipart/form-data' action='/e/enews/index.php'>
+                        <form class="form" name='feedback' method='post' enctype='multipart/form-data' action="<?=url('index/index')?>">
                             <input type=hidden name=ecmsfrom value="/">
                             <input name='enews' type='hidden' value='AddFeedback'>
                             <input name='title' type='hidden' value='底部固定预约'>

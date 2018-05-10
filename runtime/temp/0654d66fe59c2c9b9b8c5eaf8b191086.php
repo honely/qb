@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:3:{s:69:"D:\xampp\htdocs\qbl\public/../application/index\view\topic\topic.html";i:1525744223;s:71:"D:\xampp\htdocs\qbl\public/../application/index\view\indexs\header.html";i:1525742386;s:71:"D:\xampp\htdocs\qbl\public/../application/index\view\indexs\footer.html";i:1525742360;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:3:{s:69:"D:\xampp\htdocs\qbl\public/../application/index\view\topic\topic.html";i:1525942343;s:71:"D:\xampp\htdocs\qbl\public/../application/index\view\indexs\header.html";i:1525742386;s:71:"D:\xampp\htdocs\qbl\public/../application/index\view\indexs\footer.html";i:1525742360;}*/ ?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -40,6 +40,8 @@
                             <td>专题名称</td>
                             <td>发布时间</td>
                             <td>浏览量</td>
+                            <td>区域</td>
+                            <td>分站</td>
                             <td>是否显示</td>
                             <td>操作人</td>
                             <td>操作</td>
@@ -52,6 +54,8 @@
                             <td><?php echo $art['tp_title']; ?></td>
                             <td><?php echo $art['tp_createtime']; ?></td>
                             <td><?php echo $art['tp_view']; ?></td>
+                            <td><?php echo $art['p_name']; ?><?php echo $art['c_name']; ?></td>
+                            <td><?php echo $art['b_name']; ?></td>
                             <td><?php echo $art['tp_isable']; ?></td>
                             <td><?php echo $art['tp_admin']; ?></td>
                             <td>

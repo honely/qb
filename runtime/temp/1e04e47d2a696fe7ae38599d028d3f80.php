@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:3:{s:73:"D:\xampp\htdocs\qbl\public/../application/index\view\setinfo\setlist.html";i:1525743746;s:71:"D:\xampp\htdocs\qbl\public/../application/index\view\indexs\header.html";i:1525742386;s:71:"D:\xampp\htdocs\qbl\public/../application/index\view\indexs\footer.html";i:1525742360;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:3:{s:73:"D:\xampp\htdocs\qbl\public/../application/index\view\setinfo\setlist.html";i:1525943591;s:71:"D:\xampp\htdocs\qbl\public/../application/index\view\indexs\header.html";i:1525742386;s:71:"D:\xampp\htdocs\qbl\public/../application/index\view\indexs\footer.html";i:1525742360;}*/ ?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -25,7 +25,7 @@
     <!-- 内容主体区域 -->
     <!--选项卡写法-->
     <fieldset class="layui-elem-field layui-field-title" style="margin-top: 30px;">
-        <legend>类型参数</legend>
+        <legend>配置管理</legend>
     </fieldset>
     <div class="layui-tab">
         <div class="layui-tab-content">
@@ -55,8 +55,8 @@
                             <td><?php echo $type['s_value']; ?></td>
                             <td><?php if($type['s_is_able'] == '1'): ?>是<?php else: ?>否<?php endif; ?></td>
                             <td>
-                                <button class="layui-btn layui-btn-sm" onclick="editType(<?php echo $type['s_id']; ?>)"><i class="layui-icon">&#xe642;</i></button>
-                                <button class="layui-btn layui-btn-sm" onclick="delSet(<?php echo $type['s_id']; ?>)" data-type="test2"><i class="layui-icon">&#xe640;</i></button>
+                                <button class="layui-btn layui-btn-xs" onclick="editType(<?php echo $type['s_id']; ?>)">编辑</button>
+                                <button class="layui-btn layui-btn-danger layui-btn-xs" onclick="delSet(<?php echo $type['s_id']; ?>)" data-type="test2">删除</button>
                             </td>
                         </tr>
                         <?php endforeach; endif; else: echo "" ;endif; ?>

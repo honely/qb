@@ -57,7 +57,9 @@
         <thead>
         <tr>
             <td>全选<input type="checkbox" lay-skin="primary" lay-filter="checkAll"  id="checkAll"/></td>
+            <td>用户编号</td>
             <td>预约城市</td>
+            <td>预约站点</td>
             <td>预约时间</td>
             <td>客户姓名</td>
             <td>联系方式</td>
@@ -66,6 +68,7 @@
             <td>网址入口+位置</td>
             <!--<td>用户IP</td>-->
             <td>推广来源</td>
+            <td>系统来源</td>
             <td>推广创意</td>
             <td>关键词</td>
             <td>标记状态</td>
@@ -78,10 +81,11 @@
         {volist name='userBack' id='cus'}
         <tr>
             <td>
-                <!--{$cus.cus_id}-->
                 <input type="checkbox" lay-skin="primary" class="checks" value="{$cus.cus_id}"/>
             </td>
+            <td>{$cus.cus_bid}</td>
             <td>{$cus.p_name}-{$cus.c_name}</td>
+            <td>{$cus.b_name}</td>
             <td>{$cus.cus_opptime}</td>
             <td>{$cus.cus_name}</td>
             <td>{$cus.cus_phone}</td>
@@ -90,9 +94,10 @@
             <td>{$cus.cus_link}<br/>{$cus.cus_position}</td>
             <!--<td>{$cus.cus_ip}</td>-->
             <td>{$cus.cus_from}</td>
+            <td>{$cus.cus_sys}</td>
             <td>{$cus.cus_origin}</td>
             <td>{$cus.cus_keywords}</td>
-            <td>{$cus.cus_status}</td>
+            <td>{$cus.type_name}</td>
             <td>{$cus.cus_opeater}</td>
             <td>{$cus.cus_backtime}</td>
             <td>

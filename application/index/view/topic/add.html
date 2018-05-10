@@ -44,6 +44,14 @@
                                     </select>
                                     </div>
                                     </div>
+                                    <div class="layui-form-item">
+                                    <label class="layui-form-label">所属站点（选择）</label>
+                                <div class="layui-input-inline">
+                                    <select name="tp_b_id" id="branch" lay-verify="required">
+                                    <option value="">请选择站点</option>
+                                    </select>
+                                    </div>
+                                    </div>
                             <div class="layui-form-item" pane>
                                 <label class="layui-form-label">是否显示</label>
                                 <div class="layui-input-block">
@@ -116,6 +124,26 @@
                         form.render('select');
                     });
                     $("#bu_c_id").get(0).selectedIndex=0;
+                }
+            });
+        });
+        //调用该城市下面的分站
+        form.on('select(bu_c_id)', function(data){
+            var c_id=data.value;
+            $.ajax({
+                type: 'POST',
+                url: "<?=url('admin/getBranchName')?>?c_id="+c_id,
+                data: {c_id:c_id},
+                dataType:  'json',
+                success: function(data){
+                    var code=data.data;
+                    $("#branch").html("<option value=''>请选择站点</option>");
+                    $.each(code, function(i, val) {
+                        var option1 = $("<option>").val(val.b_id).text(val.b_name);
+                        $("#branch").append(option1);
+                        form.render('select');
+                    });
+                    $("#branch").get(0).selectedIndex=0;
                 }
             });
         });

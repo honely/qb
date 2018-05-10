@@ -20,6 +20,7 @@
                             <td>从业经验</td>
                             <td>擅长风格</td>
                             <td>城市</td>
+                            <td>站点</td>
                             <td>状态</td>
                             <td>操作</td>
                         </tr>
@@ -35,11 +36,12 @@
                             <td>{$na.des_age}</td>
                             <td>{$na.des_exp}</td>
                             <td>{$na.type_name}</td>
-                            <td>{$na.des_p_id}{$na.des_c_id}</td>
+                            <td>{$na.p_name}-{$na.c_name}</td>
+                            <td>{$na.b_name}</td>
                             <td>{if condition="$na['des_isable'] eq '1'"}是{else/}否{/if}</td>
                             <td>
-                                <button class="layui-btn layui-btn-sm" onclick="editDesigner({$na.des_id})"><i class="layui-icon">&#xe642;</i></button>
-                                <button class="layui-btn layui-btn-sm" onclick="delDesigner({$na.des_id})" data-type="test2"><i class="layui-icon">&#xe640;</i></button>
+                                <button class="layui-btn layui-btn-xs" onclick="editDesigner({$na.des_id})">编辑</button>
+                                <button class="layui-btn layui-btn-danger layui-btn-xs" onclick="delDesigner({$na.des_id})" data-type="test2">删除</button>
                             </td>
                         </tr>
                         {/volist}

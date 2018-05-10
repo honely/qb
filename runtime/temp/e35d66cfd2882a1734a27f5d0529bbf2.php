@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:67:"D:\xampp\htdocs\qbl\public/../application/home\view\index\demo.html";i:1525773637;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:67:"D:\xampp\htdocs\qbl\public/../application/home\view\index\demo.html";i:1525945439;}*/ ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -28,22 +28,22 @@
             </div>
             <ul class="navs">
                 <li class="navlist">
-                    <a href="/index.html">首页</a>
+                    <a href="<?=url('index/index')?>">首页</a>
                 </li>
                 <li class="navlist">
-                    <a href="/product/index.html">定制整装</a>
+                    <a href="<?=url('index/product')?>">定制整装</a>
                 </li>
                 <li class="navlist">
-                    <a href="/design/index.html">量房设计</a>
+                    <a href="<?=url('index/design')?>">量房设计</a>
                 </li>
                 <li class="navlist">
-                    <a href="/quote/index.html">智能报价</a>
+                    <a href="<?=url('index/quote')?>">智能报价</a>
                 </li>
                 <li class="navlist cur">
-                    <a href="/case/index.html">实景样板间</a>
+                    <a href="<?=url('index/demo')?>">实景样板间</a>
                 </li>
                 <li class="navlist">
-                    <a href="/about/index.html">装修资讯</a>
+                    <a href="<?=url('index/about')?>">装修资讯</a>
                 </li>
             </ul>
             <div class="tel-group">
@@ -58,7 +58,7 @@
     <div class="case-ban">
         <img src="../img/caseban.png" alt="">
         <div class="caseban-con">
-            <form class="form-show" name='feedback' method='post' enctype='multipart/form-data' action='/e/enews/index.php'>
+            <form class="form-show" name='feedback' method='post' enctype='multipart/form-data' action="<?=url('index/index')?>">
                 <input type=hidden name=ecmsfrom value="/">
                 <input name='enews' type='hidden' value='AddFeedback'>
                 <input name='title' type='hidden' value='实景案例预约'>
@@ -877,7 +877,7 @@
                 <h3>预约参观</h3>
                 <p>预约参观家装新风尚 品质生活触手可得</p>
             </div>
-            <form class="form-view" name='feedback' method='post' enctype='multipart/form-data' action='/e/enews/index.php'>
+            <form class="form-view" name='feedback' method='post' enctype='multipart/form-data' action="<?=url('index/index')?>">
                 <input type=hidden name=ecmsfrom value="/">
                 <input name='enews' type='hidden' value='AddFeedback'>
                 <input name='title' class="position-con" type='hidden' value=''>
@@ -908,7 +908,7 @@
                     <p>免费获取全房装修设计效果图</p>
                 </li>
                 <li class="f-form">
-                    <form class="form" name='feedback' method='post' enctype='multipart/form-data' action='/e/enews/index.php'>
+                    <form class="form" name='feedback' method='post' enctype='multipart/form-data' action="<?=url('index/index')?>">
                         <input type=hidden name=ecmsfrom value="/">
                         <input name='enews' type='hidden' value='AddFeedback'>
                         <input name='title' type='hidden' value='底部固定预约'>
@@ -958,12 +958,12 @@
             <img src="../img/code.png" alt="">
         </div>
     </div>
-    <script src="../js/jquery.js"></script>
-    <script src="../js/swiper.js"></script>
-    <script src="../js/wow.min.js"></script>
-    <script src="../js/fdx.js"></script>
-    <script src="../js/index.js"></script>
-    <script src="../js/form.js"></script>
+    <script src="__PUBLIC__/home/js/jquery.js"></script>
+    <script src="__PUBLIC__/home/js/swiper.js"></script>
+    <script src="__PUBLIC__/home/js/wow.min.js"></script>
+    <script src="__PUBLIC__/home/js/fdx.js"></script>
+    <script src="__PUBLIC__/home/js/index.js"></script>
+    <script src="__PUBLIC__/home/js/form.js"></script>
 </body>
 
 </html>

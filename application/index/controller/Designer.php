@@ -20,12 +20,31 @@ class Designer extends Controller{
     }
     //设计师
     public function team(){
-        $count=Db::table('qbl_designer')->count();
+
+        $ad_role=intval(session('ad_role'));
+        //分站id
+        $ad_branch = intval(session('ad_branch'));
+        if($ad_role == 1 ){// 超级管理员
+            $where =' 1 = 1';
+        }else{
+            $where=' des_b_id = '.$ad_branch;
+        }
+
+        $count=Db::table('qbl_designer')
+            ->join('qbl_province','qbl_province.p_id = qbl_designer.des_p_id')
+            ->join('qbl_city','qbl_city.c_id = qbl_designer.des_c_id')
+            ->join('qbl_branch','qbl_branch.b_id = qbl_designer.des_b_id')
+            ->where($where)
+            ->count();
         $page= $this->request->param('page',1,'intval');
         $limit=$this->request->param('limit',10,'intval');
         $design=Db::table('qbl_designer')
+            ->join('qbl_province','qbl_province.p_id = qbl_designer.des_p_id')
+            ->join('qbl_city','qbl_city.c_id = qbl_designer.des_c_id')
+            ->join('qbl_branch','qbl_branch.b_id = qbl_designer.des_b_id')
             ->limit(($page-1)*$limit,$limit)
             ->order('des_id desc')
+            ->where($where)
             ->select();
 		if($design){
 			foreach($design as $key => $val){
@@ -63,6 +82,7 @@ class Designer extends Controller{
             $data['des_isable'] = $_POST['des_isable'];
             $data['des_p_id'] = $_POST['des_p_id'];
             $data['des_c_id'] = $_POST['des_c_id'];
+            $data['des_b_id'] = $_POST['des_b_id'];
             $add=Db::table('qbl_designer')->insert($data);
             if($add){
                 $this->success('添加设计师成功','team');
@@ -74,7 +94,7 @@ class Designer extends Controller{
             $this->assign('prov',$provInfo);
             //设计风格
             $designStyle = Db::table('qbl_type')
-                            ->where(['type_sort' => '2','type_isable' => '1'])
+                           ->where(['type_sort' => '2','type_isable' => '1'])
                            ->select();
             $this->assign('designStyle',$designStyle);
             return $this->fetch();
@@ -96,6 +116,7 @@ class Designer extends Controller{
             $data['des_isable'] = $_POST['des_isable'];
             $data['des_p_id'] = $_POST['des_p_id'];
             $data['des_c_id'] = $_POST['des_c_id'];
+            $data['des_b_id'] = $_POST['des_b_id'];
             $edit=Db::table('qbl_designer')->where(['des_id' => $des_id])->update($data);
             if($edit){
                 $this->success('修改设计师成功！','team');
@@ -116,6 +137,9 @@ class Designer extends Controller{
             $designStyle = Db::table('qbl_type')
                 ->where(['type_sort' => '2','type_isable' => '1'])
                 ->select();
+            $c_id=$designInfo['des_c_id'];
+            $branch=Db::table('qbl_branch')->where(['b_city' =>$c_id ])->field('b_id,b_name')->select();
+            $this->assign('branchs',$branch);
             $this->assign('prov',$provInfo);
             $this->assign('city',$cusCity);
             $this->assign('design',$designInfo);

@@ -35,7 +35,7 @@
                             <td>
                                 <button class="layui-btn layui-btn-xs" onclick="editMenu({$na.m_id})">编辑</button>
                                 <button class="layui-btn layui-btn-xs" onclick="showSub({$na.m_id})">下级菜单</button>
-                                <button class="layui-btn layui-btn-danger layui-btn-xs" onclick="delMenu({$na.m_id})" data-type="test2">删除</button>
+                                <!--<button class="layui-btn layui-btn-danger layui-btn-xs" onclick="delMenu({$na.m_id})" data-type="test2">删除</button>-->
                             </td>
                         </tr>
                         {/volist}
@@ -94,7 +94,7 @@
     }
     
     function showSub(m_id) {
-        window.location.href='<?=url("admin/menu")?>?m_id='+m_id;
+        window.location.href='<?=url("admin/menu")?>?m_id='+m_id+ "&m_fid=" +{$m_fid};
     }
 </script>
 {include file="indexs/footer" /}

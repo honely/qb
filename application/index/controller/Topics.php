@@ -20,10 +20,30 @@ class Topics extends Controller{
         }
     }
     public function topics(){
-        $count=Db::table('qbl_topics')->count();
+
+
+        $ad_role=intval(session('ad_role'));
+        //分站id
+        $ad_branch = intval(session('ad_branch'));
+        if($ad_role == 1 ){// 超级管理员
+            $where =' 1 = 1';
+        }else{
+            $where=' tp_b_id = '.$ad_branch;
+        }
+
+        $count=Db::table('qbl_topics')
+            ->join('qbl_province','qbl_province.p_id = qbl_topics.tp_p_id')
+            ->join('qbl_city','qbl_city.c_id = qbl_topics.tp_c_id')
+            ->join('qbl_branch','qbl_branch.b_id = qbl_topics.tp_b_id')
+            ->where($where)
+            ->count();
         $page= $this->request->param('page',1,'intval');
         $limit=$this->request->param('limit',10,'intval');
         $topic=Db::table('qbl_topics')
+            ->join('qbl_province','qbl_province.p_id = qbl_topics.tp_p_id')
+            ->join('qbl_city','qbl_city.c_id = qbl_topics.tp_c_id')
+            ->join('qbl_branch','qbl_branch.b_id = qbl_topics.tp_b_id')
+            ->where($where)
             ->limit(($page-1)*$limit,$limit)
             ->order('tp_id desc')
             ->select();
@@ -43,6 +63,7 @@ class Topics extends Controller{
             $data['tp_title']=$_POST['tp_title'];
             $data['tp_p_id']=$_POST['tp_p_id'];
             $data['tp_c_id']=$_POST['tp_c_id'];
+            $data['tp_b_id']=$_POST['tp_b_id'];
             $data['tp_content']=$_POST['tp_content'];
             $data['tp_createtime']=time();
             $data['tp_seo_title']=$_POST['tp_seo_title'];
@@ -68,6 +89,7 @@ class Topics extends Controller{
             $data['tp_title']=$_POST['tp_title'];
             $data['tp_p_id']=$_POST['tp_p_id'];
             $data['tp_c_id']=$_POST['tp_c_id'];
+            $data['tp_b_id']=$_POST['tp_b_id'];
             $data['tp_content']=$_POST['tp_content'];
             $data['tp_createtime']=time();
             $data['tp_seo_title']=$_POST['tp_seo_title'];
@@ -85,6 +107,9 @@ class Topics extends Controller{
             $provInfo=Db::table('qbl_province')->select();
             $provid=$topicInfo['tp_p_id'];
             $cusCity=Db::table('qbl_city')->where(['p_id' => $provid])->select();
+            $c_id=$topicInfo['tp_c_id'];
+            $branch=Db::table('qbl_branch')->where(['b_city' =>$c_id ])->field('b_id,b_name')->select();
+            $this->assign('branchs',$branch);
             $this->assign('city',$cusCity);
             $this->assign('prov',$provInfo);
             $this->assign('topic',$topicInfo);

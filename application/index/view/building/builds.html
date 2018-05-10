@@ -16,6 +16,7 @@
                             <td>编号</td>
                             <td>楼盘名称</td>
                             <td>地址</td>
+                            <td>分站</td>
                             <td>活动链接</td>
                             <td>状态</td>
                             <td>操作</td>
@@ -23,18 +24,19 @@
                         </thead>
                         <tbody>
                         {if condition="$builds eq null"}
-                        <tr><td colspan="5">暂无内容</td></tr>
+                        <tr><td colspan="6">暂无内容</td></tr>
                         {/if}
                         {volist name='builds' id='na'}
                         <tr>
                             <td>{$na.bu_id}</td>
                             <td>{$na.bu_name}</td>
                             <td>{$na.p_name}--{$na.c_name}</td>
+                            <td>{$na.b_name}</td>
                             <td>{$na.bu_url}</td>
                             <td>{if condition="$na['bu_isable'] eq '1'"}是{else/}否{/if}</td>
                             <td>
-                                <button class="layui-btn layui-btn-sm" onclick="editBuild({$na.bu_id})"><i class="layui-icon">&#xe642;</i></button>
-                                <button class="layui-btn layui-btn-sm" onclick="delBuild({$na.bu_id})" data-type="test2"><i class="layui-icon">&#xe640;</i></button>
+                                <button class="layui-btn layui-btn-xs" onclick="editBuild({$na.bu_id})">编辑</button>
+                                <button class="layui-btn layui-btn-danger layui-btn-xs" onclick="delBuild({$na.bu_id})" data-type="test2">删除</button>
                             </td>
                         </tr>
                         {/volist}

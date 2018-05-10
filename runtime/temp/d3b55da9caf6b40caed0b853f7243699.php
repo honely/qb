@@ -1,3 +1,4 @@
+<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:68:"D:\xampp\htdocs\qbl\public/../application/home\view\index\about.html";i:1525947198;}*/ ?>
 <!DOCTYPE html>
 <html lang="en">
 

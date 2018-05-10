@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:68:"D:\xampp\htdocs\qbl\public/../application/home\view\index\index.html";i:1525758662;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:68:"D:\xampp\htdocs\qbl\public/../application/home\view\index\index.html";i:1525945969;}*/ ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
@@ -9,10 +9,10 @@
     <meta name="keywords" content="贵阳交换空间装修公司 新房装修 装修效果图">
     <meta name="description" content="贵阳交换空间装饰CCTV合作中国装修设计第一品牌！咨询电话：0851-8683 9697">
     <link rel="icon" href="favicon.ico">
-    <link rel="stylesheet" href="/css/swiper.css">
-    <link rel="stylesheet" href="/css/animate.min.css">
-    <link rel="stylesheet" href="/css/common.css">
-    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="__PUBLIC__/home/css/swiper.css">
+    <link rel="stylesheet" href="__PUBLIC__/home/css/animate.min.css">
+    <link rel="stylesheet" href="__PUBLIC__/home/css/common.css">
+    <link rel="stylesheet" href="__PUBLIC__/home/css/style.css">
 </head>
 
 <body>
@@ -20,32 +20,32 @@
     <div class="header">
         <div class="head-group">
             <div class="logo">
-                <a href="/index.html">
-                    <img src="img/logo.png" alt="logo">
+                <a href="<?=url('index/index')?>">
+                    <img src="__PUBLIC__/home/__PUBLIC__/home/img/logo.png" alt="logo">
                 </a>
             </div>
             <ul class="navs">
                 <li class="navlist cur">
-                    <a href="/index.html">首页</a>
+                    <a href="<?=url('index/index')?>">首页</a>
                 </li>
                 <li class="navlist">
-                    <a href="/product/index.html">定制整装</a>
+                    <a href="<?=url('index/product')?>">定制整装</a>
                 </li>
                 <li class="navlist">
-                    <a href="/design/index.html">量房设计</a>
+                    <a href="<?=url('index/design')?>">量房设计</a>
                 </li>
                 <li class="navlist">
-                    <a href="/quote/index.html">智能报价</a>
+                    <a href="<?=url('index/quote')?>">智能报价</a>
                 </li>
                 <li class="navlist">
-                    <a href="/case/index.html">实景样板间</a>
+                    <a href="<?=url('index/demo')?>">实景样板间</a>
                 </li>
                 <li class="navlist">
-                    <a href="/about/index.html">装修资讯</a>
+                    <a href="<?=url('index/about')?>">装修资讯</a>
                 </li>
             </ul>
             <div class="tel-group">
-                <img src="/img/icon_tel.png" alt="">
+                <img src="__PUBLIC__/home/img/icon_tel.png" alt="">
                 <span>0851-8683 9697</span>
             </div>
         </div>
@@ -57,17 +57,17 @@
             <div class="swiper-wrapper ban-wrap">
                 <div class="swiper-slide banlist">
                     <a href="#">
-                        <img src="img/banner01.png" alt="">
+                        <img src="__PUBLIC__/home/img/banner01.png" alt="">
                     </a>
                 </div>
                 <div class="swiper-slide banlist">
                     <a href="#">
-                        <img src="img/banner02.png" alt="">
+                        <img src="__PUBLIC__/home/img/banner02.png" alt="">
                     </a>
                 </div>
                 <div class="swiper-slide banlist">
                     <a href="#">
-                        <img src="img/banner03.png" alt="">
+                        <img src="__PUBLIC__/home/img/banner03.png" alt="">
                     </a>
                 </div>
             </div>
@@ -77,17 +77,17 @@
         </div>
         <div class="form-group">
             <h3 class="form-title">
-                <span>现在预约</span>免费获取全房装修设计效果图
+                <span>现在预约123123</span>免费获取全房装修设计效果图
             </h3>
-            <form class="form" id="form1" name='feedback' method='post' enctype='multipart/form-data' action='/e/enews/index.php'>
+            <form class="form" id="form1" name='feedback' method='post' enctype='multipart/form-data' action="<?=url('index/index')?>">
                 <input type=hidden name=ecmsfrom value="/">
                 <input name='enews' type='hidden' value='AddFeedback'>
                 <input name='title' type='hidden' value='首页banner大屏幕'>
                 <input type=hidden name=bid value=2>
                 <input type=hidden name=laiyuan id=laiyuan>
                 <input type=hidden name=chuangyi id=chuangyi>
-                <input type="text" name="name" class="nickname" id="name" placeholder="请输入您的称呼" />
-                <input type="number" name="mycall" class="phone" id="mycall" placeholder="请输入您的手机号码，获取免费服务" />
+                <input type="text" name="name" class="nickname" placeholder="请输入您的称呼" />
+                <input type="number" name="mycall" class="phone" placeholder="请输入您的手机号码，获取免费服务" />
                 <input type="submit" class="subtn" value="立即预约" />
             </form>
         </div>
@@ -100,27 +100,27 @@
             <p class="title-b wow bounceInDown" data-wow-delay="0.4s" data-wow-duration="1s">CCTV央视合作，毋庸置疑的品牌实力、品质体验</p>
             <div class="pro-info">
                 <div class="info-list">
-                    <img src="/img/icon001.png" alt="" class="wow bounceInDown " data-wow-delay="0.5s" data-wow-duration="1s">
+                    <img src="__PUBLIC__/home/img/icon001.png" alt="" class="wow bounceInDown " data-wow-delay="0.5s" data-wow-duration="1s">
                     <div class="info-group wow bounceInUp" data-wow-delay="0.5s" data-wow-duration="1s">
                         <p class="info-title">一线建材品牌</p>
                         <p class="info">集基材、 主材、家具、家电、软饰为一体的一站式服务性卖场，21套风格各异的实景样板间。</p>
                     </div>
                 </div>
                 <div class="info-line wow bounceInUp" data-wow-delay="0.5s" data-wow-duration="1s">
-                    <img src="/img/line.png" alt="">
+                    <img src="__PUBLIC__/home/img/line.png" alt="">
                 </div>
                 <div class="info-list">
-                    <img src="/img/icon002.png" alt="" class="wow bounceInDown " data-wow-delay="0.5s" data-wow-duration="1s">
+                    <img src="__PUBLIC__/home/img/icon002.png" alt="" class="wow bounceInDown " data-wow-delay="0.5s" data-wow-duration="1s">
                     <div class="info-group wow bounceInUp" data-wow-delay="0.5s" data-wow-duration="1s">
                         <p class="info-title">一站式服务整装</p>
                         <p class="info">从研发、设计、生产、整合、销售到物流、安装，形成一条构建完整的家居产业供应链体系。</p>
                     </div>
                 </div>
                 <div class="info-line wow bounceInUp" data-wow-delay="0.5s" data-wow-duration="1s">
-                    <img src="/img/line.png" alt="">
+                    <img src="__PUBLIC__/home/img/line.png" alt="">
                 </div>
                 <div class="info-list">
-                    <img src="/img/icon003.png" alt="" class="wow bounceInDown " data-wow-delay="0.5s" data-wow-duration="1s">
+                    <img src="__PUBLIC__/home/img/icon003.png" alt="" class="wow bounceInDown " data-wow-delay="0.5s" data-wow-duration="1s">
                     <div class="info-group wow bounceInUp" data-wow-delay="0.5s" data-wow-duration="1s">
                         <p class="info-title">工厂式一体化生产</p>
                         <p class="info">做到产品工厂直供、设计专业化、产品质量控制专业化、采购物流扁平化、施工安装标准化、价格透明化、系统时间控制准时化。</p>
@@ -130,11 +130,11 @@
         </div>
         <div class="video-bg">
             <div class="video-box">
-                <video class="video" width="880px" poster="img/videoimg.jpg" id="video">
+                <video class="video" width="880px" poster="__PUBLIC__/home/img/videoimg.jpg" id="video">
                     <source src="https://qhstaticvaoss.kujiale.com/media/yun/help/college/index.mp4" type="video/mp4">
                 </video>
                 <div class="player" id="player">
-                    <img src="img/autoplay.png" alt="">
+                    <img src="__PUBLIC__/home/img/autoplay.png" alt="">
                 </div>
             </div>
         </div>
@@ -205,19 +205,19 @@
                 <div class="ban-group">
                     <div class="game_pic_tab zoom mt_10" id="container1">
                         <div id="example1-item-0" class="game_pic">
-                            <img src="img/banc_01.png" / class="de-img">
+                            <img src="__PUBLIC__/home/img/banc_01.png" / class="de-img">
                         </div>
                         <div id="example1-item-1" class="game_pic">
-                            <img src="img/banc_02.png" / class="de-img">
+                            <img src="__PUBLIC__/home/img/banc_02.png"  class="de-img">
                         </div>
                         <div id="example1-item-2" class="game_pic">
-                            <img src="img/banc_04.png" / class="de-img">
+                            <img src="__PUBLIC__/home/img/banc_04.png" class="de-img">
                         </div>
                         <div id="example1-item-3" class="game_pic">
-                            <img src="img/banc_02.png" / class="de-img">
+                            <img src="__PUBLIC__/home/img/banc_02.png"  class="de-img">
                         </div>
                         <div id="example1-item-4" class="game_pic">
-                            <img src="img/banc_01.png" / class="de-img">
+                            <img src="__PUBLIC__/home/img/banc_01.png"  class="de-img">
                         </div>
                         <div id="example1-click-prev" class="game_pic_icon game_pic_icon_l"></div>
                         <div id="example1-click-next" class="game_pic_icon game_pic_icon_r"></div>
@@ -259,11 +259,11 @@
                                         <li>
                                             <span data-layer="2" class="de-btn show-btn">
                                                 <i>预约参观</i>
-                                                <img src="img/icon_rt01.png" alt="">
+                                                <img src="__PUBLIC__/home/img/icon_rt01.png" alt="">
                                             </span>
                                             <a href="#" class="de-btn">
                                                 <i>全景体验</i>
-                                                <img src="img/icon_rt01.png" alt="">
+                                                <img src="__PUBLIC__/home/img/icon_rt01.png" alt="">
                                             </a>
                                         </li>
                                     </ul>
@@ -275,19 +275,19 @@
                 <div class="ban-group">
                     <div class="game_pic_tab zoom mt_10" id="container2">
                         <div id="example2-item-0" class="game_pic">
-                            <img src="img/banc_01.png" / class="de-img">
+                            <img src="__PUBLIC__/home/img/banc_01.png"  class="de-img">
                         </div>
                         <div id="example2-item-1" class="game_pic">
-                            <img src="img/banc_02.png" / class="de-img">
+                            <img src="__PUBLIC__/home/img/banc_02.png"  class="de-img">
                         </div>
                         <div id="example2-item-2" class="game_pic">
-                            <img src="img/banc_04.png" / class="de-img">
+                            <img src="__PUBLIC__/home/img/banc_04.png"  class="de-img">
                         </div>
                         <div id="example2-item-3" class="game_pic">
-                            <img src="img/banc_02.png" / class="de-img">
+                            <img src="__PUBLIC__/home/img/banc_02.png"  class="de-img">
                         </div>
                         <div id="example2-item-4" class="game_pic">
-                            <img src="img/banc_01.png" / class="de-img">
+                            <img src="__PUBLIC__/home/img/banc_01.png"  class="de-img">
                         </div>
                         <div id="example2-click-prev" class="game_pic_icon game_pic_icon_l"></div>
                         <div id="example2-click-next" class="game_pic_icon game_pic_icon_r"></div>
@@ -329,11 +329,11 @@
                                         <li>
                                             <span data-layer="2" class="de-btn show-btn">
                                                 <i>预约参观</i>
-                                                <img src="img/icon_rt01.png" alt="">
+                                                <img src="__PUBLIC__/home/img/icon_rt01.png" alt="">
                                             </span>
                                             <a href="#" class="de-btn">
                                                 <i>全景体验</i>
-                                                <img src="img/icon_rt01.png" alt="">
+                                                <img src="__PUBLIC__/home/img/icon_rt01.png" alt="">
                                             </a>
                                         </li>
                                     </ul>
@@ -345,19 +345,19 @@
                 <div class="ban-group">
                     <div class="game_pic_tab zoom mt_10" id="container3">
                         <div id="example3-item-0" class="game_pic">
-                            <img src="img/banc_01.png" / class="de-img">
+                            <img src="__PUBLIC__/home/img/banc_01.png"  class="de-img">
                         </div>
                         <div id="example3-item-1" class="game_pic">
-                            <img src="img/banc_02.png" / class="de-img">
+                            <img src="__PUBLIC__/home/img/banc_02.png"  class="de-img">
                         </div>
                         <div id="example3-item-2" class="game_pic">
-                            <img src="img/banc_04.png" / class="de-img">
+                            <img src="__PUBLIC__/home/img/banc_04.png" class="de-img">
                         </div>
                         <div id="example3-item-3" class="game_pic">
-                            <img src="img/banc_02.png" / class="de-img">
+                            <img src="__PUBLIC__/home/img/banc_02.png"  class="de-img">
                         </div>
                         <div id="example3-item-4" class="game_pic">
-                            <img src="img/banc_01.png" / class="de-img">
+                            <img src="__PUBLIC__/home/img/banc_01.png"  class="de-img">
                         </div>
                         <div id="example3-click-prev" class="game_pic_icon game_pic_icon_l"></div>
                         <div id="example3-click-next" class="game_pic_icon game_pic_icon_r"></div>
@@ -399,11 +399,11 @@
                                         <li>
                                             <span data-layer="2" class="de-btn show-btn">
                                                 <i>预约参观</i>
-                                                <img src="img/icon_rt01.png" alt="">
+                                                <img src="__PUBLIC__/home/img/icon_rt01.png" alt="">
                                             </span>
                                             <a href="#" class="de-btn">
                                                 <i>全景体验</i>
-                                                <img src="img/icon_rt01.png" alt="">
+                                                <img src="__PUBLIC__/home/img/icon_rt01.png" alt="">
                                             </a>
                                         </li>
                                     </ul>
@@ -415,19 +415,19 @@
                 <div class="ban-group">
                     <div class="game_pic_tab zoom mt_10" id="container4">
                         <div id="example4-item-0" class="game_pic">
-                            <img src="img/banc_01.png" / class="de-img">
+                            <img src="__PUBLIC__/home/img/banc_01.png"  class="de-img">
                         </div>
                         <div id="example4-item-1" class="game_pic">
-                            <img src="img/banc_02.png" / class="de-img">
+                            <img src="__PUBLIC__/home/img/banc_02.png"  class="de-img">
                         </div>
                         <div id="example4-item-2" class="game_pic">
-                            <img src="img/banc_04.png" / class="de-img">
+                            <img src="__PUBLIC__/home/img/banc_04.png"  class="de-img">
                         </div>
                         <div id="example4-item-3" class="game_pic">
-                            <img src="img/banc_02.png" / class="de-img">
+                            <img src="__PUBLIC__/home/img/banc_02.png" class="de-img">
                         </div>
                         <div id="example4-item-4" class="game_pic">
-                            <img src="img/banc_01.png" / class="de-img">
+                            <img src="__PUBLIC__/home/img/banc_01.png" class="de-img">
                         </div>
                         <div id="example4-click-prev" class="game_pic_icon game_pic_icon_l"></div>
                         <div id="example4-click-next" class="game_pic_icon game_pic_icon_r"></div>
@@ -469,11 +469,11 @@
                                         <li>
                                             <span data-layer="2" class="de-btn show-btn">
                                                 <i>预约参观</i>
-                                                <img src="img/icon_rt01.png" alt="">
+                                                <img src="__PUBLIC__/home/img/icon_rt01.png" alt="">
                                             </span>
                                             <a href="#" class="de-btn">
                                                 <i>全景体验</i>
-                                                <img src="img/icon_rt01.png" alt="">
+                                                <img src="__PUBLIC__/home/img/icon_rt01.png" alt="">
                                             </a>
                                         </li>
                                     </ul>
@@ -485,19 +485,19 @@
                 <div class="ban-group">
                     <div class="game_pic_tab zoom mt_10" id="container5">
                         <div id="example5-item-0" class="game_pic">
-                            <img src="img/banc_01.png" / class="de-img">
+                            <img src="__PUBLIC__/home/img/banc_01.png"  class="de-img">
                         </div>
                         <div id="example5-item-1" class="game_pic">
-                            <img src="img/banc_02.png" / class="de-img">
+                            <img src="__PUBLIC__/home/img/banc_02.png"  class="de-img">
                         </div>
                         <div id="example5-item-2" class="game_pic">
-                            <img src="img/banc_04.png" / class="de-img">
+                            <img src="__PUBLIC__/home/img/banc_04.png"  class="de-img">
                         </div>
                         <div id="example5-item-3" class="game_pic">
-                            <img src="img/banc_02.png" / class="de-img">
+                            <img src="__PUBLIC__/home/img/banc_02.png"  class="de-img">
                         </div>
                         <div id="example5-item-4" class="game_pic">
-                            <img src="img/banc_01.png" / class="de-img">
+                            <img src="__PUBLIC__/home/img/banc_01.png"  class="de-img">
                         </div>
                         <div id="example5-click-prev" class="game_pic_icon game_pic_icon_l"></div>
                         <div id="example5-click-next" class="game_pic_icon game_pic_icon_r"></div>
@@ -539,11 +539,11 @@
                                         <li>
                                             <span data-layer="2" class="de-btn show-btn">
                                                 <i>预约参观</i>
-                                                <img src="img/icon_rt01.png" alt="">
+                                                <img src="__PUBLIC__/home/img/icon_rt01.png" alt="">
                                             </span>
                                             <a href="#" class="de-btn">
                                                 <i>全景体验</i>
-                                                <img src="img/icon_rt01.png" alt="">
+                                                <img src="__PUBLIC__/home/img/icon_rt01.png" alt="">
                                             </a>
                                         </li>
                                     </ul>
@@ -564,7 +564,7 @@
             <ul class="case-show">
                 <li class="case-list wow bounceInUp" data-wow-delay="0.5s" data-wow-duration="1.5s">
                     <div class="case-img">
-                        <img src="img/videoimg.jpg" alt="">
+                        <img src="__PUBLIC__/home/img/videoimg.jpg" alt="">
                     </div>
                     <ul class="case-info-box">
                         <li class="case-info">
@@ -574,18 +574,18 @@
                         <li class="btn-groups">
                             <a href="#" class="btns">
                                 <i>720°全景</i>
-                                <img src="img/icon_rt1.png" alt="">
+                                <img src="__PUBLIC__/home/img/icon_rt1.png" alt="">
                             </a>
                             <span data-layer="3" class="btns show-btn">
                                 <i>预约参观</i>
-                                <img src="img/icon_rt1.png" alt="">
+                                <img src="__PUBLIC__/home/img/icon_rt1.png" alt="">
                             </span>
                         </li>
                     </ul>
                 </li>
                 <li class="case-list wow bounceInUp" data-wow-delay="1s" data-wow-duration="1.5s">
                     <div class="case-img">
-                        <img src="img/videoimg.jpg" alt="">
+                        <img src="__PUBLIC__/home/img/videoimg.jpg" alt="">
                     </div>
                     <ul class="case-info-box">
                         <li class="case-info">
@@ -595,18 +595,18 @@
                         <li class="btn-groups">
                             <a href="#" class="btns">
                                 <i>720°全景</i>
-                                <img src="img/icon_rt1.png" alt="">
+                                <img src="__PUBLIC__/home/img/icon_rt1.png" alt="">
                             </a>
                             <span data-layer="3" class="btns  show-btn">
                                 <i>预约参观</i>
-                                <img src="img/icon_rt1.png" alt="">
+                                <img src="__PUBLIC__/home/img/icon_rt1.png" alt="">
                             </span>
                         </li>
                     </ul>
                 </li>
                 <li class="case-list wow bounceInUp" data-wow-delay="1.5s" data-wow-duration="1.5s">
                     <div class="case-img">
-                        <img src="img/videoimg.jpg" alt="">
+                        <img src="__PUBLIC__/home/img/videoimg.jpg" alt="">
                     </div>
                     <ul class="case-info-box">
                         <li class="case-info">
@@ -616,11 +616,11 @@
                         <li class="btn-groups">
                             <a href="#" class="btns">
                                 <i>720°全景</i>
-                                <img src="img/icon_rt1.png" alt="">
+                                <img src="__PUBLIC__/home/img/icon_rt1.png" alt="">
                             </a>
                             <span data-layer="3" class="btns show-btn">
                                 <i>预约参观</i>
-                                <img src="img/icon_rt1.png" alt="">
+                                <img src="__PUBLIC__/home/img/icon_rt1.png" alt="">
                             </span>
                         </li>
                     </ul>
@@ -740,17 +740,17 @@
         <div class="foot-info">
             <div class="bot-left">
                 <h3>
-                    <a href="/index.html">
-                        <img src="img/logo.png" alt="">
+                    <a href="<?=url('index/index')?>">
+                        <img src="__PUBLIC__/home/img/logo.png" alt="">
                     </a>
                 </h3>
                 <p>
-                    <img src="img/logo_bot.png" alt="">
+                    <img src="__PUBLIC__/home/img/logo_bot.png" alt="">
                 </p>
             </div>
             <div class="hot-line">
                 <p>
-                    <img src="/img/tel.png" alt="">
+                    <img src="/__PUBLIC__/home/img/tel.png" alt="">
                     <span>
                         官方服务热线：
                         <br/>
@@ -758,7 +758,7 @@
                     </span>
                 </p>
                 <p>
-                    <img src="/img/service.png" alt="">
+                    <img src="/__PUBLIC__/home/img/service.png" alt="">
                     <span>
                         贵阳交换空间装饰工程有限公司
                         <br/>
@@ -767,7 +767,7 @@
                 </p>
             </div>
             <div class="code-con">
-                <img src="img/code.png" alt="">
+                <img src="__PUBLIC__/home/img/code.png" alt="">
                 <p>扫码关注微信公众号</p>
             </div>
         </div>
@@ -775,7 +775,7 @@
 
     <div class="footer">
         <p class="bot-nav">
-            <a href="/about/index.html">装修资讯</a>|<a href="/quote/index.html">智能报价</a>|<a href="/design/index.html">量房设计</a>|<a href="/case/index.html">实景体验馆</a>|<a href="/product/index.html">定制整装</a>|<a href="javascript:;">商务合作</a>|<a href="javascript:;">投诉建议</a>
+            <a href="<?=url('index/about')?>">装修资讯</a>|<a href="<?=url('index/quote')?>">智能报价</a>|<a href="<?=url('index/design')?>">量房设计</a>|<a href="<?=url('index/demo')?>">实景体验馆</a>|<a href="<?=url('index/product')?>">定制整装</a>|<a href="javascript:;">商务合作</a>|<a href="javascript:;">投诉建议</a>
         </p>
         <p>Copyright All Rights Reserved.&nbsp&nbsp贵阳交换空间装饰工程有限公司&nbsp&nbsp版权所有&nbsp&nbsp
             <script src="https://s13.cnzz.com/z_stat.php?id=1273005258&web_id=1273005258" language="JavaScript"></script>&nbsp&nbsp
@@ -790,7 +790,7 @@
                 <h3>预约参观</h3>
                 <p>预约参观家装新风尚 品质生活触手可得</p>
             </div>
-            <form class="form-view" id="form2" name='feedback' method='post' enctype='multipart/form-data' action='/e/enews/index.php'>
+            <form class="form-view" id="form2" name='feedback' method='post' enctype='multipart/form-data' action="<?=url('index/index')?>">
                 <input type=hidden name=ecmsfrom value="/">
                 <input name='enews' type='hidden' value='AddFeedback'>
                 <input name='title' class="position-con" type='hidden' value=''>
@@ -799,11 +799,11 @@
                 <input type=hidden name=chuangyi id=chuangyi>
                 <label class="inputbox">
                     <span class="input-info">您的称呼</span>
-                    <input type="text" name="name" class="nickname input" id="name" placeholder="请输入您的称呼" />
+                    <input type="text" name="name" class="nickname input"  placeholder="请输入您的称呼" />
                 </label>
                 <label class="inputbox">
                     <span class="input-info">您的电话</span>
-                    <input type="number" name="mycall" class="phone input" id="mycall" placeholder="请输入您的手机号码，获取免费服务" />
+                    <input type="number" name="mycall" class="phone input" placeholder="请输入您的手机号码，获取免费服务" />
                 </label>
                 <input type="submit" class="subtn1" value="立即预约" />
             </form>
@@ -814,14 +814,14 @@
         <div class="form-fixed">
             <ul>
                 <li class="f-lt">
-                    <img src="img/hand.png" alt="">
+                    <img src="__PUBLIC__/home/img/hand.png" alt="">
                 </li>
                 <li class="f-title">
                     <h3>现在预约</h3>
                     <p>免费获取全房装修设计效果图</p>
                 </li>
                 <li class="f-form">
-                    <form class="form" id="form5" name='feedback' method='post' enctype='multipart/form-data' action='/e/enews/index.php'>
+                    <form class="form" id="form5" name='feedback' method='post' enctype='multipart/form-data' action="<?=url('index/index')?>">
                         <input type=hidden name=ecmsfrom value="/">
                         <input name='enews' type='hidden' value='AddFeedback'>
                         <input name='title' type='hidden' value='底部固定预约'>
@@ -834,7 +834,7 @@
                     </form>
                 </li>
                 <li class="colsebtn">
-                    <img src="img/colse01.png" alt="">
+                    <img src="__PUBLIC__/home/img/colse01.png" alt="">
                 </li>
             </ul>
         </div>
@@ -844,41 +844,41 @@
         <ul>
             <li class="slidebar-list">
                 <a href="javascript:;">
-                    <div><img src="img/icon-tel.png" alt=""></div>
+                    <div><img src="__PUBLIC__/home/img/icon-tel.png" alt=""></div>
                     <p>在线咨询</p>
                 </a>
             </li>
             <li class="slidebar-list bt show-btn" data-layer="10">
-                <div><img src="img/icon-order.png" alt=""></div>
+                <div><img src="__PUBLIC__/home/img/icon-order.png" alt=""></div>
                 <p>预约参观</p>
             </li>
             <li class="slidebar-list bt">
                 <a href="/quote/index.html">
-                    <div><img src="img/icon-quote.png" alt=""></div>
+                    <div><img src="__PUBLIC__/home/img/icon-quote.png" alt=""></div>
                     <p>免费报价</p>
                 </a>
             </li>
             <li class="slidebar-list bt code-hover">
-                <div><img src="img/icon-code.png" alt=""></div>
+                <div><img src="__PUBLIC__/home/img/icon-code.png" alt=""></div>
                 <p>关注微信</p>
             </li>
             <li class="slidebar-list bt to-top">
-                <div><img src="img/icon-top.png" alt=""></div>
+                <div><img src="__PUBLIC__/home/img/icon-top.png" alt=""></div>
                 <p>返回顶部</p>
             </li>
         </ul>
         <div class="code">
-            <img src="img/code.png" alt="">
+            <img src="__PUBLIC__/home/img/code.png" alt="">
         </div>
     </div>
-    <!-- <script src="/js/jquery.js"></script> -->
-    <script src="/js/jquery3.js"></script>
-    <script src="/js/swiper.js"></script>
-    <script src="/js/wow.min.js"></script>
-    <script src="/js/fdx.js"></script>
-    <script src="/js/index.js"></script>
-    <script src="/js/deploy.js"></script>
-    <script src="/js/form.js"></script>
+    <!-- <script src="__PUBLIC__/home/js/jquery.js"></script> -->
+    <script src="__PUBLIC__/home/js/jquery3.js"></script>
+    <script src="__PUBLIC__/home/js/swiper.js"></script>
+    <script src="__PUBLIC__/home/js/wow.min.js"></script>
+    <script src="__PUBLIC__/home/js/fdx.js"></script>
+    <script src="__PUBLIC__/home/js/index.js"></script>
+    <script src="__PUBLIC__/home/js/deploy.js"></script>
+    <script src="__PUBLIC__/home/js/form.js"></script>
 </body>
 
 </html>

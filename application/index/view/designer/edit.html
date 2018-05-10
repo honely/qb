@@ -20,10 +20,21 @@
                     </select>
                 </div>
                 <div class="layui-input-inline">
-                    <select name="des_c_id" lay-verify="required" id="des_c_id" lay-filter="des_c_id">
+                    <select name="des_c_id" lay-verify="required" id="des_c_id" lay-filter="bu_c_id">
                         <option value="">请选择城市</option>
                         {volist name='city' id='city'}
                         <option value="{$city.c_id}" {if condition="$city.c_id eq $design.des_c_id"}selected{/if} >{$city.c_name}</option>
+                        {/volist}
+                    </select>
+                </div>
+            </div>
+            <div class="layui-form-item">
+                <label class="layui-form-label">所属站点（选择）</label>
+                <div class="layui-input-inline">
+                    <select name="des_b_id" id="branch" lay-verify="required">
+                        <option value="">请选择站点</option>
+                        {volist name="branchs" id="vos"}
+                        <option value="{$vos.b_id}" {if condition="$vos.b_id eq $design.des_b_id"}selected{/if}>{$vos.b_name}</option>
                         {/volist}
                     </select>
                 </div>
@@ -130,6 +141,26 @@
                         form.render('select');
                     });
                     $("#des_c_id").get(0).selectedIndex=0;
+                }
+            });
+        });
+        //调用该城市下面的分站
+        form.on('select(bu_c_id)', function(data){
+            var c_id=data.value;
+            $.ajax({
+                type: 'POST',
+                url: "<?=url('admin/getBranchName')?>?c_id="+c_id,
+                data: {c_id:c_id},
+                dataType:  'json',
+                success: function(data){
+                    var code=data.data;
+                    $("#branch").html("<option value=''>请选择站点</option>");
+                    $.each(code, function(i, val) {
+                        var option1 = $("<option>").val(val.b_id).text(val.b_name);
+                        $("#branch").append(option1);
+                        form.render('select');
+                    });
+                    $("#branch").get(0).selectedIndex=0;
                 }
             });
         });

@@ -22,6 +22,7 @@ class Index extends Controller{
     //渲染首页
     public function index(){
         if($_POST){
+            dump($_POST);
             $stime=strtotime(date('Y-m-d 00:00:00'));
             $etime=strtotime(date('Y-m-d 23:59:59'));
             //获取当日预约的数量
@@ -32,7 +33,11 @@ class Index extends Controller{
             $data['cus_position'] = $_POST['title'];
             $data['cus_sys'] = $_POST['bid'];
             $data['cus_phone'] = $_POST['mycall'];
-            $data['cus_name'] = $_POST['name'];
+            $name="";
+            if(isset($_POST['name']) && $_POST['name'] != ""){
+                $name=$_POST['name'];
+            }
+            $data['cus_name'] = $name;
             $data['cus_from'] = $_POST['laiyuan'];
             $data['cus_origin'] = $_POST['chuangyi'];
             $data['cus_opptime'] = time();

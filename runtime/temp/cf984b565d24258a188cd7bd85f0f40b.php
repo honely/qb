@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:3:{s:74:"D:\xampp\htdocs\qbl\public/../application/index\view\setinfo\typelist.html";i:1525743746;s:71:"D:\xampp\htdocs\qbl\public/../application/index\view\indexs\header.html";i:1525742386;s:71:"D:\xampp\htdocs\qbl\public/../application/index\view\indexs\footer.html";i:1525742360;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:3:{s:74:"D:\xampp\htdocs\qbl\public/../application/index\view\setinfo\typelist.html";i:1525943551;s:71:"D:\xampp\htdocs\qbl\public/../application/index\view\indexs\header.html";i:1525742386;s:71:"D:\xampp\htdocs\qbl\public/../application/index\view\indexs\footer.html";i:1525742360;}*/ ?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -62,8 +62,8 @@
                             <td><?php echo $type['type_remarks']; ?></td>
                             <td><?php if($type['type_isable'] == '1'): ?>是<?php else: ?>否<?php endif; ?></td>
                             <td>
-                                <button class="layui-btn layui-btn-sm" onclick="editType(<?php echo $type['type_id']; ?>)"><i class="layui-icon">&#xe642;</i></button>
-                                <button class="layui-btn layui-btn-sm" onclick="delType(<?php echo $type['type_id']; ?>)" data-type="test2"><i class="layui-icon">&#xe640;</i></button>
+                                <button class="layui-btn layui-btn-xs" onclick="editType(<?php echo $type['type_id']; ?>)">编辑</button>
+                                <button class="layui-btn layui-btn-danger layui-btn-xs" onclick="delType(<?php echo $type['type_id']; ?>)" data-type="test2">删除</button>
                             </td>
                         </tr>
                         <?php endforeach; endif; else: echo "" ;endif; ?>

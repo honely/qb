@@ -32,6 +32,8 @@ class Login extends Controller{
                             session('adminName',$login['ad_realname']);
                             session('adminId',$login['ad_id']);
                             session('ad_c_id',$login['ad_c_id']);
+                            session('ad_role',$login['ad_role']);
+                            session('ad_branch',$login['ad_branch']);
                             $this->success('登录成功！','indexs/index');
                         }else{
                             $this->error('账号或者密码错误！','login');

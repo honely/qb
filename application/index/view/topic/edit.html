@@ -46,6 +46,18 @@
                                         </select>
                                         </div>
                                         </div>
+                                    <div class="layui-form-item">
+                                        <label class="layui-form-label">所属站点（选择）</label>
+                                    <div class="layui-input-inline">
+                                        <select name="tp_b_id" id="branch" lay-verify="required">
+                                        <option value="">请选择站点</option>
+                                        {volist name="branchs" id="vos"}
+                                    <option value="{$vos.b_id}" {if condition="$vos.b_id eq $topic.tp_b_id"}selected{/if}>{$vos.b_name}</option>
+                                        {/volist}
+                                        </select>
+                                        </div>
+                                        </div>
+
                                         <div class="layui-form-item" pane>
                                     <label class="layui-form-label">是否显示</label>
                                         <div class="layui-input-block">

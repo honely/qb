@@ -26,6 +26,36 @@
                                 </div>
                             </div>
                             <div class="layui-form-item">
+                                <label class="layui-form-label">省份</label>
+                                <div class="layui-input-inline">
+                                    <select name="ba_p_id" lay-verify="required" lay-filter="bu_p_id">
+                                        <option value="">请选择省份</option>
+                                        {volist name='prov' id='vo'}
+                                        <option value="{$vo.p_id}" {if condition="$vo.p_id eq $ban.ba_p_id"}selected{/if}>{$vo.p_name}</option>
+                                        {/volist}
+                                    </select>
+                                </div>
+                                <div class="layui-input-inline">
+                                    <select name="ba_c_id" lay-verify="required" id="bu_c_id" lay-filter="bu_c_id">
+                                        <option value="">请选择城市</option>
+                                        {volist name="citys" id="vo"}
+                                        <option value="{$vo.c_id}" {if condition="$vo.c_id eq $ban.ba_c_id"}selected{/if}>{$vo.c_name}</option>
+                                        {/volist}
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="layui-form-item">
+                                <label class="layui-form-label">所属站点（选择）</label>
+                                <div class="layui-input-inline">
+                                    <select name="ad_branch" id="branch" lay-verify="required">
+                                        <option value="">请选择站点</option>
+                                        {volist name="branchs" id="vos"}
+                                        <option value="{$vos.b_id}" {if condition="$vos.b_id eq $ban.ba_branch"}selected{/if}>{$vos.b_name}</option>
+                                        {/volist}
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="layui-form-item">
                                 <label class="layui-form-label">Banner图</label>
                                 <div class="layui-upload">
                                     <button type="button" class="layui-btn" id="uploadLogo">上传图片</button>
@@ -84,6 +114,45 @@
             ,content: function(value){
                 layedit.sync(editIndex);
             }
+        });
+        form.on('select(bu_p_id)', function(data){
+            var p_id=data.value;
+            $.ajax({
+                type: 'POST',
+                url: "<?=url('user/getCityName')?>?p_id="+p_id,
+                data: {p_id:p_id},
+                dataType:  'json',
+                success: function(data){
+                    var code=data.data;
+                    $("#bu_c_id").html("<option value=''>请选择城市</option>");
+                    $.each(code, function(i, val) {
+                        var option1 = $("<option>").val(val.c_id).text(val.c_name);
+                        $("#bu_c_id").append(option1);
+                        form.render('select');
+                    });
+                    $("#bu_c_id").get(0).selectedIndex=0;
+                }
+            });
+        });
+        //调用该城市下面的分站
+        form.on('select(bu_c_id)', function(data){
+            var c_id=data.value;
+            $.ajax({
+                type: 'POST',
+                url: "<?=url('admin/getBranchName')?>?c_id="+c_id,
+                data: {c_id:c_id},
+                dataType:  'json',
+                success: function(data){
+                    var code=data.data;
+                    $("#branch").html("<option value=''>请选择站点</option>");
+                    $.each(code, function(i, val) {
+                        var option1 = $("<option>").val(val.b_id).text(val.b_name);
+                        $("#branch").append(option1);
+                        form.render('select');
+                    });
+                    $("#branch").get(0).selectedIndex=0;
+                }
+            });
         });
         //选择不同的显示端；对图片的规格要求；
         form.on('select(ba_via)', function(data){

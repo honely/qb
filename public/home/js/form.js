@@ -38,8 +38,8 @@ function verification_mode1(id){
 $("#form1 .subtn").click(function(){
     verification_mode1("#form1");
 })
-$(".form .subtn").click(function(){
-    verification_mode1(".form");
+$("#form5 .subtn").click(function(){
+    verification_mode1("#form5");
 })
 $(".form-view .subtn1").click(function(){
     verification_mode1(".form-view");

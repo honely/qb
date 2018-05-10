@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:3:{s:69:"D:\xampp\htdocs\qbl\public/../application/index\view\topics\edit.html";i:1525255301;s:70:"D:\xampp\htdocs\qbl\public/../application/index\view\index\header.html";i:1525256581;s:70:"D:\xampp\htdocs\qbl\public/../application/index\view\index\footer.html";i:1524022637;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:3:{s:69:"D:\xampp\htdocs\qbl\public/../application/index\view\topics\edit.html";i:1525942632;s:71:"D:\xampp\htdocs\qbl\public/../application/index\view\indexs\header.html";i:1525742386;s:71:"D:\xampp\htdocs\qbl\public/../application/index\view\indexs\footer.html";i:1525742360;}*/ ?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -13,97 +13,14 @@
     <link rel="stylesheet" href="__LAY__/css/layui.css">
     <link rel="stylesheet" href="__PUBLIC__/static/jquery-1.10.2.min.js">
     <script src="__LAY__/layui.js"></script>
+	<style>
+		.layui-body{
+			left:0!important
+		}
+	</style>
 </head>
 <body class="layui-layout-body">
-<div class="layui-layout layui-layout-admin">
-    <div class="layui-header">
-        <div class="layui-logo">千百炼网站后台管理系统</div>
-        <ul class="layui-nav layui-layout-right">
-            <li class="layui-nav-item">
-                <a href="javascript:;">
-                    <img src="http://t.cn/RCzsdCq" class="layui-nav-img">
-                    贤心
-                </a>
-                <dl class="layui-nav-child">
-                    <dd><a href="">基本资料</a></dd>
-                    <dd><a href="">安全设置</a></dd>
-                </dl>
-            </li>
-            <li class="layui-nav-item"><a href="">退了</a></li>
-        </ul>
-    </div>
-    <div class="layui-side layui-bg-black">
-        <div class="layui-side-scroll">
-            <ul class="layui-nav layui-nav-tree"  lay-filter="test">
-                <!--客户管理-->
-                <li class="layui-nav-item ">
-                    <a class="" href="javascript:;">客户管理</a>
-                    <dl class="layui-nav-child">
-                        <dd><a href="<?=url('user/userlist')?>">客户列表</a></dd>
-                        <!--<dd><a href="<?=url('user/userlist1')?>">客户列表1</a></dd>-->
-                        <dd><a href="<?=url('user/userback')?>">信息回收站</a></dd>
-                    </dl>
-                </li>
-                <!--导航管理-->
-                <li class="layui-nav-item">
-                    <a class="" href="javascript:;">导航管理</a>
-                    <dl class="layui-nav-child">
-                        <dd><a href="<?=url('nav/navlist')?>">导航列表</a></dd>
-                    </dl>
-                </li>
-                <!--内容管理-->
-                <li class="layui-nav-item">
-                    <a class="" href="javascript:;">内容管理</a>
-                    <dl class="layui-nav-child">
-                        <a href="<?=url('article/article')?>">文章管理</a>
-                    </dl>
 
-                    <dl class="layui-nav-child">
-                        <dd><a href="<?=url('example/example')?>">案例列表</a></dd>
-                        <!--楼盘表加定位。-->
-                        <dd><a href="<?=url('building/builds')?>">楼盘列表</a></dd>
-                        <dd><a href="<?=url('designer/team')?>">设计团队</a></dd>
-                    </dl>
-                    <dl class="layui-nav-child">
-                        <a href="<?=url('topic/topic')?>">专题模板1</a>
-                    </dl>
-                    <dl class="layui-nav-child">
-                        <dd><a href="<?=url('topics/topics')?>">专题模板2</a></dd>
-                    </dl>
-                </li>
-                <li class="layui-nav-item">
-                    <a class="" href="javascript:;">系统管理</a>
-                    <dl class="layui-nav-child">
-                        <!--<dd><a href="<?=url('setinfo/addbranch')?>">报价器</a></dd>-->
-                        <dd><a href="<?=url('setinfo/setlist')?>">基础配置</a></dd>
-                        <dd><a href="<?=url('setinfo/branch')?>">分站管理</a></dd>
-                        <dd><a href="<?=url('setinfo/typelist')?>">类型参数</a></dd>
-                    </dl>
-                    <dl class="layui-nav-child">
-                        <dd><a href="<?=url('setinfo/setlist')?>">短信配置</a></dd>
-                        <dd><a href="<?=url('setinfo/addset')?>">邮箱配置</a></dd>
-                    </dl>
-                    <dl class="layui-nav-child">
-                        <dd><a href="<?=url('district/district')?>">区域管理</a></dd>
-                    </dl>
-                </li>
-                <li class="layui-nav-item">
-                    <a href="javascript:;">广告管理</a>
-                    <dl class="layui-nav-child">
-                        <dd><a href="<?=url('banner/bannerlist')?>">banner列表</a></dd>
-                        <!--<dd><a href="<?=url('banner/otherAdv')?>">其他广告</a></dd>-->
-                    </dl>
-                </li>
-                <li class="layui-nav-item">
-                    <a href="javascript:;">权限管理</a>
-                    <dl class="layui-nav-child">
-                        <dd><a href="javascript:;">管理员</a></dd>
-                        <dd><a href="javascript:;">角色配置</a></dd>
-                    </dl>
-                </li>
-            </ul>
-        </div>
-    </div>
 <!-- 配置文件 -->
 <script type="text/javascript" src="__PUBLIC__/ueditor/ueditor.config.js"></script>
 <!-- 编辑器源码文件 -->
@@ -136,7 +53,7 @@
                                     <div class="layui-form-item">
                                         <label class="layui-form-label">省份</label>
                                         <div class="layui-input-inline">
-                                        <select name="tp_p_id" lay-filter="bu_p_id">
+                                        <select name="tp_p_id" lay-verify="required" lay-filter="bu_p_id">
                                         <option value="">请选择省份</option>
                                     <?php if(is_array($prov) || $prov instanceof \think\Collection || $prov instanceof \think\Paginator): $i = 0; $__LIST__ = $prov;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$vo): $mod = ($i % 2 );++$i;?>
                                     <option value="<?php echo $vo['p_id']; ?>" <?php if($vo['p_id'] == $topic['tp_p_id']): ?>selected<?php endif; ?>  ><?php echo $vo['p_name']; ?></option>
@@ -144,10 +61,21 @@
                                     </select>
                                     </div>
                                     <div class="layui-input-inline">
-                                        <select name="tp_c_id" id="bu_c_id" lay-filter="bu_c_id">
+                                        <select name="tp_c_id" lay-verify="required" id="bu_c_id" lay-filter="bu_c_id">
                                         <?php if(is_array($city) || $city instanceof \think\Collection || $city instanceof \think\Paginator): $i = 0; $__LIST__ = $city;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$vo): $mod = ($i % 2 );++$i;?>
                                         <option value="<?php echo $vo['c_id']; ?>" <?php if($topic['tp_c_id'] == $vo['c_id']): ?>selected<?php endif; ?> ><?php echo $vo['c_name']; ?></option>
                                     <?php endforeach; endif; else: echo "" ;endif; ?>
+                                        </select>
+                                        </div>
+                                        </div>
+                                    <div class="layui-form-item">
+                                        <label class="layui-form-label">所属站点（选择）</label>
+                                    <div class="layui-input-inline">
+                                        <select name="tp_b_id" id="branch" lay-verify="required">
+                                        <option value="">请选择站点</option>
+                                        <?php if(is_array($branchs) || $branchs instanceof \think\Collection || $branchs instanceof \think\Paginator): $i = 0; $__LIST__ = $branchs;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$vos): $mod = ($i % 2 );++$i;?>
+                                    <option value="<?php echo $vos['b_id']; ?>" <?php if($vos['b_id'] == $topic['tp_b_id']): ?>selected<?php endif; ?>><?php echo $vos['b_name']; ?></option>
+                                        <?php endforeach; endif; else: echo "" ;endif; ?>
                                         </select>
                                         </div>
                                         </div>
@@ -230,8 +158,8 @@
                                             //自定义验证规则
                                             form.verify({
                                                 title: function(value){
-                                                    if(value.length < 5){
-                                                        return '标题至少得5个字符啊';
+                                                    if(value.length < 2){
+                                                        return '至少得2个字符啊';
                                                     }
                                                 }
                                                 ,pass: [/(.+){6,12}$/, '密码必须6到12位']
@@ -241,11 +169,7 @@
                                             });
                                         });
                                     </script>
-                                    <div class="layui-footer">
-    <!-- 底部固定区域 -->
-    © layui.com - 底部固定区域
-</div>
-</div>
+                                    </div>
 <script>
     //JavaScript代码区域
     layui.use('element', function(){

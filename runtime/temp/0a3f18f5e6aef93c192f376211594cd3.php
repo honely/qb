@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:3:{s:71:"D:\xampp\htdocs\qbl\public/../application/index\view\designer\team.html";i:1525743930;s:71:"D:\xampp\htdocs\qbl\public/../application/index\view\indexs\header.html";i:1525742386;s:71:"D:\xampp\htdocs\qbl\public/../application/index\view\indexs\footer.html";i:1525742360;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:3:{s:71:"D:\xampp\htdocs\qbl\public/../application/index\view\designer\team.html";i:1525943225;s:71:"D:\xampp\htdocs\qbl\public/../application/index\view\indexs\header.html";i:1525742386;s:71:"D:\xampp\htdocs\qbl\public/../application/index\view\indexs\footer.html";i:1525742360;}*/ ?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -42,6 +42,7 @@
                             <td>从业经验</td>
                             <td>擅长风格</td>
                             <td>城市</td>
+                            <td>站点</td>
                             <td>状态</td>
                             <td>操作</td>
                         </tr>
@@ -56,11 +57,12 @@
                             <td><?php echo $na['des_age']; ?></td>
                             <td><?php echo $na['des_exp']; ?></td>
                             <td><?php echo $na['type_name']; ?></td>
-                            <td><?php echo $na['des_p_id']; ?><?php echo $na['des_c_id']; ?></td>
+                            <td><?php echo $na['p_name']; ?>-<?php echo $na['c_name']; ?></td>
+                            <td><?php echo $na['b_name']; ?></td>
                             <td><?php if($na['des_isable'] == '1'): ?>是<?php else: ?>否<?php endif; ?></td>
                             <td>
-                                <button class="layui-btn layui-btn-sm" onclick="editDesigner(<?php echo $na['des_id']; ?>)"><i class="layui-icon">&#xe642;</i></button>
-                                <button class="layui-btn layui-btn-sm" onclick="delDesigner(<?php echo $na['des_id']; ?>)" data-type="test2"><i class="layui-icon">&#xe640;</i></button>
+                                <button class="layui-btn layui-btn-xs" onclick="editDesigner(<?php echo $na['des_id']; ?>)">编辑</button>
+                                <button class="layui-btn layui-btn-danger layui-btn-xs" onclick="delDesigner(<?php echo $na['des_id']; ?>)" data-type="test2">删除</button>
                             </td>
                         </tr>
                         <?php endforeach; endif; else: echo "" ;endif; ?>

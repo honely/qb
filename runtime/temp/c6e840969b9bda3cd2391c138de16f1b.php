@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:3:{s:73:"D:\xampp\htdocs\qbl\public/../application/index\view\building\builds.html";i:1525743930;s:71:"D:\xampp\htdocs\qbl\public/../application/index\view\indexs\header.html";i:1525742386;s:71:"D:\xampp\htdocs\qbl\public/../application/index\view\indexs\footer.html";i:1525742360;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:3:{s:73:"D:\xampp\htdocs\qbl\public/../application/index\view\building\builds.html";i:1525943126;s:71:"D:\xampp\htdocs\qbl\public/../application/index\view\indexs\header.html";i:1525742386;s:71:"D:\xampp\htdocs\qbl\public/../application/index\view\indexs\footer.html";i:1525742360;}*/ ?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -38,6 +38,7 @@
                             <td>编号</td>
                             <td>楼盘名称</td>
                             <td>地址</td>
+                            <td>分站</td>
                             <td>活动链接</td>
                             <td>状态</td>
                             <td>操作</td>
@@ -45,17 +46,18 @@
                         </thead>
                         <tbody>
                         <?php if($builds == null): ?>
-                        <tr><td colspan="5">暂无内容</td></tr>
+                        <tr><td colspan="6">暂无内容</td></tr>
                         <?php endif; if(is_array($builds) || $builds instanceof \think\Collection || $builds instanceof \think\Paginator): $i = 0; $__LIST__ = $builds;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$na): $mod = ($i % 2 );++$i;?>
                         <tr>
                             <td><?php echo $na['bu_id']; ?></td>
                             <td><?php echo $na['bu_name']; ?></td>
                             <td><?php echo $na['p_name']; ?>--<?php echo $na['c_name']; ?></td>
+                            <td><?php echo $na['b_name']; ?></td>
                             <td><?php echo $na['bu_url']; ?></td>
                             <td><?php if($na['bu_isable'] == '1'): ?>是<?php else: ?>否<?php endif; ?></td>
                             <td>
-                                <button class="layui-btn layui-btn-sm" onclick="editBuild(<?php echo $na['bu_id']; ?>)"><i class="layui-icon">&#xe642;</i></button>
-                                <button class="layui-btn layui-btn-sm" onclick="delBuild(<?php echo $na['bu_id']; ?>)" data-type="test2"><i class="layui-icon">&#xe640;</i></button>
+                                <button class="layui-btn layui-btn-xs" onclick="editBuild(<?php echo $na['bu_id']; ?>)">编辑</button>
+                                <button class="layui-btn layui-btn-danger layui-btn-xs" onclick="delBuild(<?php echo $na['bu_id']; ?>)" data-type="test2">删除</button>
                             </td>
                         </tr>
                         <?php endforeach; endif; else: echo "" ;endif; ?>

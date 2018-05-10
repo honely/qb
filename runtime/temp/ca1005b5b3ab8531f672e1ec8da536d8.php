@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:3:{s:68:"D:\xampp\htdocs\qbl\public/../application/index\view\admin\menu.html";i:1525749104;s:71:"D:\xampp\htdocs\qbl\public/../application/index\view\indexs\header.html";i:1525742386;s:71:"D:\xampp\htdocs\qbl\public/../application/index\view\indexs\footer.html";i:1525742360;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:3:{s:68:"D:\xampp\htdocs\qbl\public/../application/index\view\admin\menu.html";i:1525922537;s:71:"D:\xampp\htdocs\qbl\public/../application/index\view\indexs\header.html";i:1525742386;s:71:"D:\xampp\htdocs\qbl\public/../application/index\view\indexs\footer.html";i:1525742360;}*/ ?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -56,7 +56,7 @@
                             <td>
                                 <button class="layui-btn layui-btn-xs" onclick="editMenu(<?php echo $na['m_id']; ?>)">编辑</button>
                                 <button class="layui-btn layui-btn-xs" onclick="showSub(<?php echo $na['m_id']; ?>)">下级菜单</button>
-                                <button class="layui-btn layui-btn-danger layui-btn-xs" onclick="delMenu(<?php echo $na['m_id']; ?>)" data-type="test2">删除</button>
+                                <!--<button class="layui-btn layui-btn-danger layui-btn-xs" onclick="delMenu(<?php echo $na['m_id']; ?>)" data-type="test2">删除</button>-->
                             </td>
                         </tr>
                         <?php endforeach; endif; else: echo "" ;endif; ?>
@@ -115,7 +115,7 @@
     }
     
     function showSub(m_id) {
-        window.location.href='<?=url("admin/menu")?>?m_id='+m_id;
+        window.location.href='<?=url("admin/menu")?>?m_id='+m_id+ "&m_fid=" +<?php echo $m_fid; ?>;
     }
 </script>
 </div>

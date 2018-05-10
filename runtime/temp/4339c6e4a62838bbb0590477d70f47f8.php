@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:3:{s:72:"D:\xampp\htdocs\qbl\public/../application/index\view\setinfo\branch.html";i:1525743746;s:71:"D:\xampp\htdocs\qbl\public/../application/index\view\indexs\header.html";i:1525742386;s:71:"D:\xampp\htdocs\qbl\public/../application/index\view\indexs\footer.html";i:1525742360;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:3:{s:72:"D:\xampp\htdocs\qbl\public/../application/index\view\setinfo\branch.html";i:1525943784;s:71:"D:\xampp\htdocs\qbl\public/../application/index\view\indexs\header.html";i:1525742386;s:71:"D:\xampp\htdocs\qbl\public/../application/index\view\indexs\footer.html";i:1525742360;}*/ ?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -23,6 +23,15 @@
 
 <div class="layui-body">
     <!-- 内容主体区域 -->
+    <fieldset class="layui-elem-field layui-field-title" style="margin-top: 30px;">
+        <legend>分站管理</legend>
+    </fieldset>
+    <span class="layui-breadcrumb" lay-separator="-">
+  <a href="">首页</a>
+  <a href="">国际新闻</a>
+  <a href="">亚太地区</a>
+  <a><cite>正文</cite></a>
+</span>
     <div style="margin: 10px">
         <div class="layui-btn-group">
             <button class="layui-btn" onclick="addLevel()">开通分站</button>

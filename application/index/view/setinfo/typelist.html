@@ -41,8 +41,8 @@
                             <td>{$type.type_remarks}</td>
                             <td>{if condition="$type['type_isable'] eq '1'"}是{else/}否{/if}</td>
                             <td>
-                                <button class="layui-btn layui-btn-sm" onclick="editType({$type.type_id})"><i class="layui-icon">&#xe642;</i></button>
-                                <button class="layui-btn layui-btn-sm" onclick="delType({$type.type_id})" data-type="test2"><i class="layui-icon">&#xe640;</i></button>
+                                <button class="layui-btn layui-btn-xs" onclick="editType({$type.type_id})">编辑</button>
+                                <button class="layui-btn layui-btn-danger layui-btn-xs" onclick="delType({$type.type_id})" data-type="test2">删除</button>
                             </td>
                         </tr>
                         {/volist}

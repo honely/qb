@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:70:"D:\xampp\htdocs\qbl\public/../application/index\view\user\details.html";i:1525516024;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:70:"D:\xampp\htdocs\qbl\public/../application/index\view\user\details.html";i:1525761219;}*/ ?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -222,7 +222,7 @@
     </div>
     <div class="layui-form-item">
         <div class="layui-input-block">
-            <button class="layui-btn" lay-submit="" lay-filter="editCus">保存</button>
+            <span class="layui-btn" lay-submit="" lay-filter="editCus">保存</span>
         </div>
     </div>
 </form>

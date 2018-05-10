@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:3:{s:71:"D:\xampp\htdocs\qbl\public/../application/index\view\designer\edit.html";i:1525743930;s:71:"D:\xampp\htdocs\qbl\public/../application/index\view\indexs\header.html";i:1525742386;s:71:"D:\xampp\htdocs\qbl\public/../application/index\view\indexs\footer.html";i:1525742360;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:3:{s:71:"D:\xampp\htdocs\qbl\public/../application/index\view\designer\edit.html";i:1525941440;s:71:"D:\xampp\htdocs\qbl\public/../application/index\view\indexs\header.html";i:1525742386;s:71:"D:\xampp\htdocs\qbl\public/../application/index\view\indexs\footer.html";i:1525742360;}*/ ?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -42,10 +42,21 @@
                     </select>
                 </div>
                 <div class="layui-input-inline">
-                    <select name="des_c_id" lay-verify="required" id="des_c_id" lay-filter="des_c_id">
+                    <select name="des_c_id" lay-verify="required" id="des_c_id" lay-filter="bu_c_id">
                         <option value="">请选择城市</option>
                         <?php if(is_array($city) || $city instanceof \think\Collection || $city instanceof \think\Paginator): $i = 0; $__LIST__ = $city;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$city): $mod = ($i % 2 );++$i;?>
                         <option value="<?php echo $city['c_id']; ?>" <?php if($city['c_id'] == $design['des_c_id']): ?>selected<?php endif; ?> ><?php echo $city['c_name']; ?></option>
+                        <?php endforeach; endif; else: echo "" ;endif; ?>
+                    </select>
+                </div>
+            </div>
+            <div class="layui-form-item">
+                <label class="layui-form-label">所属站点（选择）</label>
+                <div class="layui-input-inline">
+                    <select name="des_b_id" id="branch" lay-verify="required">
+                        <option value="">请选择站点</option>
+                        <?php if(is_array($branchs) || $branchs instanceof \think\Collection || $branchs instanceof \think\Paginator): $i = 0; $__LIST__ = $branchs;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$vos): $mod = ($i % 2 );++$i;?>
+                        <option value="<?php echo $vos['b_id']; ?>" <?php if($vos['b_id'] == $design['des_b_id']): ?>selected<?php endif; ?>><?php echo $vos['b_name']; ?></option>
                         <?php endforeach; endif; else: echo "" ;endif; ?>
                     </select>
                 </div>
@@ -152,6 +163,26 @@
                         form.render('select');
                     });
                     $("#des_c_id").get(0).selectedIndex=0;
+                }
+            });
+        });
+        //调用该城市下面的分站
+        form.on('select(bu_c_id)', function(data){
+            var c_id=data.value;
+            $.ajax({
+                type: 'POST',
+                url: "<?=url('admin/getBranchName')?>?c_id="+c_id,
+                data: {c_id:c_id},
+                dataType:  'json',
+                success: function(data){
+                    var code=data.data;
+                    $("#branch").html("<option value=''>请选择站点</option>");
+                    $.each(code, function(i, val) {
+                        var option1 = $("<option>").val(val.b_id).text(val.b_name);
+                        $("#branch").append(option1);
+                        form.render('select');
+                    });
+                    $("#branch").get(0).selectedIndex=0;
                 }
             });
         });

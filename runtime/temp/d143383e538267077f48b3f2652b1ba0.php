@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:3:{s:69:"D:\xampp\htdocs\qbl\public/../application/index\view\admin\admin.html";i:1525768095;s:71:"D:\xampp\htdocs\qbl\public/../application/index\view\indexs\header.html";i:1525742386;s:71:"D:\xampp\htdocs\qbl\public/../application/index\view\indexs\footer.html";i:1525742360;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:3:{s:69:"D:\xampp\htdocs\qbl\public/../application/index\view\admin\admin.html";i:1525943298;s:71:"D:\xampp\htdocs\qbl\public/../application/index\view\indexs\header.html";i:1525742386;s:71:"D:\xampp\htdocs\qbl\public/../application/index\view\indexs\footer.html";i:1525742360;}*/ ?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -50,7 +50,22 @@
                         <tbody>
                         <?php if($admin == null): ?>
                         <tr><td colspan="10">暂无内容</td></tr>
-                        <?php endif; if(is_array($admin) || $admin instanceof \think\Collection || $admin instanceof \think\Paginator): $i = 0; $__LIST__ = $admin;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$na): $mod = ($i % 2 );++$i;?>
+                        <?php endif; if(is_array($admin) || $admin instanceof \think\Collection || $admin instanceof \think\Paginator): $i = 0; $__LIST__ = $admin;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$na): $mod = ($i % 2 );++$i;if($na['ad_id'] == 1): ?>
+                        <tr>
+                            <td><?php echo $na['ad_id']; ?></td>
+                            <td><?php echo $na['ad_realname']; ?></td>
+                            <td><?php echo $na['r_name']; ?></td>
+                            <td><?php echo $na['ad_sex']; ?></td>
+                            <td>----</td>
+                            <td>----</td>
+                            <td><?php echo $na['ad_phone']; ?></td>
+                            <td><?php echo $na['ad_email']; ?></td>
+                            <td><?php if($na['ad_isable'] == '1'): ?>是<?php else: ?>否<?php endif; ?></td>
+                            <td>
+                                <button class="layui-btn layui-btn-xs" onclick="editAdmin(<?php echo $na['ad_id']; ?>)">编辑</button>
+                            </td>
+                        </tr>
+                        <?php else: ?>
                         <tr>
                             <td><?php echo $na['ad_id']; ?></td>
                             <td><?php echo $na['ad_realname']; ?></td>
@@ -62,11 +77,11 @@
                             <td><?php echo $na['ad_email']; ?></td>
                             <td><?php if($na['ad_isable'] == '1'): ?>是<?php else: ?>否<?php endif; ?></td>
                             <td>
-                                <button class="layui-btn layui-btn-sm" onclick="editAdmin(<?php echo $na['ad_id']; ?>)"><i class="layui-icon">&#xe642;</i></button>
-                                <button class="layui-btn layui-btn-sm" onclick="delAdmin(<?php echo $na['ad_id']; ?>)" data-type="test2"><i class="layui-icon">&#xe640;</i></button>
+                                <button class="layui-btn layui-btn-xs" onclick="editAdmin(<?php echo $na['ad_id']; ?>)">编辑</button>
+                                <button class="layui-btn layui-btn-danger layui-btn-xs" onclick="delAdmin(<?php echo $na['ad_id']; ?>)" data-type="test2">删除</button>
                             </td>
                         </tr>
-                        <?php endforeach; endif; else: echo "" ;endif; ?>
+                        <?php endif; endforeach; endif; else: echo "" ;endif; ?>
                         </tbody>
                     </table>
                 </div>

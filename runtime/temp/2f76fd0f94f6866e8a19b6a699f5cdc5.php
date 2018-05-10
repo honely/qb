@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:70:"D:\xampp\htdocs\qbl\public/../application/index\view\indexs\index.html";i:1525760483;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:70:"D:\xampp\htdocs\qbl\public/../application/index\view\indexs\index.html";i:1525916105;}*/ ?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -36,17 +36,20 @@
     <div class="layui-side layui-bg-black">
         <div class="layui-side-scroll">
             <ul class="layui-nav layui-nav-tree"  lay-filter="test">
-                <?php if(is_array($menuList) || $menuList instanceof \think\Collection || $menuList instanceof \think\Paginator): $i = 0; $__LIST__ = $menuList;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$menu): $mod = ($i % 2 );++$i;?>
+                <?php if($menuList != null): if(is_array($menuList) || $menuList instanceof \think\Collection || $menuList instanceof \think\Paginator): $i = 0; $__LIST__ = $menuList;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$menu): $mod = ($i % 2 );++$i;if(isset($menu['child']) && $menu['child']): ?>
                 <li class="layui-nav-item">
                     <a href="javascript:;"><?php echo $menu['m_name']; ?></a>
-                    <!--<a href="/index/<?php echo $menu['m_control']; ?>/<?php echo $menu['m_action']; ?>.html"><?php echo $menu['m_name']; ?></a>-->
-                    <?php if(is_array($menu['child']) || $menu['child'] instanceof \think\Collection || $menu['child'] instanceof \think\Paginator): $i = 0; $__LIST__ = $menu['child'];if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$child): $mod = ($i % 2 );++$i;?>
+                    <?php if(isset($menu['child']) && $menu['child'] != null): if(is_array($menu['child']) || $menu['child'] instanceof \think\Collection || $menu['child'] instanceof \think\Paginator): $i = 0; $__LIST__ = $menu['child'];if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$child): $mod = ($i % 2 );++$i;?>
                     <dl class="layui-nav-child">
                         <dd><a href='javascript:' data-url="/index/<?php echo $child['m_control']; ?>/<?php echo $child['m_action']; ?>.html"><?php echo $child['m_name']; ?></a></dd>
                     </dl>
-                    <?php endforeach; endif; else: echo "" ;endif; ?>
+                    <?php endforeach; endif; else: echo "" ;endif; endif; ?>
                 </li>
-                <?php endforeach; endif; else: echo "" ;endif; ?>
+                <?php else: ?>
+                <li  class="layui-nav-item">
+                    <a href="<?php echo $menu['m_name']; ?>"><?php echo $menu['m_name']; ?></a>
+                </li>
+                <?php endif; endforeach; endif; else: echo "" ;endif; endif; ?>
             </ul>
         </div>
     </div>

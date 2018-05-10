@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:69:"D:\xampp\htdocs\qbl\public/../application/home\view\index\design.html";i:1525773998;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:69:"D:\xampp\htdocs\qbl\public/../application/home\view\index\design.html";i:1525946558;}*/ ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -25,12 +25,24 @@
                 </a>
             </div>
             <ul class="navs">
-                <li class="navlist"><a href="/index.html">首页</a></li>
-                <li class="navlist"><a href="/product/index.html">定制整装</a></li>
-                <li class="navlist cur"><a href="/design/index.html">量房设计</a></li>
-                <li class="navlist"><a href="/quote/index.html">智能报价</a></li>
-                <li class="navlist"><a href="/case/index.html">实景样板间</a></li>
-                <li class="navlist"><a href="/about/index.html">装修资讯</a></li>
+                <li class="navlist">
+                    <a href="<?=url('index/index')?>">首页</a>
+                </li>
+                <li class="navlist">
+                    <a href="<?=url('index/product')?>">定制整装</a>
+                </li>
+                <li class="navlist cur">
+                    <a href="<?=url('index/design')?>">量房设计</a>
+                </li>
+                <li class="navlist">
+                    <a href="<?=url('index/quote')?>">智能报价</a>
+                </li>
+                <li class="navlist">
+                    <a href="<?=url('index/demo')?>">实景样板间</a>
+                </li>
+                <li class="navlist">
+                    <a href="<?=url('index/about')?>">装修资讯</a>
+                </li>
             </ul>
             <div class="tel-group">
                 <img src="../img/icon_tel.png" alt="">
@@ -45,7 +57,7 @@
         <div class="form-box">
             <div class="sjform-wrap">
                 <h3>抢领免费量房设计名额</h3>
-                <form class="form-wraps" name='feedback' method='post' enctype='multipart/form-data' action='/e/enews/index.php'>
+                <form class="form-wraps" name='feedback' method='post' enctype='multipart/form-data' action="<?=url('index/index')?>">
                     <input type=hidden name=ecmsfrom value="/"> 
                     <input name='enews' type='hidden' value='AddFeedback'>
                     <input name='title' type='hidden' value='量房设计上部预约'> 
@@ -54,7 +66,7 @@
                 <input type=hidden name=chuangyi id=chuangyi>
                     <!-- 有效表单 -->
                     <input type="text" name="name" class="nick-name input" placeholder="请输入您的称呼">
-                    <input type="number" name="phone" class="user-phone input" placeholder="请输入您的手机号码">
+                    <input type="tel" name="mycall" class="user-phone input" placeholder="请输入您的手机号码">
                     <input type="text" name="" class="user-address input" placeholder="请输入您的小区名称">
                     <input type="submit" value="立即预约" class="sub_btn">
                 </form>
@@ -398,7 +410,7 @@
                     <h3>预约参观</h3>
                     <p>预约参观家装新风尚 品质生活触手可得</p>
                 </div>
-                <form class="form-view" id="form2" name='feedback' method='post' enctype='multipart/form-data' action='/e/enews/index.php'>
+                <form class="form-view" id="form2" name='feedback' method='post' enctype='multipart/form-data' action="<?=url('index/index')?>">
                     <input type=hidden name=ecmsfrom value="/"> 
                     <input name='enews' type='hidden' value='AddFeedback'>
                     <input name='title' class="position-con" type='hidden' value=''> 
@@ -427,7 +439,7 @@
                     <p>免费获取全房装修设计效果图</p>
                 </li>
                 <li class="f-form">
-                    <form class="form" name='feedback' method='post' enctype='multipart/form-data' action='/e/enews/index.php'>
+                    <form class="form" name='feedback' method='post' enctype='multipart/form-data' action="<?=url('index/index')?>">
                         <input type=hidden name=ecmsfrom value="/"> 
                         <input name='enews' type='hidden' value='AddFeedback'>
                         <input name='title' type='hidden' value='底部固定预约'> 

@@ -1,26 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:3:{s:71:"D:\xampp\htdocs\qbl\public/../application/index\view\user\userlist.html";i:1525934949;s:71:"D:\xampp\htdocs\qbl\public/../application/index\view\indexs\header.html";i:1525742386;s:71:"D:\xampp\htdocs\qbl\public/../application/index\view\indexs\footer.html";i:1525742360;}*/ ?>
-<!DOCTYPE html>
-<html>
-<head>
-    <meta charset="utf-8">
-    <meta name="renderer" content="webkit">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-    <meta name="apple-mobile-web-app-status-bar-style" content="black">
-    <meta name="apple-mobile-web-app-capable" content="yes">
-    <meta name="format-detection" content="telephone=no">
-    <title>千百炼网站后台管理系统</title>
-    <link rel="stylesheet" href="__LAY__/css/layui.css">
-    <link rel="stylesheet" href="__PUBLIC__/static/jquery-1.10.2.min.js">
-    <script src="__LAY__/layui.js"></script>
-	<style>
-		.layui-body{
-			left:0!important
-		}
-	</style>
-</head>
-<body class="layui-layout-body">
-
+{include file="indexs/header" /}
 <div class="layui-body">
     <!-- 内容主体区域 -->
     <section class="panel panel-padding" style="padding-top: 10px;padding-left: 10px;">
@@ -28,16 +6,16 @@
             <div class="layui-form-item">
                 <div class="layui-inline">
                     <div class="layui-input-inline">
-                        <input type="text" name="keywords" value="<?php if(isset($keywords)): ?><?php echo $keywords; endif; ?>"  placeholder="请输入客户姓名/手机" class="layui-input">
+                        <input type="text" name="keywords" value="{if isset($keywords)}{$keywords}{/if}"  placeholder="请输入客户姓名/手机" class="layui-input">
                     </div>
                 </div>
                 <div class="layui-inline">
                     <div class="layui-input-inline">
                         <select name="cus_status">
                             <option value="">请选择标记状态</option>
-                            <?php if(is_array($userTip) || $userTip instanceof \think\Collection || $userTip instanceof \think\Paginator): $i = 0; $__LIST__ = $userTip;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$tip): $mod = ($i % 2 );++$i;?>
-                                <option value="<?php echo $tip['type_id']; ?>" <?php if(isset($cus_status)): if($cus_status == $tip['type_id']): ?>selected<?php endif; endif; ?>><?php echo $tip['type_name']; ?></option>
-                            <?php endforeach; endif; else: echo "" ;endif; ?>
+                            {volist name='userTip' id='tip'}
+                            <option value="{$tip.type_id}" {if isset($cus_status)}{if condition="$cus_status eq $tip.type_id"}selected{/if}{/if}>{$tip.type_name}</option>
+                            {/volist}
                         </select>
                     </div>
                 </div>
@@ -46,14 +24,14 @@
                     <div class="layui-input-inline">
                         <select name="cus_sys">
                             <option value="">请选择用户终端</option>
-                            <option value="1" <?php if(isset($cus_sys)): if($cus_sys == 1): ?>selected<?php endif; endif; ?>>手机端</option>
-                            <option value="2" <?php if(isset($cus_sys)): if($cus_sys == 2): ?>selected<?php endif; endif; ?>>PC端</option>
+                            <option value="1" {if isset($cus_sys)}{if condition="$cus_sys eq 1"}selected{/if}{/if}>手机端</option>
+                            <option value="2" {if isset($cus_sys)}{if condition="$cus_sys eq 2"}selected{/if}{/if}>PC端</option>
                         </select>
                     </div>
                 </div>
                 <div class="layui-inline">
                     <div class="layui-input-inline">
-                        <input type="text" name="cus_opptime" value="<?php if(isset($cus_opptime)): ?><?php echo $cus_opptime; endif; ?>" class="layui-input" id="test6" placeholder="请选择客户预约日期">
+                        <input type="text" name="cus_opptime" value="{if isset($cus_opptime)}{$cus_opptime}{/if}" class="layui-input" id="test6" placeholder="请选择客户预约日期">
                     </div>
                 </div>
                 <div class="layui-inline">
@@ -65,80 +43,54 @@
             </div>
         </form>
     </section>
-    <section class="panel panel-padding" style="padding-top: 10px;padding-left: 10px;">
-        <div class="layui-inline">
-            <div class="layui-input-inline">
-                <!--批量导出-->
-                <!--<button class="layui-btn" id="exportExl" >批量导出</button>-->
-                <!--导出全部-->
-                <!--<button class="layui-btn" id="emportAll">导出全部</button>-->
-                <!--批量删除-->
-                <button id="delBatch" class="layui-btn layui-btn-warm">批量删除</button>
-                <!--全部删除-->
-                <button id="delAll" class="layui-btn layui-btn-danger">全部删除</button>
-            </div>
-        </div>
-    </section>
     <table class="layui-form layui-table layui-table-box layui-table-view" lay-filter="parse-table-demo" style="padding: 10px;text-align: center;border: 1px;solid-color: #28282c">
-    <thead>
-    <tr>
-        <td>
-            全选
-            <input type="checkbox" lay-skin="primary" lay-filter="checkAll"  id="checkAll"/>
-        </td>
-        <td>用户编号</td>
-        <td>预约城市</td>
-        <td>预约站点</td>
-        <td>预约时间</td>
-        <td>客户姓名</td>
-        <td>联系方式</td>
-        <td>建筑面积</td>
-        <td>小区楼盘</td>
-        <td>网址入口+位置</td>
-        <td>推广来源</td>
-        <td>系统来源</td>
-        <td>推广创意</td>
-        <td>关键词</td>
-        <td>标记状态</td>
-        <td>操作人</td>
-        <td>操作时间</td>
-        <td>操作</td>
-    </tr>
-    </thead>
-    <tbody>
-        <?php if(is_array($cusInfo) || $cusInfo instanceof \think\Collection || $cusInfo instanceof \think\Paginator): $i = 0; $__LIST__ = $cusInfo;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$cus): $mod = ($i % 2 );++$i;?>
-            <tr>
-                <td>
-                    <input type="checkbox" lay-skin="primary" class="checks" value="<?php echo $cus['cus_id']; ?>"/>
-                </td>
-                <td><?php echo $cus['cus_bid']; ?></td>
-                <td><?php echo $cus['p_name']; ?>-<?php echo $cus['c_name']; ?></td>
-                <td><?php echo $cus['b_name']; ?></td>
-                <td><?php echo $cus['cus_opptime']; ?></td>
-                <td><?php echo $cus['cus_name']; ?></td>
-                <td><?php echo $cus['cus_phone']; ?></td>
-                <td><?php echo $cus['cus_area']; ?>m²</td>
-                <td><?php echo $cus['cus_build']; ?></td>
-                <td><?php echo $cus['cus_link']; ?><br/><?php echo $cus['cus_position']; ?></td>
-                <!--<td><?php echo $cus['cus_ip']; ?></td>-->
-                <td><?php echo $cus['cus_from']; ?></td>
-                <td><?php echo $cus['cus_sys']; ?></td>
-                <td><?php echo $cus['cus_origin']; ?></td>
-                <td><?php echo $cus['cus_keywords']; ?></td>
-                <td><?php echo $cus['type_name']; ?></td>
-                <td><?php echo $cus['cus_opeater']; ?></td>
-                <td><?php echo $cus['cus_backtime']; ?></td>
-                <td>
-                    <?php if($ad_role == 8): else: ?>
-                    <button class="layui-btn layui-btn-danger layui-btn-xs" onclick="delUser(<?php echo $cus['cus_id']; ?>)" >删除</button>
-                    <?php endif; ?>
-                    <button onclick="editUser(<?php echo $cus['cus_id']; ?>)" class="layui-btn layui-btn-xs">编辑</button>
-                    <!--<input type="button" class="layui-btn layui-btn-xs sendMsg" name="<?php echo $cus['cus_id']; ?>" value="短信" >-->
-                </td>
-            </tr>
-        <?php endforeach; endif; else: echo "" ;endif; ?>
-    </tbody>
-</table>
+        <thead>
+        <tr>
+            <td>客户编号</td>
+            <td>预约城市</td>
+            <td>预约时间</td>
+            <td>客户姓名</td>
+            <td>联系方式</td>
+            <td>建筑面积</td>
+            <td>小区楼盘</td>
+            <td>网址入口+位置</td>
+            <!--<td>用户IP</td>-->
+            <td>推广来源</td>
+            <td>推广创意</td>
+            <td>关键词</td>
+            <td>标记状态</td>
+            <td>操作人</td>
+            <td>操作时间</td>
+            <td>操作</td>
+        </tr>
+        </thead>
+        <tbody>
+        {volist name='cusInfo' id='cus'}
+        <tr>
+            <td>
+                {$cus.cus_bid}
+            </td>
+            <td>{$cus.p_name}-{$cus.c_name}</td>
+            <td>{$cus.cus_opptime}</td>
+            <td>{$cus.cus_name}</td>
+            <td>{$cus.cus_phone}</td>
+            <td>{$cus.cus_area}m²</td>
+            <td>{$cus.cus_build}</td>
+            <td>{$cus.cus_link}<br/>{$cus.cus_position}</td>
+            <!--<td>{$cus.cus_ip}</td>-->
+            <td>{$cus.cus_from}</td>
+            <td>{$cus.cus_origin}</td>
+            <td>{$cus.cus_keywords}</td>
+            <td>{$cus.cus_status}</td>
+            <td>{$cus.cus_opeater}</td>
+            <td>{$cus.cus_backtime}</td>
+            <td>
+                <button class="layui-btn layui-btn-danger layui-btn-xs" onclick="delUser({$cus.cus_id})" >删除</button>
+            </td>
+        </tr>
+        {/volist}
+        </tbody>
+    </table>
     <div id="pages" style="text-align: center"></div>
 </div>
 <script>
@@ -154,9 +106,9 @@
         laypage.render({
             //自定义每页条数的选择项
             elem: 'pages'
-            ,count: <?php echo $count; ?>
-            ,limit: <?php echo $limit; ?>
-            ,curr: <?php echo $page; ?>
+            ,count: {$count}
+            ,limit: {$limit}
+            ,curr: {$page}
             ,limits: [10, 15, 20]
             ,layout: ['count', 'prev', 'page', 'next', 'limit', 'skip']
             ,jump: function(obj,frist){
@@ -357,13 +309,4 @@
         });
     }
 </script>
-</div>
-<script>
-    //JavaScript代码区域
-    layui.use('element', function(){
-        var element = layui.element;
-
-    });
-</script>
-</body>
-</html>
+{include file="indexs/footer" /}

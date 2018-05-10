@@ -35,17 +35,26 @@
     <div class="layui-side layui-bg-black">
         <div class="layui-side-scroll">
             <ul class="layui-nav layui-nav-tree"  lay-filter="test">
+                {if $menuList neq null}
                 {volist name="menuList" id="menu"}
+                {if isset($menu.child) && $menu.child}
                 <li class="layui-nav-item">
                     <a href="javascript:;">{$menu.m_name}</a>
-                    <!--<a href="/index/{$menu['m_control']}/{$menu['m_action']}.html">{$menu.m_name}</a>-->
+                    {if isset($menu.child) && $menu.child neq null}
                     {volist name="menu['child']" id="child"}
                     <dl class="layui-nav-child">
                         <dd><a href='javascript:' data-url="/index/{$child['m_control']}/{$child['m_action']}.html">{$child.m_name}</a></dd>
                     </dl>
                     {/volist}
+                    {/if}
                 </li>
+                {else}
+                <li  class="layui-nav-item">
+                    <a href="{$menu.m_name}">{$menu.m_name}</a>
+                </li>
+                {/if}
                 {/volist}
+                {/if}
             </ul>
         </div>
     </div>

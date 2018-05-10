@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:3:{s:71:"D:\xampp\htdocs\qbl\public/../application/index\view\user\userlist.html";i:1525934949;s:71:"D:\xampp\htdocs\qbl\public/../application/index\view\indexs\header.html";i:1525742386;s:71:"D:\xampp\htdocs\qbl\public/../application/index\view\indexs\footer.html";i:1525742360;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:3:{s:69:"D:\xampp\htdocs\qbl\public/../application/index\view\user\spread.html";i:1525931845;s:71:"D:\xampp\htdocs\qbl\public/../application/index\view\indexs\header.html";i:1525742386;s:71:"D:\xampp\htdocs\qbl\public/../application/index\view\indexs\footer.html";i:1525742360;}*/ ?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -36,7 +36,7 @@
                         <select name="cus_status">
                             <option value="">请选择标记状态</option>
                             <?php if(is_array($userTip) || $userTip instanceof \think\Collection || $userTip instanceof \think\Paginator): $i = 0; $__LIST__ = $userTip;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$tip): $mod = ($i % 2 );++$i;?>
-                                <option value="<?php echo $tip['type_id']; ?>" <?php if(isset($cus_status)): if($cus_status == $tip['type_id']): ?>selected<?php endif; endif; ?>><?php echo $tip['type_name']; ?></option>
+                            <option value="<?php echo $tip['type_id']; ?>" <?php if(isset($cus_status)): if($cus_status == $tip['type_id']): ?>selected<?php endif; endif; ?>><?php echo $tip['type_name']; ?></option>
                             <?php endforeach; endif; else: echo "" ;endif; ?>
                         </select>
                     </div>
@@ -65,80 +65,54 @@
             </div>
         </form>
     </section>
-    <section class="panel panel-padding" style="padding-top: 10px;padding-left: 10px;">
-        <div class="layui-inline">
-            <div class="layui-input-inline">
-                <!--批量导出-->
-                <!--<button class="layui-btn" id="exportExl" >批量导出</button>-->
-                <!--导出全部-->
-                <!--<button class="layui-btn" id="emportAll">导出全部</button>-->
-                <!--批量删除-->
-                <button id="delBatch" class="layui-btn layui-btn-warm">批量删除</button>
-                <!--全部删除-->
-                <button id="delAll" class="layui-btn layui-btn-danger">全部删除</button>
-            </div>
-        </div>
-    </section>
     <table class="layui-form layui-table layui-table-box layui-table-view" lay-filter="parse-table-demo" style="padding: 10px;text-align: center;border: 1px;solid-color: #28282c">
-    <thead>
-    <tr>
-        <td>
-            全选
-            <input type="checkbox" lay-skin="primary" lay-filter="checkAll"  id="checkAll"/>
-        </td>
-        <td>用户编号</td>
-        <td>预约城市</td>
-        <td>预约站点</td>
-        <td>预约时间</td>
-        <td>客户姓名</td>
-        <td>联系方式</td>
-        <td>建筑面积</td>
-        <td>小区楼盘</td>
-        <td>网址入口+位置</td>
-        <td>推广来源</td>
-        <td>系统来源</td>
-        <td>推广创意</td>
-        <td>关键词</td>
-        <td>标记状态</td>
-        <td>操作人</td>
-        <td>操作时间</td>
-        <td>操作</td>
-    </tr>
-    </thead>
-    <tbody>
+        <thead>
+        <tr>
+            <td>客户编号</td>
+            <td>预约城市</td>
+            <td>预约时间</td>
+            <td>客户姓名</td>
+            <td>联系方式</td>
+            <td>建筑面积</td>
+            <td>小区楼盘</td>
+            <td>网址入口+位置</td>
+            <!--<td>用户IP</td>-->
+            <td>推广来源</td>
+            <td>推广创意</td>
+            <td>关键词</td>
+            <td>标记状态</td>
+            <td>操作人</td>
+            <td>操作时间</td>
+            <td>操作</td>
+        </tr>
+        </thead>
+        <tbody>
         <?php if(is_array($cusInfo) || $cusInfo instanceof \think\Collection || $cusInfo instanceof \think\Paginator): $i = 0; $__LIST__ = $cusInfo;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$cus): $mod = ($i % 2 );++$i;?>
-            <tr>
-                <td>
-                    <input type="checkbox" lay-skin="primary" class="checks" value="<?php echo $cus['cus_id']; ?>"/>
-                </td>
-                <td><?php echo $cus['cus_bid']; ?></td>
-                <td><?php echo $cus['p_name']; ?>-<?php echo $cus['c_name']; ?></td>
-                <td><?php echo $cus['b_name']; ?></td>
-                <td><?php echo $cus['cus_opptime']; ?></td>
-                <td><?php echo $cus['cus_name']; ?></td>
-                <td><?php echo $cus['cus_phone']; ?></td>
-                <td><?php echo $cus['cus_area']; ?>m²</td>
-                <td><?php echo $cus['cus_build']; ?></td>
-                <td><?php echo $cus['cus_link']; ?><br/><?php echo $cus['cus_position']; ?></td>
-                <!--<td><?php echo $cus['cus_ip']; ?></td>-->
-                <td><?php echo $cus['cus_from']; ?></td>
-                <td><?php echo $cus['cus_sys']; ?></td>
-                <td><?php echo $cus['cus_origin']; ?></td>
-                <td><?php echo $cus['cus_keywords']; ?></td>
-                <td><?php echo $cus['type_name']; ?></td>
-                <td><?php echo $cus['cus_opeater']; ?></td>
-                <td><?php echo $cus['cus_backtime']; ?></td>
-                <td>
-                    <?php if($ad_role == 8): else: ?>
-                    <button class="layui-btn layui-btn-danger layui-btn-xs" onclick="delUser(<?php echo $cus['cus_id']; ?>)" >删除</button>
-                    <?php endif; ?>
-                    <button onclick="editUser(<?php echo $cus['cus_id']; ?>)" class="layui-btn layui-btn-xs">编辑</button>
-                    <!--<input type="button" class="layui-btn layui-btn-xs sendMsg" name="<?php echo $cus['cus_id']; ?>" value="短信" >-->
-                </td>
-            </tr>
+        <tr>
+            <td>
+                <?php echo $cus['cus_bid']; ?>
+            </td>
+            <td><?php echo $cus['p_name']; ?>-<?php echo $cus['c_name']; ?></td>
+            <td><?php echo $cus['cus_opptime']; ?></td>
+            <td><?php echo $cus['cus_name']; ?></td>
+            <td><?php echo $cus['cus_phone']; ?></td>
+            <td><?php echo $cus['cus_area']; ?>m²</td>
+            <td><?php echo $cus['cus_build']; ?></td>
+            <td><?php echo $cus['cus_link']; ?><br/><?php echo $cus['cus_position']; ?></td>
+            <!--<td><?php echo $cus['cus_ip']; ?></td>-->
+            <td><?php echo $cus['cus_from']; ?></td>
+            <td><?php echo $cus['cus_origin']; ?></td>
+            <td><?php echo $cus['cus_keywords']; ?></td>
+            <td><?php echo $cus['cus_status']; ?></td>
+            <td><?php echo $cus['cus_opeater']; ?></td>
+            <td><?php echo $cus['cus_backtime']; ?></td>
+            <td>
+                <button class="layui-btn layui-btn-danger layui-btn-xs" onclick="delUser(<?php echo $cus['cus_id']; ?>)" >删除</button>
+            </td>
+        </tr>
         <?php endforeach; endif; else: echo "" ;endif; ?>
-    </tbody>
-</table>
+        </tbody>
+    </table>
     <div id="pages" style="text-align: center"></div>
 </div>
 <script>
