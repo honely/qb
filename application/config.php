@@ -144,7 +144,8 @@ return [
     'view_replace_str'       => [
         '__LAY__' => '../../../layui/src',
         '__PUBLIC__' => '../../..',
-        '__HOME__' => '../../../home'
+        '__HOME__' => '../../../home',
+        '__XIAN__' => '../../../xian'
     ],
     // 默认跳转页面对应的模板文件
     'dispatch_success_tmpl'  => THINK_PATH . 'tpl' . DS . 'dispatch_jump.tpl',

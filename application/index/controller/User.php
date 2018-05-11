@@ -20,6 +20,15 @@ class User extends Controller{
             $this->error('请先登录！','login/login');
         }
     }
+
+
+
+
+
+
+
+
+
     //客户列表
     public function userlist(){
         $where=" 1 = 1";
@@ -77,7 +86,23 @@ class User extends Controller{
             ->select();
         foreach($cusInfo as $k => $v){
             $cusInfo[$k]['cus_opptime']=date('Y-m-d H:i:s',$v['cus_opptime']);
-            $cusInfo[$k]['cus_backtime']=date('Y-m-d H:i:s',$v['cus_backtime']);
+            //操作人员对应当前登录的管理员
+            if(!empty($v['cus_opeater']) && is_int($v['cus_opeater'])){
+                $adInfo=Db::table('qbl_admin')
+                    ->where(['ad_id' => $v['cus_opeater']])
+                    ->field('ad_id,ad_realname')->find();
+                $adName = $adInfo['ad_realname'];
+            }else{
+                $adName="---";
+            }
+            $cusInfo[$k]['ad_realname']= $adName;
+            //操作时间
+            if(!empty($v['cus_backtime']) && is_int($v['cus_backtime'])){
+                $backtime = date('Y-m-d H:i:s',$v['cus_backtime']);
+            }else{
+                $backtime = "暂未回访";
+            }
+            $cusInfo[$k]['cus_backtime']= $backtime;
             $cusInfo[$k]['cus_sys']=$v['cus_sys'] == 1  ? '手机端': 'PC端';
             if($ad_role == 12){
                 $cusInfo[$k]['cus_phone'] = substr_replace($v['cus_phone'],'****',3,4);
@@ -105,6 +130,18 @@ class User extends Controller{
         }
         return $this->fetch();
     }
+
+
+
+
+
+
+
+
+
+
+
+
     //客户列表style2
     public function userlist1(){
        return $this->fetch();
@@ -151,7 +188,8 @@ class User extends Controller{
     public function editUser(){
         $cus_id=intval($_GET['cus_id']);
         $data=$_POST;
-        $data['cus_backtime']=time();
+        $data['cus_opeater'] = session('adminId');
+        $data['cus_backtime'] =time();
         $editCus=Db::table('qbl_customer')->where(['cus_id' => $cus_id])->update($data);
         if($editCus){
             $this->success('修改成功','userList');

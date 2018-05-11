@@ -95,8 +95,20 @@
                 <td>{$cus.cus_opptime}</td>
                 <td>{$cus.cus_name}</td>
                 <td>{$cus.cus_phone}</td>
-                <td>{$cus.cus_area}m²</td>
-                <td>{$cus.cus_build}</td>
+                <td>
+                    {if condition="$cus.cus_area neq null"}
+                    {$cus.cus_area}m²
+                    {else/}
+                    ---
+                    {/if}
+                </td>
+                <td>
+                    {if condition="$cus.cus_build neq null"}
+                    {$cus.cus_build}
+                    {else/}
+                    ---
+                    {/if}
+                </td>
                 <td>{$cus.cus_link}<br/>{$cus.cus_position}</td>
                 <!--<td>{$cus.cus_ip}</td>-->
                 <td>{$cus.cus_from}</td>
@@ -104,7 +116,7 @@
                 <td>{$cus.cus_origin}</td>
                 <td>{$cus.cus_keywords}</td>
                 <td>{$cus.type_name}</td>
-                <td>{$cus.cus_opeater}</td>
+                <td>{$cus.ad_realname}</td>
                 <td>{$cus.cus_backtime}</td>
                 <td>
                     {if condition="$ad_role eq 8"}

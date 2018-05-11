@@ -1,0 +1,31 @@
+
+
+
+
+
+
+
+
+
+
+
+
+<form class="form-wraps" name='feedback' method='post' enctype='multipart/form-data' action="<?=url('index/index')?>">
+    <input name='cus_position' type='hidden' value='量房设计上部预约'>
+    <input type='hidden' name='cus_sys' value=2>
+    <input type='hidden' name='cus_from' id='laiyuan'>
+    <input type='hidden' name='cus_origin' id='chuangyi'>
+    <!-- 有效表单 -->
+    <input type="text" name="cus_name" maxlength="6" class="nick-name input" placeholder="请输入您的称呼">
+    <input type="tel" name="cus_phone" maxlength="11" class="user-phone input" placeholder="请输入您的手机号码">
+    <input type="text" name="cus_build" maxlength="10" class="user-address input" placeholder="请输入您的小区名称">
+    <!--房屋类型，新房 二手房 radio-->
+    <input type="text" name="cus_type" class="user-address input" placeholder="请输入您的房屋类型">
+    <input type="text" name="cus_area" class="user-address input" placeholder="请输入您的房屋面积">
+    <!--装修风格下拉框数据问后台要-->
+    <input type="text" name="cus_style" class="user-address input" placeholder="请输入您的装修风格">
+    <!--装修品质下拉框数据问后台要-->
+    <input type="text" name="cus_quality" class="user-address input" placeholder="请输入您的装修品质">
+
+    <input type="submit" value="立即预约" class="sub_btn">
+</form>

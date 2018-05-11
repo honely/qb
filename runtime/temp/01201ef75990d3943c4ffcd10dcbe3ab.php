@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:70:"D:\xampp\htdocs\qbl\public/../application/home\view\index\product.html";i:1525945349;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:70:"D:\xampp\htdocs\qbl\public/../application/home\view\index\product.html";i:1526002785;}*/ ?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -703,6 +703,7 @@
     <script src="__PUBLIC__/home/js/fdx.js"></script>
     <script src="__PUBLIC__/home/js/index.js"></script>
     <script src="__PUBLIC__/home/js/form.js"></script>
+    <script src="__PUBLIC__/home/js/urlparams.js"></script>
 </body>
 
 </html>

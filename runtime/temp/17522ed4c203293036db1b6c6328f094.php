@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:68:"D:\xampp\htdocs\qbl\public/../application/home\view\index\index.html";i:1525945969;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:68:"D:\xampp\htdocs\qbl\public/../application/home\view\index\index.html";i:1526019034;}*/ ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
@@ -77,17 +77,18 @@
         </div>
         <div class="form-group">
             <h3 class="form-title">
-                <span>现在预约123123</span>免费获取全房装修设计效果图
+                <span>现在预约123</span>免费获取全房装修设计效果图
             </h3>
-            <form class="form" id="form1" name='feedback' method='post' enctype='multipart/form-data' action="<?=url('index/index')?>">
+            <form class="form" id="form1" name='feedback' method="post" action="<?=url('index/index')?>" enctype='multipart/form-data'>
                 <input type=hidden name=ecmsfrom value="/">
                 <input name='enews' type='hidden' value='AddFeedback'>
                 <input name='title' type='hidden' value='首页banner大屏幕'>
                 <input type=hidden name=bid value=2>
                 <input type=hidden name=laiyuan id=laiyuan>
                 <input type=hidden name=chuangyi id=chuangyi>
-                <input type="text" name="name" class="nickname" placeholder="请输入您的称呼" />
-                <input type="number" name="mycall" class="phone" placeholder="请输入您的手机号码，获取免费服务" />
+                <input type='hidden' name='site' value="交换空间">
+                <input type="text" name="name" maxlength="6" class="nickname" placeholder="请输入您的称呼" />
+                <input type="tel" maxlength="11" name="mycall" class="phone" placeholder="请输入您的手机号码，获取免费服务" />
                 <input type="submit" class="subtn" value="立即预约" />
             </form>
         </div>
@@ -879,6 +880,17 @@
     <script src="__PUBLIC__/home/js/index.js"></script>
     <script src="__PUBLIC__/home/js/deploy.js"></script>
     <script src="__PUBLIC__/home/js/form.js"></script>
+    <script src="__PUBLIC__/home/js/urlparams.js"></script>
 </body>
-
 </html>
+
+
+
+
+
+
+
+
+
+
+

@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:3:{s:73:"D:\xampp\htdocs\qbl\public/../application/index\view\user\cusservice.html";i:1525932791;s:71:"D:\xampp\htdocs\qbl\public/../application/index\view\indexs\header.html";i:1525742386;s:71:"D:\xampp\htdocs\qbl\public/../application/index\view\indexs\footer.html";i:1525742360;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:3:{s:73:"D:\xampp\htdocs\qbl\public/../application/index\view\user\cusservice.html";i:1526022639;s:71:"D:\xampp\htdocs\qbl\public/../application/index\view\indexs\header.html";i:1525742386;s:71:"D:\xampp\htdocs\qbl\public/../application/index\view\indexs\footer.html";i:1525742360;}*/ ?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -89,10 +89,16 @@
             <td><?php echo $cus['cus_opptime']; ?></td>
             <td><?php echo $cus['cus_name']; ?></td>
             <td><?php echo $cus['cus_phone']; ?></td>
-            <td><?php echo $cus['cus_area']; ?>m²</td>
+            <td>
+                <?php if($cus['cus_area'] != null): ?>
+                <?php echo $cus['cus_area']; ?>m²
+                <?php else: ?>
+                ---
+                <?php endif; ?>
+                </td>
             <td><?php echo $cus['cus_build']; ?></td>
-            <td><?php echo $cus['cus_status']; ?></td>
-            <td><?php echo $cus['cus_opeater']; ?></td>
+            <td><?php echo $cus['type_name']; ?></td>
+            <td><?php echo $cus['ad_realname']; ?></td>
             <td><?php echo $cus['cus_backtime']; ?></td>
             <td>
                 <button onclick="editUser(<?php echo $cus['cus_id']; ?>)" class="layui-btn layui-btn-xs">编辑</button>

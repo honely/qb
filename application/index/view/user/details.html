@@ -35,7 +35,7 @@
         <div class="layui-inline">
             <label class="layui-form-label">备用电话</label>
             <div class="layui-input-inline">
-                <input type="tel" name="cus_phone2" value="{$cus.cus_phone2}"  lay-verify="required|phone" autocomplete="off" class="layui-input">
+                <input type="tel" name="cus_phone2" value="{$cus.cus_phone2}" autocomplete="off" class="layui-input">
             </div>
         </div>
         <div class="layui-inline">
@@ -227,9 +227,10 @@
 </form>
 </html>
 <script>
-    layui.use(['form', 'laydate', 'jquery'], function(){
+    layui.use(['form', 'laydate','layer', 'jquery'], function(){
         var form = layui.form
             ,laydate = layui.laydate
+            ,layer=layui.layer
             ,$ = layui.jquery;
 
         //日期
@@ -275,10 +276,8 @@
                 'data':$("#cusInfo").serialize(),
                 'success':function (result) {
                    if(result.code == '1'){
-                       //关闭当前弹出窗
                        var index=parent.layer.getFrameIndex(window.name);
                        parent.layer.close(index);
-                       //刷新父级页面；
                        window.parent.location.reload();
                    }
                 },

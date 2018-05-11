@@ -61,6 +61,10 @@ input[type=number]::-webkit-outer-spin-button {
   -webkit-appearance: none;
   margin: 0;
 }
+select,
+button {
+  -webkit-appearance: none;
+}
 .fl {
   float: left;
 }
@@ -252,6 +256,10 @@ input[type=number]::-webkit-outer-spin-button {
   font-size: 14px;
   color: #333;
   margin-top: 10px;
+}
+.foot-info .code-con img {
+  width: 120px;
+  height: 120px;
 }
 .footer {
   width: 100%;
@@ -585,9 +593,14 @@ input[type=number]::-webkit-outer-spin-button {
   width: 260px;
   height: 36px;
   border: 1px solid #ddd;
-  background: #fff;
+  background: none;
   padding-left: 15px;
   color: #333;
+  position: absolute;
+  right: 6px;
+  top: -6px;
+  cursor: pointer;
+  z-index: 2;
 }
 .quote-group label .unit {
   position: absolute;
@@ -609,6 +622,13 @@ input[type=number]::-webkit-outer-spin-button {
 }
 .quote-group .hint i {
   color: #FF6D0F;
+}
+.quote-group .xl_icon {
+  position: absolute;
+  right: 10px;
+  top: 1px;
+  color: #808080;
+  z-index: 1;
 }
 .budget {
   width: 400px;

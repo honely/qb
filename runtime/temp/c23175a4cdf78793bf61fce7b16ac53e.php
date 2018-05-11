@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:68:"D:\xampp\htdocs\qbl\public/../application/home\view\index\quote.html";i:1525945294;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:68:"D:\xampp\htdocs\qbl\public/../application/home\view\index\quote.html";i:1526010618;}*/ ?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -104,6 +104,7 @@
                                 <option value="4">新中式</option>
                                 <option value="4">其它定制</option>
                             </select>
+                            <span class="xl_icon">▼</span>
                         </label>
                         <label>
                             <span>装修品质：</span>
@@ -113,6 +114,7 @@
                                 <option value="2">经济环保</option>
                                 <option value="3">高档奢华</option>
                             </select>
+                            <span class="xl_icon">▼</span>
                         </label>
                         <label>
                             <span>手机号码：</span>
@@ -395,6 +397,7 @@
     <script src="__PUBLIC__/home/js/index.js "></script>
     <script src="__PUBLIC__/home/js/quote.js"></script>
     <script src="__PUBLIC__/home/js/form.js"></script>
+    <script src="__PUBLIC__/home/js/urlparams.js"></script>
 </body>
 
 </html>

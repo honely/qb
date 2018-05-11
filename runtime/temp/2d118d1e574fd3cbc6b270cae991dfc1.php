@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:3:{s:71:"D:\xampp\htdocs\qbl\public/../application/index\view\user\userlist.html";i:1525934949;s:71:"D:\xampp\htdocs\qbl\public/../application/index\view\indexs\header.html";i:1525742386;s:71:"D:\xampp\htdocs\qbl\public/../application/index\view\indexs\footer.html";i:1525742360;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:3:{s:71:"D:\xampp\htdocs\qbl\public/../application/index\view\user\userlist.html";i:1526022815;s:71:"D:\xampp\htdocs\qbl\public/../application/index\view\indexs\header.html";i:1525742386;s:71:"D:\xampp\htdocs\qbl\public/../application/index\view\indexs\footer.html";i:1525742360;}*/ ?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -117,8 +117,19 @@
                 <td><?php echo $cus['cus_opptime']; ?></td>
                 <td><?php echo $cus['cus_name']; ?></td>
                 <td><?php echo $cus['cus_phone']; ?></td>
-                <td><?php echo $cus['cus_area']; ?>m²</td>
-                <td><?php echo $cus['cus_build']; ?></td>
+                <td>
+                    <?php if($cus['cus_area'] != null): ?>
+                    <?php echo $cus['cus_area']; ?>m²
+                    <?php else: ?>
+                    ---
+                    <?php endif; ?>
+                </td>
+                <td>
+                    <?php if($cus['cus_build'] != null): ?>
+                    <?php echo $cus['cus_build']; else: ?>
+                    ---
+                    <?php endif; ?>
+                </td>
                 <td><?php echo $cus['cus_link']; ?><br/><?php echo $cus['cus_position']; ?></td>
                 <!--<td><?php echo $cus['cus_ip']; ?></td>-->
                 <td><?php echo $cus['cus_from']; ?></td>
@@ -126,7 +137,7 @@
                 <td><?php echo $cus['cus_origin']; ?></td>
                 <td><?php echo $cus['cus_keywords']; ?></td>
                 <td><?php echo $cus['type_name']; ?></td>
-                <td><?php echo $cus['cus_opeater']; ?></td>
+                <td><?php echo $cus['ad_realname']; ?></td>
                 <td><?php echo $cus['cus_backtime']; ?></td>
                 <td>
                     <?php if($ad_role == 8): else: ?>

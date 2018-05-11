@@ -67,10 +67,16 @@
             <td>{$cus.cus_opptime}</td>
             <td>{$cus.cus_name}</td>
             <td>{$cus.cus_phone}</td>
-            <td>{$cus.cus_area}m²</td>
+            <td>
+                {if condition="$cus.cus_area neq null"}
+                    {$cus.cus_area}m²
+                {else/}
+                    ---
+                {/if}
+            </td>
             <td>{$cus.cus_build}</td>
-            <td>{$cus.cus_status}</td>
-            <td>{$cus.cus_opeater}</td>
+            <td>{$cus.type_name}</td>
+            <td>{$cus.ad_realname}</td>
             <td>{$cus.cus_backtime}</td>
             <td>
                 <button onclick="editUser({$cus.cus_id})" class="layui-btn layui-btn-xs">编辑</button>

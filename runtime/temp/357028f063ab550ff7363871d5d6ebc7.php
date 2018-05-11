@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:69:"D:\xampp\htdocs\qbl\public/../application/home\view\index\design.html";i:1525946558;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:69:"D:\xampp\htdocs\qbl\public/../application/home\view\index\design.html";i:1526002759;}*/ ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -494,5 +494,6 @@
     <script src="__PUBLIC__/home/js/index.js"></script>
     <script src="__PUBLIC__/home/js/deploy.js"></script>
     <script src="__PUBLIC__/home/js/form.js"></script>
+    <script src="__PUBLIC__/home/js/urlparams.js"></script>
 </body>
 </html>
