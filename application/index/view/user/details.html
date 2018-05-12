@@ -154,11 +154,9 @@
         </div>
     </div>
     <div class="layui-form-item">
-        <div class="layui-inline">
-            <label class="layui-form-label">网址入口</label>
-            <div class="layui-input-block">
-                <input type="text"  value="{$cus.cus_link}" readonly class="layui-input">
-            </div>
+        <label class="layui-form-label">网址入口</label>
+        <div class="layui-input-block">
+            <input type="text"  value="{$cus.cus_link}" readonly class="layui-input">
         </div>
     </div>
     <div class="layui-form-item">
@@ -268,7 +266,7 @@
                 }
             });
         });
-
+        //ajax提交表单数据
         form.on('submit(editCus)', function(data){
             $.ajax({
                 'type':"post",

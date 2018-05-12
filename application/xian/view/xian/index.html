@@ -1,4 +1,3 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:68:"D:\xampp\htdocs\qbl\public/../application/xian\view\index\index.html";i:1526087803;}*/ ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><!--[if IE 8 ]>
 <html lang="zh-CN" xmlns="http://www.w3.org/1999/xhtml" class="old-ie ie8">
 <![endif]--><!--[if IE 9 ]>
@@ -28,179 +27,205 @@
 <script type="text/javascript" src="__XIAN__/layer/layer.js"></script>
 <script type="text/javascript" src="__XIAN__/js/all-b.js"></script>
 <script type="text/javascript" src="__XIAN__/js/wow.min.js"></script>
-	<style>
-		:-moz-placeholder {
-			/* Mozilla Firefox 4 to 18 */
-			color: #808080;
-			opacity: 1;
-		}
-		::-moz-placeholder {
-			/* Mozilla Firefox 19+ */
-			color: #808080;
-			opacity: 1;
-		}
-		input:-ms-input-placeholder {
-			color: #808080;
-			opacity: 1;
-		}
-		input::-webkit-input-placeholder {
-			color: #808080;
-			opacity: 1;
-		}
-		input,
-		select,
-		button {
-			outline: none;
-			background: none;
-		}
-		a {
-			text-decoration: none;
-		}
-		em,
-		i {
-			font-style: normal;
-		}
-		ul li,
-		ul ol {
-			list-style: none;
-		}
-		input,
-		select,
-		button {
-			-webkit-appearance: none;
-		}
-		input[type=number] {
-			-moz-appearance: textfield;
-		}
-		input[type=number]::-webkit-inner-spin-button,
-		input[type=number]::-webkit-outer-spin-button {
-			-webkit-appearance: none;
-			margin: 0;
-		}
-		.float-box {
-			box-sizing: border-box;
-			width: 100%;
-			height: 90px;
-			overflow: hidden;
-			background: rgba(0, 0, 0, 0.5);
-			position: fixed;
-			left: 0;
-			bottom: 0;
-			z-index: 66;
+<style>
+	:-moz-placeholder {
+		/* Mozilla Firefox 4 to 18 */
+		color: #808080;
+		opacity: 1;
+	}
+	::-moz-placeholder {
+		/* Mozilla Firefox 19+ */
+		color: #808080;
+		opacity: 1;
+	}
+	input:-ms-input-placeholder {
+		color: #808080;
+		opacity: 1;
+	}
+	input::-webkit-input-placeholder {
+		color: #808080;
+		opacity: 1;
+	}
+	input,
+	select,
+	button {
+		outline: none;
+		background: none;
+	}
+	a {
+		text-decoration: none;
+	}
+	em,
+	i {
+		font-style: normal;
+	}
+	ul li,
+	ul ol {
+		list-style: none;
+	}
+	input,
+	select,
+	button {
+		-webkit-appearance: none;
+	}
+	input[type=number] {
+		-moz-appearance: textfield;
+	}
+	input[type=number]::-webkit-inner-spin-button,
+	input[type=number]::-webkit-outer-spin-button {
+		-webkit-appearance: none;
+		margin: 0;
+	}
+	.float-box {
+		box-sizing: border-box;
+		width: 100%;
+		height: 90px;
+		overflow: hidden;
+		background: rgba(0, 0, 0, 0.5);
+		position: fixed;
+		left: 0;
+		bottom: 0;
+		z-index: 66;
 
+	}
+	.float-box .form-fixed {
+		width: 1200px;
+		height: 100px;
+		margin: 0 auto;
+		padding: 0 30px;
+	}
+	.float-box .f-lt {
+		width: 100px;
+		height: 36px;
+		float: left;
+		margin-top: 24px;
+	}
+	.float-box .f-lt img {
+		animation: movebl3 1s linear infinite;
+	}
+	.float-box .f-title {
+		width: 260px;
+		float: left;
+		color: #fff;
+	}
+	.float-box .f-title h3 {
+		font-size: 26px;
+		font-weight: normal;
+		line-height: 40px;
+		margin-top: 15px;
+	}
+	.float-box .f-title p {
+		font-size: 14px;
+	}
+	.float-box .f-form {
+		width: 700px;
+		float: left;
+		margin-left: 30px;
+		margin-top: 24px;
+	}
+	.float-box .colsebtn {
+		width: 19px;
+		height: 18px;
+		float: right;
+		cursor: pointer;
+		margin-top: 24px;
+	}
+	.float-box .nickname {
+		width: 182px;
+		height: 50px;
+		background: #fff;
+		border: none;
+		outline: none;
+		padding-left: 15px;
+		border-radius: 5px;
+	}
+	.float-box .phone {
+		width: 292px;
+		height: 50px;
+		background: #fff;
+		border: none;
+		outline: none;
+		padding-left: 15px;
+		margin-left: 5px;
+		margin-right: 5px;
+		border-radius: 5px;
+	}
+	.float-box .subtn {
+		width: 162px;
+		height: 50px;
+		color: #fff;
+		background: #c70000;
+		border: none;
+		outline: none;
+		cursor: pointer;
+		font-size: 16px;
+		border-radius: 5px;
+	}
+	.float-box .subtn:hover {
+		background: #b70000;
+	}
+	@keyframes movebl3 {
+		0% {
+			transform: translate(0, 0);
+			-ms-transform: translate(0, 0);
+			/* Internet Explorer */
+			-moz-transform: translate(0, 0);
+			/* Firefox */
+			-webkit-transform: translate(0, 0);
+			/* Safari 和 Chrome */
+			-o-transform: translate(0, 0);
+			/* Opera */
 		}
-		.float-box .form-fixed {
-			width: 1200px;
-			height: 100px;
-			margin: 0 auto;
-			padding: 0 30px;
+		50% {
+			transform: translate(10px, 0);
+			-ms-transform: translate(10px, 0);
+			/* Internet Explorer */
+			-moz-transform: translate(10px, 0);
+			/* Firefox */
+			-webkit-transform: translate(10px, 0);
+			/* Safari 和 Chrome */
+			-o-transform: translate(10px, 0);
+			/* Opera */
 		}
-		.float-box .f-lt {
-			width: 100px;
-			height: 36px;
-			float: left;
-			margin-top: 24px;
+		0% {
+			transform: translate(0, 0);
+			-ms-transform: translate(0, 0);
+			/* Internet Explorer */
+			-moz-transform: translate(0, 0);
+			/* Firefox */
+			-webkit-transform: translate(0, 0);
+			/* Safari 和 Chrome */
+			-o-transform: translate(0, 0);
+			/* Opera */
 		}
-		.float-box .f-lt img {
-			animation: movebl3 1s linear infinite;
-		}
-		.float-box .f-title {
-			width: 260px;
-			float: left;
-			color: #fff;
-		}
-		.float-box .f-title h3 {
-			font-size: 26px;
-			font-weight: normal;
-			line-height: 40px;
-			margin-top: 15px;
-		}
-		.float-box .f-title p {
-			font-size: 14px;
-		}
-		.float-box .f-form {
-			width: 700px;
-			float: left;
-			margin-left: 30px;
-			margin-top: 24px;
-		}
-		.float-box .colsebtn {
-			width: 19px;
-			height: 18px;
-			float: right;
-			cursor: pointer;
-			margin-top: 24px;
-		}
-		.float-box .nickname {
-			width: 182px;
-			height: 50px;
-			background: #fff;
-			border: none;
-			outline: none;
-			padding-left: 15px;
-			border-radius: 5px;
-		}
-		.float-box .phone {
-			width: 292px;
-			height: 50px;
-			background: #fff;
-			border: none;
-			outline: none;
-			padding-left: 15px;
-			margin-left: 5px;
-			margin-right: 5px;
-			border-radius: 5px;
-		}
-		.float-box .subtn {
-			width: 162px;
-			height: 50px;
-			color: #fff;
-			background: #c70000;
-			border: none;
-			outline: none;
-			cursor: pointer;
-			font-size: 16px;
-			border-radius: 5px;
-		}
-		.float-box .subtn:hover {
-			background: #b70000;
-		}
-		@keyframes movebl3 {
-			0% {
-				transform: translate(0, 0);
-				-ms-transform: translate(0, 0);
-				/* Internet Explorer */
-				-moz-transform: translate(0, 0);
-				/* Firefox */
-				-webkit-transform: translate(0, 0);
-				/* Safari 和 Chrome */
-				-o-transform: translate(0, 0);
-				/* Opera */
-			}
-			50% {
-				transform: translate(10px, 0);
-				-ms-transform: translate(10px, 0);
-				/* Internet Explorer */
-				-moz-transform: translate(10px, 0);
-				/* Firefox */
-				-webkit-transform: translate(10px, 0);
-				/* Safari 和 Chrome */
-				-o-transform: translate(10px, 0);
-				/* Opera */
-			}
-			0% {
-				transform: translate(0, 0);
-				-ms-transform: translate(0, 0);
-				/* Internet Explorer */
-				-moz-transform: translate(0, 0);
-				/* Firefox */
-				-webkit-transform: translate(0, 0);
-				/* Safari 和 Chrome */
-				-o-transform: translate(0, 0);
-				/* Opera */
-			}
-		}
-	</style>
+	}
+	.order-btn{
+		background: #e60012;
+		border: none;
+		color: #fff;
+		font-size: 16px;
+		padding: 7px 30px;
+		border: 1px solid #e60012;
+		float: left;
+		cursor: pointer;
+		margin-left: 20px
+	}
+	.subtnorder{
+		display: inline-block;
+		width: 162px;
+		height: 50px;
+		color: #fff;
+		background: #c70000;
+		border: none;
+		outline: none;
+		cursor: pointer;
+		font-size: 16px;
+		border-radius: 5px;
+		line-height: 50px;
+		text-align: center;
+	}
+
+</style>
 </head>
 <script type="text/javascript">
     // borwserRedirect
@@ -252,44 +277,44 @@
 				<i>
 				<img src="__XIAN__/img/c1.png"/>
 				</i>
-				<h5>装修咨询电话234234</h5>
+				<h5>装修咨询电话</h5>
 				<h6>400-029-1986</h6>
 			</div>
-			<a href="/" class="logo fl"><img src="__XIAN__/img/46cfc98acb82a9af.jpg" alt="陕西千百炼装饰"/></a>
+			<a href="<?=url('xian/index')?>" class="logo fl"><img src="__XIAN__/img/46cfc98acb82a9af.jpg" alt="陕西千百炼装饰"/></a>
 			<div class="Nav" id="HeaderNav">
 				<ul class="inline">
 					<li class="cur">
-					<a href="<?=url('index/index')?>" class="par" title="网站首页">
+					<a href="<?=url('xian/index')?>" class="par" title="网站首页">
 					<em>网站首页</em>
 					</a>
 					</li>
 					<li class="parLi">
-					<a href="<?=url('index/product')?>" class="par" title="定制整装">
+					<a href="<?=url('xian/product')?>" class="par" title="定制整装">
 					<em>定制整装 </em>
 					</a>
 					</li>
 					<li class="parLi">
-					<a href="<?=url('index/design')?>" class="par" title="免费设计">
+					<a href="<?=url('xian/design')?>" class="par" title="免费设计">
 					<em>免费设计</em>
 					</a>
 					</li>
 					<li class="parLi">
-					<a href="<?=url('index/quote')?>" class="par" title="智能报价">
+					<a href="<?=url('xian/quote')?>" class="par" title="智能报价">
 					<em>智能报价</em>
 					</a>
 					</li>
 					<li class="parLi">
-					<a href="<?=url('index/process')?>" class="par" title="德系工艺">
+					<a href="<?=url('xian/process')?>" class="par" title="德系工艺">
 					<em>德系工艺</em>
 					</a>
 					</li>
 					<li class="parLi">
-					<a href="<?=url('index/example')?>" class="par" title="实景样板间">
+					<a href="<?=url('xian/example')?>" class="par" title="实景样板间">
 					<em>实景样板间</em>
 					</a>
 					</li>
 					<li class="parLi">
-					<a href="<?=url('index/about')?>" class="par" title="关于我们">
+					<a href="<?=url('xian/about')?>" class="par" title="关于我们">
 					<em>关于我们</em>
 					</a>
 					<div class="sons">
@@ -331,12 +356,12 @@
 		<div class="bd swiper-container">
 			<ul class="swiper-wrapper">
 				<li class="swiper-slide">
-					<a href="<?=url('index/fresh')?>" title="会呼吸的家" target="_blank" class="">
+					<a href="<?=url('xian/fresh')?>" title="会呼吸的家" target="_blank" class="">
 						<img src="__XIAN__/img/ban6666.jpg" alt="会呼吸的家"/>
 					</a>
 				</li>
 				<li class="swiper-slide">
-					<a href="/product/" title="" target="_blank" class="">
+					<a href="<?=url('xian/product')?>" title="" target="_blank" class="">
 						<img src="__XIAN__/images/bc.png" alt=""/>
 					</a>
 				</li>
@@ -348,15 +373,13 @@
 		</div>
 	</div>
 	<div class="posi-b-index">
-		<form name='feedback' method='post' enctype='multipart/form-data' action="<?=url('index/index')?>">
-		     <input type=hidden name=ecmsfrom value="/"> 
-		     <input name='enews' type='hidden' value='AddFeedback'>
+		<form name='feedback' id="cusInfo" class="cusInfo" method='post' enctype='multipart/form-data'>
 		     <input name='title' type='hidden' value='首页banner大屏幕'> 
 		     <input type=hidden name=bid value=2> 
 		     <input type=hidden name=laiyuan id=laiyuan>                   
 		     <input type=hidden name=chuangyi id=chuangyi>
 			<input type="number" name="mycall" class="name-dh" placeholder="请输入您的手机号码"/>
-			<button type="submit" class="index-lyy">立即预约1111</button>
+			<button type="button" class="index-lyy order-btn" id="bannerOrder">立即预约</button>
 		</form>
 	</div>
 </div>
@@ -452,12 +475,9 @@
 				</p>
 			</div>
 			<div class="fl form-index">
-								<form name='feedback' method='post' enctype='multipart/form-data' action='/e/enews/index.php'>
-            <input type=hidden name=ecmsfrom value="/"> 
-
-            <input name='enews' type='hidden' value='AddFeedback'>
-            <input name='title' type='hidden' value='首页中部'> 
-            <input type=hidden name=bid value=2> 
+				<form name='feedback' id="indexMid" method='post' enctype='multipart/form-data'>
+					<input name='title' type='hidden' value='首页中部'>
+					<input type=hidden name=bid value=2>
                     <input type=hidden name=laiyuan id=laiyuan>                   
                     <input type=hidden name=chuangyi id=chuangyi>
 
@@ -471,22 +491,22 @@
 					<label>
 						<span>您的户型</span>
 						<select style="width: 132px;"  name="woshi">
-							<option value="1">一室</option>
-							<option  selected = "selected" value="2">二室</option>
-							<option value="3">三室</option>
-							<option value="4">四室</option>
+							<option value="一室">一室</option>
+							<option  selected = "selected" value="二室">二室</option>
+							<option value="三室">三室</option>
+							<option value="四室">四室</option>
 						</select>
 						<select style="width: 132px;" name="keting">
 
-							<option value="1">一厅</option>
-							<option  selected = "selected" value="2">二厅</option>
-							<option value="3">三厅</option>
+							<option value="一厅">一厅</option>
+							<option  selected = "selected" value="二厅">二厅</option>
+							<option value="三厅">三厅</option>
 						</select>
 						<select style="width: 132px;" name="weishengjian">
 
-							<option  selected = "selected" value="1">一卫</option>
-							<option value="2">二卫</option>
-							<option value="3">三卫</option>
+							<option  selected = "selected" value="一卫">一卫</option>
+							<option value="二卫">二卫</option>
+							<option value="三卫">三卫</option>
 						</select>
 					</label>
 					<label>
@@ -494,10 +514,9 @@
 						<input type="text" placeholder="请输入您的称呼" name="name" class="name-ch" style="width: 235px;"/>
 						<input type="text" placeholder="请输入您的电话号码" name="mycall" class="name-dh" style="width: 235px;"/>
 					</label>
-					<button class="f-btn">立即预约</button>
+					<button  id="indexMidOrder" type="button" class="f-btn">立即预约</button>
 					<b>*在线预约成功后，将有设计师一对一为您服务</b>
 				</form>
-
 			</div>
 			<div class="fr f-img">
 				<img src="__XIAN__/img/i4.png"/>
@@ -946,21 +965,19 @@
 </div>
 <!-- 免费量房 -->
 <div class="layer-tc" id="mflf-tc" style="display: none;">
-<form name='feedback' method='post' enctype='multipart/form-data' action='/e/enews/index.php'>
-     <input type=hidden name=ecmsfrom value="/"> 
-     <input name='enews' type='hidden' value='AddFeedback'>
+<form name='feedback' method='post' enctype='multipart/form-data' id="indexFree">
      <input name='title' type='hidden' value='首页免费量房'> 
      <input type=hidden name=bid value=2> 
      <input type=hidden name=laiyuan id=laiyuan>                   
      <input type=hidden name=chuangyi id=chuangyi>
 	<label><input type="text" placeholder="请输入您的称呼" class="name-ch" name="name"/></label>
 	<label><input type="number" placeholder="请输入您的手机" class="name-dh" name="mycall"/></label>
-	<button class="lay-btn" type="submit">点击预约</button>
+	<button class="lay-btn"  type="button">点击预约</button>
 </form>
 </div>
 <!-- 免费设计 -->
 <div class="layer-tc" id="mfsj-tc" style="display: none;">
-<form name='feedback' method='post' enctype='multipart/form-data' action='/e/enews/index.php'>
+<form name='feedback' method='post' enctype='multipart/form-data' id="freeDesign">
      <input type=hidden name=ecmsfrom value="/"> 
      <input name='enews' type='hidden' value='AddFeedback'>
      <input name='title' type='hidden' value='首页免费设计'> 
@@ -969,12 +986,12 @@
      <input type=hidden name=chuangyi id=chuangyi>
 	<label><input type="text" placeholder="请输入您的称呼" class="name-ch" name="name"/></label>
 	<label><input type="number" placeholder="请输入您的手机" class="name-dh" name="mycall"/></label>
-	<button class="lay-btn" type="submit">点击预约</button>
+	<button class="lay-btn" id="designOrder" type="button">点击预约</button>
 </form>
 </div>
 <!-- 参观样板间 -->
 <div class="layer-tc" id="cgybj-tc" style="display: none;">
-<form name='feedback' method='post' enctype='multipart/form-data' action='/e/enews/index.php'>
+<form name='feedback' method='post' id="indexExample" enctype='multipart/form-data'>
      <input type=hidden name=ecmsfrom value="/"> 
      <input name='enews' type='hidden' value='AddFeedback'>
      <input name='title' type='hidden' value='首页参观样板间'> 
@@ -983,7 +1000,7 @@
      <input type=hidden name=chuangyi id=chuangyi>
 	<label><input type="text" placeholder="请输入您的称呼" class="name-ch" name="name"/></label>
 	<label><input type="number" placeholder="请输入您的手机" class="name-dh" name="mycall"/></label>
-	<button class="lay-btn" type="submit">点击预约</button>
+	<button class="lay-btn" id="exampleOrder" type="button">点击预约</button>
 </form>
 </div>
 <div class="fixedWx">
@@ -1002,24 +1019,19 @@
                     <p>免费获取全房装修设计效果图</p>
                 </li>
                 <li class="f-form">
-                    <form class="form" name='feedback' method='post' enctype='multipart/form-data' action='/e/enews/index.php'>
-                        <input type=hidden name=ecmsfrom value="/"> 
-                        <input name='enews' type='hidden' value='AddFeedback'>
+                    <form class="form" id="bottomForm" name='feedback' method='post' enctype='multipart/form-data' action="<?=url('xian/asssignment')?>" >
                         <input name='title' type='hidden' value='底部固定预约'> 
                         <input type=hidden name=bid value=2> 
                         <input type=hidden name=laiyuan id=laiyuan>                   
                         <input type=hidden name=chuangyi id=chuangyi>
                         <input type="text" name="name" class="nickname" id="name" placeholder="请输入您的称呼"/>
                         <input type="number" name="mycall" class="phone" id="mycall" placeholder="请输入您的手机号码"/>
-                        <input type="submit" class="subtn" value="立即预约"/>
+						<span class="subtnorder subtn" id="bottomOrder">立即预约</span>
                     </form>   
                 </li>
                 <li class="colsebtn"><img src="__XIAN__/img/colse01.png" alt=""></li>
             </ul>
         </div>
-
-
-
 		<script type="text/javascript">
 		$('.colsebtn').click(function() {
 			$(this).parents('.float-box').animate(
@@ -1066,7 +1078,8 @@
       title:'立即预约免费量房',
 		  type: 1,
 		  area: ['420px'], //宽高
-		  content: $('#mflf-tc')
+		  content: $('#mflf-tc'),
+
 		});
 	})
   // 免费设计弹框内容提示
@@ -1075,7 +1088,8 @@
       title:'立即预约免费设计',
 		  type: 1,
 		  area: ['420px'], //宽高
-		  content: $('#mfsj-tc')
+		  content: $('#mfsj-tc'),
+
 		});
 	})
   // 参观样板间弹框内容提示
@@ -1084,7 +1098,8 @@
       title:'立即预约参观样板间',
 		  type: 1,
 		  area: ['420px'], //宽高
-		  content: $('#cgybj-tc')
+		  content: $('#cgybj-tc'),
+
 		});
 	})
 	$(function(){
@@ -1146,14 +1161,14 @@
 	})
 });
 	$('.mf-lfcs').hover(function(){
-		$(this).find('img').attr('src','img/i112.png');
+		$(this).find('img').attr('src','__XIAN__/img/i112.png');
 	},function(){
-		$(this).find('img').attr('src','img/i11.png');
+		$(this).find('img').attr('src','__XIAN__/img/i11.png');
 	})
 	$('.mf-lfcs2').hover(function(){
-		$(this).find('img').attr('src','img/i223.png');
+		$(this).find('img').attr('src','__XIAN__/img/i223.png');
 	},function(){
-		$(this).find('img').attr('src','img/i22.png');
+		$(this).find('img').attr('src','__XIAN__/img/i22.png');
 	})
 	var swiper1 = new Swiper('#index-logo', {
 	      slidesPerView: 6,
@@ -1172,7 +1187,11 @@
 			bulletActiveClass: 'active',
 	    });
       // //客户评论加悬停事件
-      // $("#index-kb").mouseenter(function () ).mouseleave(function());
+      // $("#index-kb").mouseenter(function () {//滑过悬停
+      //     swiper2.stopAutoplay();//mySwiper 为上面你swiper实例化的名称
+      // }).mouseleave(function(){//离开开启
+      //     swiper2.startAutoplay();
+      // });
 	J_indexSlide();
 	 
 function J_indexSlide() {
@@ -1195,7 +1214,11 @@ function J_indexSlide() {
     bulletActiveClass: 'active',
   });
   //加悬停事件
-  // $("#J_indexSlide").mouseover(function () ).mouseout(function ())
+  // $("#J_indexSlide").mouseover(function () {//滑过悬停
+  //     Slide.stopAutoplay();//mySwiper 为上面你swiper实例化的名称
+  // }).mouseout(function (){//滑过悬停
+  //     Slide.startAutoplay();//mySwiper 为上面你swiper实例化的名称
+  // })
 }
 });
 </script>
@@ -1213,17 +1236,17 @@ var _hmt = _hmt || [];
   s.parentNode.insertBefore(hm, s);
 })();
 </script>
-    <script>  
-        function getUrlParms(name){  
-            var reg = new RegExp("(^|&)"+ name +"=([^&]*)(&|$)");  
-            var r = window.location.search.substr(1).match(reg);  
-            if(r!=null)  
-                return unescape(r[2]);  
-                return null;  
-        }  
-        document.getElementById("laiyuan").value=getUrlParms("laiyuan");  
-        document.getElementById("chuangyi").value=getUrlParms("chuangyi");  
-    </script>
+<script>
+	function getUrlParms(name){
+		var reg = new RegExp("(^|&)"+ name +"=([^&]*)(&|$)");
+		var r = window.location.search.substr(1).match(reg);
+		if(r!=null)
+			return unescape(r[2]);
+			return null;
+	}
+	document.getElementById("laiyuan").value=getUrlParms("laiyuan");
+	document.getElementById("chuangyi").value=getUrlParms("chuangyi");
+</script>
 <script>
   	var _mtac = {};
   	(function() {
@@ -1238,3 +1261,61 @@ var _hmt = _hmt || [];
 </script>	
 </body>
 </html>
+<script>
+	//首页一：首页大banner
+	$('#bannerOrder').click(function () {
+        makeOrders("#cusInfo");
+    });
+	//首页中部
+	$('#indexMidOrder').click(function () {
+        makeOrders("#indexMid");
+    });
+	//首页免费量房
+    $('.lay-btn').click(function () {
+        makeOrders("#indexFree");
+    });
+    //首页免费设计
+
+    $('#designOrder').click(function () {
+        makeOrders("#freeDesign");
+    });
+    //首页参观样板间
+    $('#exampleOrder').click(function () {
+        makeOrders("#indexExample");
+    });
+	//底部浮动表单
+	$('#bottomOrder').click(function(){
+        makeOrders("#bottomForm");
+	});
+	/*
+	*点击按钮为按钮的id，
+	* 传入的参数一为表单的id；
+	* 按钮不要用button或自带submit属性的input;当前使用的是span，
+	* 换成span后请注意修改前端显示样式！
+	* */
+	function makeOrders(formId){
+        $.ajax({
+            'type':"post",
+            'url':"<?=url('xian/index')?>",
+            'data':$(formId).serialize(),
+            'success':function (result) {
+                if(result.code == '1'){
+                    layer.close(100001);
+                    layer.msg(result.msg, {icon: 1, time: 3000});
+                }else if(result.code == '2'){
+                    layer.close(100001);
+                    layer.msg(result.msg, {icon: 2, time: 3000});
+				}else if(result.code == '3'){
+                    layer.close(100001);
+                    layer.msg(result.msg, {icon: 3, time: 3000});
+				}else{
+                    layer.msg(result.msg, {icon: 4, time: 3000});
+				}
+            },
+            'error':function (error) {
+                console.log(error);
+            }
+        })
+    }
+</script>
+

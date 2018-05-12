@@ -60,6 +60,9 @@
         </tr>
         </thead>
         <tbody>
+        {if condition="$cusInfo eq null"}
+        <tr><td colspan="11">暂无数据</td></tr>
+        {else/}
         {volist name='cusInfo' id='cus'}
         <tr>
             <td>{$cus.cus_bid}</td>
@@ -84,6 +87,7 @@
             </td>
         </tr>
         {/volist}
+        {/if}
         </tbody>
     </table>
     <div id="pages" style="text-align: center"></div>

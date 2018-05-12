@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:70:"D:\xampp\htdocs\qbl\public/../application/index\view\user\details.html";i:1526019837;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:70:"D:\xampp\htdocs\qbl\public/../application/index\view\user\details.html";i:1526120263;}*/ ?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -155,11 +155,9 @@
         </div>
     </div>
     <div class="layui-form-item">
-        <div class="layui-inline">
-            <label class="layui-form-label">网址入口</label>
-            <div class="layui-input-block">
-                <input type="text"  value="<?php echo $cus['cus_link']; ?>" readonly class="layui-input">
-            </div>
+        <label class="layui-form-label">网址入口</label>
+        <div class="layui-input-block">
+            <input type="text"  value="<?php echo $cus['cus_link']; ?>" readonly class="layui-input">
         </div>
     </div>
     <div class="layui-form-item">
@@ -269,7 +267,7 @@
                 }
             });
         });
-
+        //ajax提交表单数据
         form.on('submit(editCus)', function(data){
             $.ajax({
                 'type':"post",

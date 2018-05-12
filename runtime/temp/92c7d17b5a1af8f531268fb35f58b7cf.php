@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:3:{s:73:"D:\xampp\htdocs\qbl\public/../application/index\view\user\cusservice.html";i:1526022639;s:71:"D:\xampp\htdocs\qbl\public/../application/index\view\indexs\header.html";i:1525742386;s:71:"D:\xampp\htdocs\qbl\public/../application/index\view\indexs\footer.html";i:1525742360;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:3:{s:73:"D:\xampp\htdocs\qbl\public/../application/index\view\user\cusservice.html";i:1526121365;s:71:"D:\xampp\htdocs\qbl\public/../application/index\view\indexs\header.html";i:1525742386;s:71:"D:\xampp\htdocs\qbl\public/../application/index\view\indexs\footer.html";i:1525742360;}*/ ?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -82,7 +82,9 @@
         </tr>
         </thead>
         <tbody>
-        <?php if(is_array($cusInfo) || $cusInfo instanceof \think\Collection || $cusInfo instanceof \think\Paginator): $i = 0; $__LIST__ = $cusInfo;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$cus): $mod = ($i % 2 );++$i;?>
+        <?php if($cusInfo == null): ?>
+        <tr><td colspan="11">暂无数据</td></tr>
+        <?php else: if(is_array($cusInfo) || $cusInfo instanceof \think\Collection || $cusInfo instanceof \think\Paginator): $i = 0; $__LIST__ = $cusInfo;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$cus): $mod = ($i % 2 );++$i;?>
         <tr>
             <td><?php echo $cus['cus_bid']; ?></td>
             <td><?php echo $cus['p_name']; ?>-<?php echo $cus['c_name']; ?></td>
@@ -91,11 +93,11 @@
             <td><?php echo $cus['cus_phone']; ?></td>
             <td>
                 <?php if($cus['cus_area'] != null): ?>
-                <?php echo $cus['cus_area']; ?>m²
+                    <?php echo $cus['cus_area']; ?>m²
                 <?php else: ?>
-                ---
+                    ---
                 <?php endif; ?>
-                </td>
+            </td>
             <td><?php echo $cus['cus_build']; ?></td>
             <td><?php echo $cus['type_name']; ?></td>
             <td><?php echo $cus['ad_realname']; ?></td>
@@ -105,7 +107,7 @@
                 <input type="button" class="layui-btn layui-btn-xs sendMsg" name="<?php echo $cus['cus_id']; ?>" value="短信" >
             </td>
         </tr>
-        <?php endforeach; endif; else: echo "" ;endif; ?>
+        <?php endforeach; endif; else: echo "" ;endif; endif; ?>
         </tbody>
     </table>
     <div id="pages" style="text-align: center"></div>

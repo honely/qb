@@ -65,30 +65,34 @@
         </tr>
         </thead>
         <tbody>
-        {volist name='cusInfo' id='cus'}
-        <tr>
-            <td>
-                {$cus.cus_bid}
-            </td>
-            <td>{$cus.p_name}-{$cus.c_name}</td>
-            <td>{$cus.cus_opptime}</td>
-            <td>{$cus.cus_name}</td>
-            <td>{$cus.cus_phone}</td>
-            <td>{$cus.cus_area}m²</td>
-            <td>{$cus.cus_build}</td>
-            <td>{$cus.cus_link}<br/>{$cus.cus_position}</td>
-            <!--<td>{$cus.cus_ip}</td>-->
-            <td>{$cus.cus_from}</td>
-            <td>{$cus.cus_origin}</td>
-            <td>{$cus.cus_keywords}</td>
-            <td>{$cus.type_name}</td>
-            <td>{$cus.ad_realname}</td>
-            <td>{$cus.cus_backtime}</td>
-            <td>
-                <button class="layui-btn layui-btn-danger layui-btn-xs" onclick="delUser({$cus.cus_id})" >删除</button>
-            </td>
-        </tr>
-        {/volist}
+        {if condition="$cusInfo eq null"}
+            <tr><td colspan="15">暂无信息</td></tr>
+        {else/}
+            {volist name='cusInfo' id='cus'}
+                <tr>
+                <td>
+                    {$cus.cus_bid}
+                </td>
+                <td>{$cus.p_name}-{$cus.c_name}</td>
+                <td>{$cus.cus_opptime}</td>
+                <td>{$cus.cus_name}</td>
+                <td>{$cus.cus_phone}</td>
+                <td>{$cus.cus_area}m²</td>
+                <td>{$cus.cus_build}</td>
+                <td>{$cus.cus_link}<br/>{$cus.cus_position}</td>
+                <!--<td>{$cus.cus_ip}</td>-->
+                <td>{$cus.cus_from}</td>
+                <td>{$cus.cus_origin}</td>
+                <td>{$cus.cus_keywords}</td>
+                <td>{$cus.type_name}</td>
+                <td>{$cus.ad_realname}</td>
+                <td>{$cus.cus_backtime}</td>
+                <td>
+                    <button class="layui-btn layui-btn-danger layui-btn-xs" onclick="delUser({$cus.cus_id})" >删除</button>
+                </td>
+            </tr>
+            {/volist}
+        {/if}
         </tbody>
     </table>
     <div id="pages" style="text-align: center"></div>

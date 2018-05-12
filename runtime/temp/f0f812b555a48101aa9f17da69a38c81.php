@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:3:{s:69:"D:\xampp\htdocs\qbl\public/../application/index\view\user\spread.html";i:1525931845;s:71:"D:\xampp\htdocs\qbl\public/../application/index\view\indexs\header.html";i:1525742386;s:71:"D:\xampp\htdocs\qbl\public/../application/index\view\indexs\footer.html";i:1525742360;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:3:{s:69:"D:\xampp\htdocs\qbl\public/../application/index\view\user\spread.html";i:1526121542;s:71:"D:\xampp\htdocs\qbl\public/../application/index\view\indexs\header.html";i:1525742386;s:71:"D:\xampp\htdocs\qbl\public/../application/index\view\indexs\footer.html";i:1525742360;}*/ ?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -87,30 +87,32 @@
         </tr>
         </thead>
         <tbody>
-        <?php if(is_array($cusInfo) || $cusInfo instanceof \think\Collection || $cusInfo instanceof \think\Paginator): $i = 0; $__LIST__ = $cusInfo;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$cus): $mod = ($i % 2 );++$i;?>
-        <tr>
-            <td>
-                <?php echo $cus['cus_bid']; ?>
-            </td>
-            <td><?php echo $cus['p_name']; ?>-<?php echo $cus['c_name']; ?></td>
-            <td><?php echo $cus['cus_opptime']; ?></td>
-            <td><?php echo $cus['cus_name']; ?></td>
-            <td><?php echo $cus['cus_phone']; ?></td>
-            <td><?php echo $cus['cus_area']; ?>m²</td>
-            <td><?php echo $cus['cus_build']; ?></td>
-            <td><?php echo $cus['cus_link']; ?><br/><?php echo $cus['cus_position']; ?></td>
-            <!--<td><?php echo $cus['cus_ip']; ?></td>-->
-            <td><?php echo $cus['cus_from']; ?></td>
-            <td><?php echo $cus['cus_origin']; ?></td>
-            <td><?php echo $cus['cus_keywords']; ?></td>
-            <td><?php echo $cus['cus_status']; ?></td>
-            <td><?php echo $cus['cus_opeater']; ?></td>
-            <td><?php echo $cus['cus_backtime']; ?></td>
-            <td>
-                <button class="layui-btn layui-btn-danger layui-btn-xs" onclick="delUser(<?php echo $cus['cus_id']; ?>)" >删除</button>
-            </td>
-        </tr>
-        <?php endforeach; endif; else: echo "" ;endif; ?>
+        <?php if($cusInfo == null): ?>
+            <tr><td colspan="15">暂无信息</td></tr>
+        <?php else: if(is_array($cusInfo) || $cusInfo instanceof \think\Collection || $cusInfo instanceof \think\Paginator): $i = 0; $__LIST__ = $cusInfo;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$cus): $mod = ($i % 2 );++$i;?>
+                <tr>
+                <td>
+                    <?php echo $cus['cus_bid']; ?>
+                </td>
+                <td><?php echo $cus['p_name']; ?>-<?php echo $cus['c_name']; ?></td>
+                <td><?php echo $cus['cus_opptime']; ?></td>
+                <td><?php echo $cus['cus_name']; ?></td>
+                <td><?php echo $cus['cus_phone']; ?></td>
+                <td><?php echo $cus['cus_area']; ?>m²</td>
+                <td><?php echo $cus['cus_build']; ?></td>
+                <td><?php echo $cus['cus_link']; ?><br/><?php echo $cus['cus_position']; ?></td>
+                <!--<td><?php echo $cus['cus_ip']; ?></td>-->
+                <td><?php echo $cus['cus_from']; ?></td>
+                <td><?php echo $cus['cus_origin']; ?></td>
+                <td><?php echo $cus['cus_keywords']; ?></td>
+                <td><?php echo $cus['type_name']; ?></td>
+                <td><?php echo $cus['ad_realname']; ?></td>
+                <td><?php echo $cus['cus_backtime']; ?></td>
+                <td>
+                    <button class="layui-btn layui-btn-danger layui-btn-xs" onclick="delUser(<?php echo $cus['cus_id']; ?>)" >删除</button>
+                </td>
+            </tr>
+            <?php endforeach; endif; else: echo "" ;endif; endif; ?>
         </tbody>
     </table>
     <div id="pages" style="text-align: center"></div>
